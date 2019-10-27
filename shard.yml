@@ -1,0 +1,9 @@
+name: crl
+version: 0.1.0
+
+authors:
+  - Romain Franceschini <franceschini.romain@gmail.com>
+
+# crystal: 0.31.1
+
+license: MIT
