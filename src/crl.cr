@@ -24,6 +24,14 @@ module CRL
       end
     end
 
+    def each_edge_from(u : V, & : AnyEdge(V) ->)
+      if directed?
+        each_adjacent(u) { |v| yield DiEdge(V).new(u, v) }
+      else
+        each_adjacent(u) { |v| yield Edge(V).new(u, v) }
+      end
+    end
+
     def edges
       Array(AnyEdge(V)).new.tap { |ary|
         self.each_edge { |e| ary << e }
@@ -41,11 +49,28 @@ module CRL
     end
 
     abstract def has_vertex?(v : V) : Bool
+    abstract def has_edge?(u : V, v : V) : Bool
+    abstract def has_edge?(edge : AnyEdge(V)) : Bool
 
     abstract def degree_of(v : V) : Int32
 
     # Whether `self` is directed.
     abstract def directed? : Bool
+
+    def ==(other : Graph)
+      return false if size != other.size || order != other.order
+      each_vertex { |v|
+        return false unless other.has_vertex?(v)
+        each_edge_from(v) { |e|
+          return false unless other.has_edge?(e)
+        }
+      }
+      true
+    end
+
+    def ==(other)
+      false
+    end
   end
 end
 

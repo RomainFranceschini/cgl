@@ -9,19 +9,21 @@ module CRL
     # The number of edges in `self`.
     getter size : Int32 = 0
 
-    def initialize
-    end
-
-    def initialize(edges : Array(Tuple(V, V)))
-      edges.each do |u, v|
+    def initialize(vertices : Array(V)? = nil, edges : Array(Tuple(V, V))? = nil)
+      vertices.try &.each { |v| @vertices[v] }
+      edges.try &.each do |u, v|
         @size += 1
         @vertices[u] << v
         @vertices[v] << u
       end
     end
 
-    def initialize(vertices : Array(V))
-      vertices.each { |v| @vertices[v] }
+    def has_edge?(u : V, v : V) : Bool
+      @vertices[u].includes?(v)
+    end
+
+    def has_edge?(edge : AnyEdge(V)) : Bool
+      has_edge?(edge.u, edge.v)
     end
 
     def order : Int32
