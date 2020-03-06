@@ -1,4 +1,4 @@
-module CRL
+module CGL
   module AnyEdge(V)
     property u : V
     property v : V
@@ -14,21 +14,38 @@ module CRL
   module Undirected(V)
     include AnyEdge(V)
 
-    def ==(other : Edge)
+    def ==(other : Undirected | Directed)
       (@u == other.u && @v == other.v) || (@v == other.u && @u == other.v)
+    end
+
+    # See `Object#hash(hasher)`
+    def hash(hasher)
+      # The hash value must be the same regardless of the
+      # order of the vertices.
+      result = hasher.result
+
+      {@u, @v}.each do |v|
+        copy = hasher
+        copy = v.hash(copy)
+        result &+= copy.result
+      end
+
+      result.hash(hasher)
     end
   end
 
   module Directed(V)
     include AnyEdge(V)
 
-    def ==(other : Edge)
+    def ==(other : Undirected | Directed)
       (@u == other.u && @v == other.v)
     end
 
     def reverse
       {{@type}}.new(@v, @u)
     end
+
+    def_hash @u, @v
   end
 
   module Labelable(L)
@@ -39,6 +56,15 @@ module CRL
 
     def to_tuple
       {@u, @v, @label}
+    end
+
+    def hash(hasher)
+      hasher = super
+      @label.hash(hasher)
+    end
+
+    def ==(other : Labelable)
+      super && @label == other.label
     end
   end
 
@@ -57,8 +83,13 @@ module CRL
       {@u, @v, @weight}
     end
 
-    def <=>(other : Weightable)
-      @weight <=> other.weight
+    def hash(hasher)
+      hasher = super
+      @weight.hash(hasher)
+    end
+
+    def ==(other : Weightable)
+      super && @weight == other.weight
     end
   end
 

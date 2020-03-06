@@ -1,6 +1,16 @@
-# crl
+# Crystal Graph Library (CGL)
 
-TODO: Write a description here
+CGL is a Crystal library for the creation and manipulation of graph data structures.
+
+All graph data structures are based on an adjacency list representation and heavily rely on the Crystal `Hash` data structure.
+
+## Features
+
+  - [] Data structures for graphs and digraphs and multigraphs
+  - [] Standard graph algorithms
+  - [] Relies on generics: nodes can be anything, edges can be weighted and hold arbitrary data
+  - [] Generic interface for accessing concrete data structures (see `CGL::IGraph`)
+  - [] Generic interface for traversing graphs (iterators, visitors)
 
 ## Installation
 
@@ -8,8 +18,8 @@ TODO: Write a description here
 
    ```yaml
    dependencies:
-     crl:
-       github: your-github-user/crl
+     cgl:
+       github: RomainFranceschini/cgl
    ```
 
 2. Run `shards install`
@@ -17,18 +27,12 @@ TODO: Write a description here
 ## Usage
 
 ```crystal
-require "crl"
+require "cgl"
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/crl/fork>)
+1. Fork it (<https://github.com/RomainFranceschini/cgl/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -36,4 +40,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [Romain Franceschini](https://github.com/your-github-user) - creator and maintainer
+- [Romain Franceschini](https://github.com/RomainFranceschini) - creator and maintainer

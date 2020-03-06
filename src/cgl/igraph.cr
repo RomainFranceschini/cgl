@@ -1,36 +1,7 @@
-module CRL
-  VERSION = "0.1.0"
-
-  module Graph(V)
+module CGL
+  module IGraph(V)
     abstract def each_vertex(& : V ->)
     abstract def each_adjacent(v : T, & : V ->)
-
-    def each_edge(& : AnyEdge(V) ->)
-      if directed?
-        each_vertex do |u|
-          each_adjacent(u) { |v| yield DiEdge(V).new(u, v) }
-        end
-      else
-        visited = Set(Edge(V)).new
-        each_vertex do |u|
-          each_adjacent(u) do |v|
-            edge = Edge(V).new(u, v)
-            if !visited.includes?(edge)
-              visited << edge
-              yield edge
-            end
-          end
-        end
-      end
-    end
-
-    def each_edge_from(u : V, & : AnyEdge(V) ->)
-      if directed?
-        each_adjacent(u) { |v| yield DiEdge(V).new(u, v) }
-      else
-        each_adjacent(u) { |v| yield Edge(V).new(u, v) }
-      end
-    end
 
     def edges
       Array(AnyEdge(V)).new.tap { |ary|
@@ -53,11 +24,13 @@ module CRL
     abstract def has_edge?(edge : AnyEdge(V)) : Bool
 
     abstract def degree_of(v : V) : Int32
+    abstract def in_degree_of(v : V) : Int32
+    abstract def out_degree_of(v : V) : Int32
 
     # Whether `self` is directed.
     abstract def directed? : Bool
 
-    def ==(other : Graph)
+    def ==(other : IGraph)
       return false if size != other.size || order != other.order
       each_vertex { |v|
         return false unless other.has_vertex?(v)
@@ -73,5 +46,3 @@ module CRL
     end
   end
 end
-
-require "./crl/**"
