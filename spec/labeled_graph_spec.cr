@@ -3,7 +3,7 @@ require "./spec_helper"
 describe CGL do
   describe "LabeledGraph" do
     describe "edges" do
-      it "returns a list of weighted edges" do
+      it "returns a list of labeled edges" do
         edges = [{"a", "b"}, {"b", "c"}, {"a", "c"}]
         g = CGL::LabeledGraph(String, Char).new(edges: edges, default_label: 'x')
         g.edges.class.should eq(Array(CGL::AnyEdge(String)))
