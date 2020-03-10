@@ -24,14 +24,8 @@ module CGL
       nil
     end
 
-    def each_edge(& : AnyEdge(V) ->)
-      each_vertex do |u|
-        each_adjacent(u) { |v| yield LDiEdge(V, L).new(u, v, unsafe_fetch(u, v).last) }
-      end
-    end
-
-    def each_edge_from(u : V, & : AnyEdge(V) ->)
-      each_adjacent(u) { |v| yield LDiEdge(V, L).new(u, v, unsafe_fetch(u, v).last) }
+    protected def unchecked_edge(u : V, v : V)
+      LDiEdge(V, L).new(u, v, unsafe_fetch(u, v).last)
     end
   end
 end

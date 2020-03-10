@@ -11,21 +11,8 @@ module CGL
       nil
     end
 
-    def each_edge(& : AnyEdge(V) ->)
-      visited = Set(AnyEdge(V)).new
-      each_vertex do |u|
-        each_adjacent(u) do |v|
-          edge = Edge(V).new(u, v)
-          if !visited.includes?(edge)
-            visited << edge
-            yield edge
-          end
-        end
-      end
-    end
-
-    def each_edge_from(u : V, & : AnyEdge(V) ->)
-      each_adjacent(u) { |v| yield Edge(V).new(u, v) }
+    protected def unchecked_edge(u, v)
+      Edge(V).new(u, v)
     end
   end
 end

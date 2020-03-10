@@ -19,15 +19,34 @@ module CGL
       self.size == 0
     end
 
+    def edge(u : V, v : V)
+      if has_edge?(u, v)
+        unchecked_edge(u, v)
+      else
+        yield
+      end
+    end
+
+    def edge?(u : V, v : V)
+      edge(u, v) { nil }
+    end
+
+    def edge(u : V, v : V)
+      edge(u, v) { EdgeError.new("No edge between #{u} and #{v} found") }
+    end
+
+    protected abstract def unchecked_edge(u : V, v : V)
+
     abstract def has_vertex?(v : V) : Bool
     abstract def has_edge?(u : V, v : V, weight : W, label : L) : Bool
+    abstract def has_edge?(u : V, v : V) : Bool
 
     def has_edge?(edge : Labelable(V, L)) : Bool
-      has_edge?(edge.u, edge.v, label: edge.label)
+      has_edge?(edge.u, edge.v, self.default_weight, edge.label)
     end
 
     def has_edge?(edge : Weightable(V, L)) : Bool
-      has_edge?(edge.u, edge.v, weight: edge.weight)
+      has_edge?(edge.u, edge.v, edge.weight, self.default_label)
     end
 
     def has_edge?(edge : AnyEdge(V)) : Bool

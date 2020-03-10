@@ -1,3 +1,4 @@
+require "./cgl/errors"
 require "./cgl/edges"
 require "./cgl/igraph"
 require "./cgl/adjacency"

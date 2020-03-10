@@ -32,8 +32,12 @@ module CGL
       @vertices[v]
     end
 
-    def has_edge?(u : V, v : V, weight : W = self.default_weight, label : L = self.default_label) : Bool
-      has_vertex?(u) && @vertices[u].has_key?(v) && unsafe_fetch(u, v) == {weight, label}
+    def has_edge?(u : V, v : V) : Bool
+      has_vertex?(u) && @vertices[u].has_key?(v)
+    end
+
+    def has_edge?(u : V, v : V, weight : W, label : L) : Bool
+      has_edge?(u, v) && unsafe_fetch(u, v) == {weight, label}
     end
 
     # Returns the element assoiated with the given edge if it exists,
@@ -81,6 +85,16 @@ module CGL
           end
         end
 
+        def each_edge(& : AnyEdge(V) ->)
+          each_vertex do |u|
+            each_adjacent(u) { |v| yield unchecked_edge(u, v) }
+          end
+        end
+
+        def each_edge_from(u : V, & : AnyEdge(V) ->)
+          each_adjacent(u) { |v| yield unchecked_edge(u, v) }
+        end
+
         def degree_of(v : V) : Int32
           in_degree_of(v) + out_degree_of(v)
         end
@@ -108,6 +122,23 @@ module CGL
             @vertices[u][v] = {weight, label}
             @vertices[v][u] = {weight, label}
           end
+        end
+
+        def each_edge(& : AnyEdge(V) ->)
+          visited = Set(AnyEdge(V)).new
+          each_vertex do |u|
+            each_adjacent(u) do |v|
+              edge = unchecked_edge(u, v)
+              if !visited.includes?(edge)
+                visited << edge
+                yield edge
+              end
+            end
+          end
+        end
+
+        def each_edge_from(u : V, & : AnyEdge(V) ->)
+          each_adjacent(u) { |v| yield unchecked_edge(u, v) }
         end
 
         def degree_of(v : V) : Int32

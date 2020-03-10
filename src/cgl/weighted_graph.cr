@@ -21,21 +21,8 @@ module CGL
       super(vertices, edges, weights: weights)
     end
 
-    def each_edge(& : AnyEdge(V) ->)
-      visited = Set(WEdge(V, W)).new
-      each_vertex do |u|
-        each_adjacent(u) do |v|
-          edge = WEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
-          if !visited.includes?(edge)
-            visited << edge
-            yield edge
-          end
-        end
-      end
-    end
-
-    def each_edge_from(u : V, & : AnyEdge(V) ->)
-      each_adjacent(u) { |v| yield WEdge(V, W).new(u, v, unsafe_fetch(u, v).first) }
+    protected def unchecked_edge(u : V, v : V)
+      WEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
     end
   end
 end

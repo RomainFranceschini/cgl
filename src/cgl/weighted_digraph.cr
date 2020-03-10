@@ -21,14 +21,8 @@ module CGL
       super(vertices, edges, weights: weights)
     end
 
-    def each_edge(& : AnyEdge(V) ->)
-      each_vertex do |u|
-        each_adjacent(u) { |v| yield WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first) }
-      end
-    end
-
-    def each_edge_from(u : V, & : AnyEdge(V) ->)
-      each_adjacent(u) { |v| yield WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first) }
+    protected def unchecked_edge(u : V, v : V)
+      WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
     end
   end
 end
