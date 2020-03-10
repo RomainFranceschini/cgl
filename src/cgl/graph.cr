@@ -1,7 +1,15 @@
 module CGL
   class Graph(V)
     include IGraph(V)
-    include AdjacencyHash(V, Nil)
+    include AdjacencyHash(V, Nil, Nil)
+
+    def default_weight : Nil
+      nil
+    end
+
+    def default_label : Nil
+      nil
+    end
 
     def each_edge(& : AnyEdge(V) ->)
       visited = Set(AnyEdge(V)).new

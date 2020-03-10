@@ -3,7 +3,7 @@ require "./spec_helper"
 describe CGL do
   describe "DiGraph" do
     it "returns vertices" do
-      g = CGL::WeightedGraph(String, Int32).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}])
+      g = CGL::DiGraph(String).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}])
       g.vertices.should eq(["a", "b", "c"])
     end
 

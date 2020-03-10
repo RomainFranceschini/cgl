@@ -12,7 +12,7 @@ describe CGL do
       end
 
       it "can be enumerated" do
-        g = CGL::WeightedGraph(String, Int32).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}, {"b", "d"}], labels: [2, 4, 8, 2])
+        g = CGL::WeightedGraph(String, Int32).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}, {"b", "d"}], weights: [2, 4, 8, 2])
         edges = Set.new([{"a", "b", 2}, {"b", "c", 4}, {"a", "c", 8}, {"b", "d", 2}].map { |t| CGL::WEdge(String, Int32).new(t[0], t[1], t[2]) })
 
         count = 0

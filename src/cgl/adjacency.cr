@@ -4,59 +4,47 @@ module CGL
   # Uses a hash table to associate each vertex `V` with a set of adjacent
   # vertices. The set is backed by another hash table that can be used to store
   # data `L` with each edge.
-  module AdjacencyHash(V, L)
-    @vertices : Hash(V, Hash(V, L))
+  module AdjacencyHash(V, W, L)
+    @vertices : Hash(V, Hash(V, {W, L}))
 
     # The number of edges in `self`.
     getter size : Int32 = 0
 
-    def initialize(vertices : Array(V)? = nil, edges : Array(Tuple(V, V))? = nil, labels : Array(L)? = nil)
-      @vertices = Hash(V, Hash(V, L)).new(vertices.try &.size) { |h, k|
-        h[k] = Hash(V, L).new
+    def initialize(vertices : Enumerable(V)? = nil, edges : Enumerable(Tuple(V, V))? = nil, weights : Enumerable(W)? = nil, labels : Enumerable(L)? = nil)
+      @vertices = Hash(V, Hash(V, {W, L})).new(vertices.try &.size) { |h, k|
+        h[k] = Hash(V, {W, L}).new
       }
       vertices.try &.each { |v| add_vertex(v) }
-      if labels.nil?
-        edges.try &.each { |u, v| add_edge(u, v) }
-      else
-        edges.try &.each_with_index do |tuple, i|
-          add_edge(tuple.first, tuple.last, labels[i])
-        end
+      edges.try &.each_with_index do |tuple, i|
+        add_edge(
+          tuple.first,
+          tuple.last,
+          weights.try(&.[i]) || self.default_weight,
+          labels.try(&.[i]) || self.default_label
+        )
       end
     end
+
+    abstract def default_weight : W
+    abstract def default_label : L
 
     def add_vertex(v : V)
       @vertices[v]
     end
 
-    def has_edge?(u : V, v : V) : Bool
-      has_vertex?(u) && @vertices[u].has_key?(v)
-    end
-
-    def has_edge?(u : V, v : V, attr : L) : Bool
-      has_edge?(u, v) && unsafe_fetch(u, v) == attr
+    def has_edge?(u : V, v : V, weight : W = self.default_weight, label : L = self.default_label) : Bool
+      has_vertex?(u) && @vertices[u].has_key?(v) && unsafe_fetch(u, v) == {weight, label}
     end
 
     # Returns the element assoiated with the given edge if it exists,
     # otherwise executes the given block and returns its value.
-    protected def fetch(u : V, v : V)
+    def fetch(u : V, v : V)
       return yield unless has_edge?(u, v)
       unsafe_fetch(u, v)
     end
 
-    protected def unsafe_fetch(u : V, v : V)
+    protected def unsafe_fetch(u : V, v : V) : {W, L}
       @vertices[u][v]
-    end
-
-    def has_edge?(edge : AnyEdge(V)) : Bool
-      has_edge?(edge.u, edge.v)
-    end
-
-    def has_edge?(edge : Labelable(V, L)) : Bool
-      has_edge?(edge.u, edge.v, edge.label)
-    end
-
-    def has_edge?(edge : Weightable(V, L)) : Bool
-      has_edge?(edge.u, edge.v, edge.weight)
     end
 
     def order : Int32
@@ -81,24 +69,15 @@ module CGL
       end
     end
 
-    # :nodoc:
-    module ClassMethods
-      def default_edge_attr
-        nil
-      end
-    end
-
     macro included
-      extend ClassMethods
-
       {% if @type.name.includes?("DiGraph") %}
 
-        def add_edge(u : V, v : V, attr = self.class.default_edge_attr)
+        def add_edge(u : V, v : V, weight : W = self.default_weight, label : L = self.default_label)
           adj = @vertices[u]
           if !adj.has_key?(v)
             add_vertex(v)
             @size += u == v ? 2 : 1 # self loops counts 2 edges
-            adj[v] = attr
+            adj[v] = {weight, label}
           end
         end
 
@@ -123,11 +102,11 @@ module CGL
           true
         end
       {% else %}
-        def add_edge(u : V, v : V, attr = self.class.default_edge_attr)
+        def add_edge(u : V, v : V, weight : W = self.default_weight, label : L = self.default_label)
           unless has_edge?(u, v)
             @size += 1
-            @vertices[u][v] = attr
-            @vertices[v][u] = attr
+            @vertices[u][v] = {weight, label}
+            @vertices[v][u] = {weight, label}
           end
         end
 

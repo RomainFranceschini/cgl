@@ -1,30 +1,34 @@
 module CGL
   class WeightedDiGraph(V, W)
     include IGraph(V)
-    include AdjacencyHash(V, W)
+    include AdjacencyHash(V, W, Nil)
 
-    def initialize(vertices : Array(V)? = nil, edges : Array(Tuple(V, V))? = nil, labels : Array(W)? = nil)
+    def default_weight : W
+      1
+    end
+
+    def default_label : Nil
+      nil
+    end
+
+    def initialize(vertices : Enumerable(V)? = nil, edges : Enumerable(Tuple(V, V))? = nil, weights : Enumerable(W)? = nil)
       {% if !W.union? && (W < Number::Primitive) %}
         # Support number types
       {% else %}
         {{ raise "Can only create weighted graphs with primitive number types, use a labeled graph instead to associate #{W} with an edge." }}
       {% end %}
 
-      super(vertices, edges, labels)
-    end
-
-    def self.default_edge_attr
-      1
+      super(vertices, edges, weights: weights)
     end
 
     def each_edge(& : AnyEdge(V) ->)
       each_vertex do |u|
-        each_adjacent(u) { |v| yield WDiEdge(V, W).new(u, v, unsafe_fetch(u, v)) }
+        each_adjacent(u) { |v| yield WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first) }
       end
     end
 
     def each_edge_from(u : V, & : AnyEdge(V) ->)
-      each_adjacent(u) { |v| yield WDiEdge(V, W).new(u, v, unsafe_fetch(u, v)) }
+      each_adjacent(u) { |v| yield WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first) }
     end
   end
 end

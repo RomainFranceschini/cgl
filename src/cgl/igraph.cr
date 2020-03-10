@@ -1,7 +1,7 @@
 module CGL
   module IGraph(V)
     abstract def each_vertex(& : V ->)
-    abstract def each_adjacent(v : T, & : V ->)
+    abstract def each_adjacent(v : V, & : V ->)
 
     def edges
       Array(AnyEdge(V)).new.tap { |ary|
@@ -20,8 +20,19 @@ module CGL
     end
 
     abstract def has_vertex?(v : V) : Bool
-    abstract def has_edge?(u : V, v : V) : Bool
-    abstract def has_edge?(edge : AnyEdge(V)) : Bool
+    abstract def has_edge?(u : V, v : V, weight : W, label : L) : Bool
+
+    def has_edge?(edge : Labelable(V, L)) : Bool
+      has_edge?(edge.u, edge.v, label: edge.label)
+    end
+
+    def has_edge?(edge : Weightable(V, L)) : Bool
+      has_edge?(edge.u, edge.v, weight: edge.weight)
+    end
+
+    def has_edge?(edge : AnyEdge(V)) : Bool
+      has_edge?(edge.u, edge.v)
+    end
 
     abstract def degree_of(v : V) : Int32
     abstract def in_degree_of(v : V) : Int32
