@@ -2,15 +2,17 @@
 
 CGL is a Crystal library for the creation and manipulation of graph data structures.
 
-All graph data structures are based on an adjacency list representation and heavily rely on the Crystal `Hash` data structure.
+All graph data structures are based on an adjacency list representation and heavily rely on Crystal `Hash` data structure.
 
 ## Features
 
-  - [] Data structures for graphs and digraphs and multigraphs
-  - [] Standard graph algorithms
-  - [] Relies on generics: nodes can be anything, edges can be weighted and hold arbitrary data
-  - [] Generic interface for accessing concrete data structures (see `CGL::IGraph`)
-  - [] Generic interface for traversing graphs (iterators, visitors)
+  - [-] Data structures for graphs, digraphs and multigraphs
+  - [x] Nodes can be anything
+  - [x] Edges can be weighted and hold arbitrary data of any type
+  - [ ] Generic interface for accessing concrete data structures (see `CGL::IGraph`)
+  - [ ] Generic interface for traversing graphs (iterators, visitors)
+  - [ ] Standard graph algorithms
+  - [ ] Support hypergraphs
 
 ## Installation
 

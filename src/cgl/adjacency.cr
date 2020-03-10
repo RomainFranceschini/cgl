@@ -25,8 +25,17 @@ module CGL
       end
     end
 
+    # Returns the default weight associated with an edge.
     abstract def default_weight : W
+
+    # Returns the default label associated with an edge.
     abstract def default_label : L
+
+    def clear
+      @vertices.clear
+      @size = 0
+      self
+    end
 
     def add_vertex(v : V)
       @vertices[v]
@@ -40,15 +49,18 @@ module CGL
       has_edge?(u, v) && unsafe_fetch(u, v) == {weight, label}
     end
 
-    # Returns the element assoiated with the given edge if it exists,
-    # otherwise executes the given block and returns its value.
-    def fetch(u : V, v : V)
-      return yield unless has_edge?(u, v)
-      unsafe_fetch(u, v)
-    end
-
     protected def unsafe_fetch(u : V, v : V) : {W, L}
       @vertices[u][v]
+    end
+
+    def weight_of(u : V, v : V) : W
+      return nil unless has_edge?(u, v)
+      unsafe_fetch(u, v).first
+    end
+
+    def label_of(u : V, v : V) : L
+      return nil unless has_edge?(u, v)
+      unsafe_fetch(u, v).last
     end
 
     def order : Int32
@@ -80,8 +92,33 @@ module CGL
           adj = @vertices[u]
           if !adj.has_key?(v)
             add_vertex(v)
-            @size += u == v ? 2 : 1 # self loops counts 2 edges
+            @size += 1
             adj[v] = {weight, label}
+          end
+        end
+
+        def remove_edge(u : V, v : V)
+          if edge = edge?(u, v)
+            @vertices[u].delete(v)
+            @size -= 1
+            edge
+          else
+            yield(u, v)
+          end
+        end
+
+        def remove_vertex(v : V)
+          if has_vertex?(v)
+            @size -= @vertices[v].size
+            @vertices.delete(v)  # remove vertex v
+            each_vertex do |u|   # search and remove edges incident to v
+              if @vertices[u].has_key?(v)
+                @vertices[u].delete(v)
+                @size -= 1
+              end
+            end
+          else
+            raise GraphError.new("The vertex #{v} is not in the graph.")
           end
         end
 
@@ -115,12 +152,35 @@ module CGL
         def directed? : Bool
           true
         end
-      {% else %}
+
+      {% else %}  # Undirected graph
+
         def add_edge(u : V, v : V, weight : W = self.default_weight, label : L = self.default_label)
           unless has_edge?(u, v)
             @size += 1
             @vertices[u][v] = {weight, label}
             @vertices[v][u] = {weight, label}
+          end
+        end
+
+        def remove_edge(u : V, v : V)
+          if edge = edge?(u, v)
+            @vertices[u].delete(v)
+            @vertices[v].delete(u)
+            @size -= 1
+            edge
+          else
+            yield(u, v)
+          end
+        end
+
+        def remove_vertex(v : V)
+          if has_vertex?(v)
+            @size -= @vertices[v].size
+            each_adjacent(v) { |u| @vertices[u].delete(v) } # remove all edges v-u
+            @vertices.delete(v)                             # remove vertex v
+          else
+            raise GraphError.new("The vertex #{v} is not in the graph.")
           end
         end
 
