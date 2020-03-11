@@ -249,5 +249,32 @@ describe CGL do
         end
       end
     end
+
+    describe "clone" do
+      it "clones empty graph" do
+        g1 = Graph(String).new
+        g2 = g1.clone
+        g2.should be_a(Graph(String))
+        g2.should_not be(g1)
+        g2.empty?.should be_true
+      end
+
+      it "clones graph" do
+        g1 = Graph(Foo).new(edges: [{Foo.new("a"), Foo.new("b")}])
+        g2 = g1.clone
+        g2.should be_a(Graph(Foo))
+        g2.should_not be(g1)
+        g1.size.should eq(g2.size)
+        g1.should eq(g2)
+
+        v1 = g1.vertices
+        v2 = g2.vertices
+
+        v1.size.times do |i|
+          v1[i].should eq(v2[i])
+          v1[i].should_not be(v2[i])
+        end
+      end
+    end
   end
 end

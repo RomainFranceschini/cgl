@@ -16,12 +16,12 @@ module CGL
       super(vertices, edges, labels: labels)
     end
 
-    def initialize(edges : Enumerable(AnyEdge(V))? = nil, *, default_label : L)
+    def initialize(edges : Enumerable(AnyEdge(V)), *, default_label : L)
       @block = ->{ default_label }
       super(edges)
     end
 
-    def initialize(edges : Enumerable(AnyEdge(V))? = nil, &block : -> L)
+    def initialize(edges : Enumerable(AnyEdge(V)), &block : -> L)
       @block = block
       super(edges)
     end
@@ -40,6 +40,12 @@ module CGL
 
     def dup
       LabeledGraph(V, L).new(self.each_edge, &@block)
+    end
+
+    def clone
+      copy = LabeledGraph(V, L).new(&@block)
+      each_edge { |e| copy.add_edge(e.clone) }
+      copy
     end
   end
 end

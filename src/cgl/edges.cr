@@ -9,6 +9,10 @@ module CGL
     def to_tuple
       {@u, @v}
     end
+
+    def clone
+      self.class.new(@u.clone, @v.clone)
+    end
   end
 
   module Undirected(V)
@@ -66,6 +70,10 @@ module CGL
     def ==(other : Labelable)
       super && @label == other.label
     end
+
+    def clone
+      self.class.new(@u.clone, @v.clone, @label.clone)
+    end
   end
 
   module Weightable(T)
@@ -90,6 +98,10 @@ module CGL
 
     def ==(other : Weightable)
       super && @weight == other.weight
+    end
+
+    def clone
+      self.class.new(@u.clone, @v.clone, @weight.clone)
     end
   end
 

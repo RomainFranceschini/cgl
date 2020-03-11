@@ -41,6 +41,7 @@ describe CGL do
 
           g2 = g1.dup
           g2.should be_a(LabeledGraph(String, String))
+          g1.size.should eq(g2.size)
           g2.should_not be(g1)
           g1.should eq(g2)
 
@@ -49,6 +50,34 @@ describe CGL do
 
           v1.size.times do |i|
             v1[i].should be(v2[i])
+          end
+        end
+      end
+
+      describe "clone" do
+        it "clones empty graph" do
+          g1 = LabeledGraph(String, String).new { "x" }
+          g2 = g1.clone
+          g2.should be_a(LabeledGraph(String, String))
+          g2.should_not be(g1)
+          g2.empty?.should be_true
+        end
+
+        it "clones graph" do
+          g1 = LabeledGraph(Foo, Foo).new(edges: [{Foo.new("a"), Foo.new("b")}], labels: [Foo.new("x")]) { Foo.new("z") }
+
+          g2 = g1.clone
+          g2.should be_a(LabeledGraph(Foo, Foo))
+          g2.should_not be(g1)
+          g1.size.should eq(g2.size)
+          g1.should eq(g2)
+
+          v1 = g1.vertices
+          v2 = g2.vertices
+
+          v1.size.times do |i|
+            v1[i].should eq(v2[i])
+            v1[i].should_not be(v2[i])
           end
         end
       end

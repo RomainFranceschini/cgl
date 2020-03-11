@@ -25,11 +25,11 @@ module CGL
       end
     end
 
-    def initialize(edges : Enumerable(AnyEdge(V))? = nil)
+    def initialize(edges : Enumerable(AnyEdge(V)))
       @vertices = Hash(V, Hash(V, {W, L})).new { |h, k|
         h[k] = Hash(V, {W, L}).new
       }
-      edges.try &.each do |edge|
+      edges.each do |edge|
         add_edge(edge)
       end
     end

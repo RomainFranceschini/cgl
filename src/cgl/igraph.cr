@@ -235,5 +235,14 @@ module CGL
     def dup
       {{@type}}.new(self.each_edge)
     end
+
+    # Returns a deep copy of `self`.
+    #
+    # Similar to `#dup`, but duplicates the nodes and edges attributes as well.
+    def clone
+      graph = {{@type}}.new
+      each_edge { |e| graph.add_edge(e.clone) }
+      graph
+    end
   end
 end
