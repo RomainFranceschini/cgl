@@ -21,6 +21,10 @@ module CGL
       super(vertices, edges, weights: weights)
     end
 
+    def initialize(edges : Enumerable(AnyEdge(V))? = nil)
+      super(edges)
+    end
+
     protected def unchecked_edge(u : V, v : V)
       WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
     end

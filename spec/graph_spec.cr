@@ -196,5 +196,58 @@ describe CGL do
       g.each_adjacent("c") { |v| Set{"a", "b"}.includes?(v).should be_true }
       g.each_adjacent("d") { |v| v.should eq("b") }
     end
+
+    it "gets each vertex iterator" do
+      g = Graph(String).new(edges: [{"a", "b"}, {"b", "c"}])
+      nodes = Set{"a", "b", "c"}
+
+      iter = g.each_vertex
+      nodes.includes?(iter.next).should be_true
+      nodes.includes?(iter.next).should be_true
+      nodes.includes?(iter.next).should be_true
+      iter.next.should be_a(Iterator::Stop)
+    end
+
+    it "get each adjacent iterator" do
+      g = Graph(String).new(edges: [{"a", "b"}, {"b", "c"}])
+      nodes = Set{"a", "c"}
+      iter = g.each_adjacent("b")
+      nodes.includes?(iter.next).should be_true
+      nodes.includes?(iter.next).should be_true
+      iter.next.should be_a(Iterator::Stop)
+    end
+
+    it "gets each edge iterator" do
+      g = Graph(String).new(edges: [{"a", "b"}, {"b", "c"}])
+      edges = Set{Edge(String).new("a", "b"), Edge(String).new("b", "c")}
+      iter = g.each_edge
+      edges.includes?(iter.next).should be_true
+      edges.includes?(iter.next).should be_true
+      iter.next.should be_a(Iterator::Stop)
+    end
+
+    describe "dup" do
+      it "dups empty graph" do
+        g1 = Graph(String).new
+        g2 = g1.dup
+        g2.should be_a(Graph(String))
+        g2.should_not be(g1)
+        g2.empty?.should be_true
+      end
+
+      it "dups graph" do
+        g1 = Graph(String).new(edges: [{"a", "b"}, {"a", "c"}, {"b", "c"}, {"d", "c"}, {"d", "d"}])
+        g2 = g1.dup
+        g2.should_not be(g1)
+        g1.should eq(g2)
+
+        v1 = g1.vertices
+        v2 = g2.vertices
+
+        v1.size.times do |i|
+          v1[i].should be(v2[i])
+        end
+      end
+    end
   end
 end

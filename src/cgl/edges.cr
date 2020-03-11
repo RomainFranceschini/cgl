@@ -120,4 +120,62 @@ module CGL
     include Directed(V)
     include Labelable(L)
   end
+
+  class EdgeIterator(V)
+    include Iterator(AnyEdge(V))
+
+    @graph : IGraph(V)
+    @vertices_it : Iterator(V)
+    @adj_it : Iterator(V)? = nil
+    @u : V? = nil
+    @visited : Set(AnyEdge(V)) = Set(AnyEdge(V)).new
+
+    def initialize(@graph)
+      @vertices_it = @graph.each_vertex
+    end
+
+    def next
+      loop do
+        if u = next_u
+          if v = get_v(u)
+            edge = @graph.edge(u, v)
+            if @graph.directed?
+              return edge
+            else
+              if !@visited.includes?(edge)
+                @visited << edge
+                return edge
+              end
+            end
+          else
+            @u = nil
+            @adj_it = nil
+          end
+        else
+          return stop
+        end
+      end
+    end
+
+    private def next_u
+      if vertex = @u
+        vertex
+      else
+        value = @vertices_it.next
+        return nil if value.is_a?(Stop)
+        @u = value
+        value
+      end
+    end
+
+    private def get_v(u)
+      @adj_it = @graph.each_adjacent(u) if @adj_it.nil?
+
+      if iterator = @adj_it
+        value = iterator.next
+        return nil if value.is_a?(Stop)
+        value
+      end
+    end
+  end
 end

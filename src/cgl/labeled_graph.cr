@@ -16,6 +16,16 @@ module CGL
       super(vertices, edges, labels: labels)
     end
 
+    def initialize(edges : Enumerable(AnyEdge(V))? = nil, *, default_label : L)
+      @block = ->{ default_label }
+      super(edges)
+    end
+
+    def initialize(edges : Enumerable(AnyEdge(V))? = nil, &block : -> L)
+      @block = block
+      super(edges)
+    end
+
     def default_label : L
       @block.call
     end
@@ -26,6 +36,10 @@ module CGL
 
     protected def unchecked_edge(u : V, v : V)
       LEdge(V, L).new(u, v, unsafe_fetch(u, v).last)
+    end
+
+    def dup
+      LabeledGraph(V, L).new(self.each_edge, &@block)
     end
   end
 end

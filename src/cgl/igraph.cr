@@ -3,6 +3,9 @@ module CGL
     # Yields each vertex of the graph.
     abstract def each_vertex(& : V ->)
 
+    # Returns an iterator over each vertex of the graph.
+    abstract def each_vertex : Iterator(V)
+
     # Yields each vertex adjacent to *u* in the graph.
     #
     # ```
@@ -32,8 +35,16 @@ module CGL
     # ```
     abstract def each_adjacent(u : V, & : V ->)
 
+    # Returns an iterator over each vertex adjacent to *u* in the graph.
+    abstract def each_adjacent(u : V) : Iterator(V)
+
     # Yields each edges in the graph.
     abstract def each_edge(& : AnyEdge(V) ->)
+
+    # Returns an iterator over each edge in the graph.
+    def each_edge : Iterator(AnyEdge(V))
+      EdgeIterator(V).new(self)
+    end
 
     # Yields each edge incident to *u* in the graph.
     abstract def each_edge_from(u : V, & : AnyEdge(V) ->)
@@ -79,6 +90,11 @@ module CGL
     # A *weight* and/or a label can be associated to the edge if
     # the concrete class supports it.
     abstract def add_edge(u : V, v : V, weight, label)
+
+    # Add the given *edge* to the graph.
+    #
+    # See `#add_edge(u : V, v : V, weight, label)`
+    abstract def add_edge(edge : AnyEdge(V))
 
     # Deletes the given edge and returns it, else yields *u* and *v* to the given block.
     abstract def remove_edge(u : V, v : V)
@@ -126,7 +142,7 @@ module CGL
     # Returns an edge data structure between *u* and *v* if present in the
     # graph, otherwise raises an `EdgeError`.
     def edge(u : V, v : V)
-      edge(u, v) { EdgeError.new("No edge between #{u} and #{v} found") }
+      edge(u, v) { raise EdgeError.new("No edge between #{u} and #{v} found") }
     end
 
     # Returns an edge data structure between *u* and *v* without checking
@@ -144,12 +160,12 @@ module CGL
     abstract def has_edge?(u : V, v : V) : Bool
 
     # Whether the given edge is part of the graph.
-    def has_edge?(edge : Labelable(V, L)) : Bool forall L
+    def has_edge?(edge : Labelable) : Bool
       has_edge?(edge.u, edge.v, self.default_weight, edge.label)
     end
 
     # ditto
-    def has_edge?(edge : Weightable(V, W)) : Bool forall W
+    def has_edge?(edge : Weightable) : Bool
       has_edge?(edge.u, edge.v, edge.weight, self.default_label)
     end
 
@@ -211,6 +227,13 @@ module CGL
       end
 
       result.hash(hasher)
+    end
+
+    # Returns a shallow copy of `self`.
+    #
+    # The internal data structures are copied, not
+    def dup
+      {{@type}}.new(self.each_edge)
     end
   end
 end

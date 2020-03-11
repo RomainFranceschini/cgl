@@ -140,5 +140,14 @@ describe CGL do
       g.each_adjacent("c") { raise "'c' has no adjacencies" }
       g.each_adjacent("d") { raise "'d' has no adjacencies" }
     end
+
+    it "gets each edge iterator" do
+      g = DiGraph(String).new(edges: [{"a", "b"}, {"b", "c"}])
+      edges = Set{DiEdge(String).new("a", "b"), DiEdge(String).new("b", "c")}
+      iter = g.each_edge
+      edges.includes?(iter.next).should be_true
+      edges.includes?(iter.next).should be_true
+      iter.next.should be_a(Iterator::Stop)
+    end
   end
 end

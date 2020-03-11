@@ -25,6 +25,21 @@ module CGL
       end
     end
 
+    def initialize(edges : Enumerable(AnyEdge(V))? = nil)
+      @vertices = Hash(V, Hash(V, {W, L})).new { |h, k|
+        h[k] = Hash(V, {W, L}).new
+      }
+      edges.try &.each do |edge|
+        add_edge(edge)
+      end
+    end
+
+    def add_edge(edge : AnyEdge(V))
+      weight = edge.is_a?(Weightable(W)) ? edge.weight : default_weight
+      label = edge.is_a?(Labelable(L)) ? edge.label : default_label
+      add_edge(edge.u, edge.v, weight, label)
+    end
+
     # Returns the default weight associated with an edge.
     abstract def default_weight : W
 
@@ -71,6 +86,10 @@ module CGL
       @vertices.each_key { |v| yield v }
     end
 
+    def each_vertex : Iterator(V)
+      @vertices.each_key
+    end
+
     def vertices
       @vertices.keys
     end
@@ -82,6 +101,14 @@ module CGL
     def each_adjacent(u : V, & : V ->)
       if has_vertex?(u)
         @vertices[u].each_key { |v| yield v }
+      end
+    end
+
+    def each_adjacent(u : V) : Iterator(V)
+      if has_vertex?(u)
+        @vertices[u].each_key
+      else
+        raise GraphError.new("vertex #{u} is not part of this graph")
       end
     end
 
@@ -125,6 +152,18 @@ module CGL
         def each_edge(& : AnyEdge(V) ->)
           each_vertex do |u|
             each_adjacent(u) { |v| yield unchecked_edge(u, v) }
+          end
+        end
+
+        # Yields each successor of *u* in the graph.
+        def each_successor(u : V, &block : V ->)
+          each_adjacent(&block)
+        end
+
+        # Yields each predecessor of *u* in the graph.
+        def each_predecessor(v : V, & : V ->)
+          if has_vertex?(v)
+            each_vertex { |u| yield(u) if @vertices[u].has_key?(v) }
           end
         end
 
