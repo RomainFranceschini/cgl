@@ -4,6 +4,72 @@ include CGL
 
 describe CGL do
   describe "Graph" do
+    describe "subgraph" do
+      it "gives subgraph based on vertices" do
+        g = Graph(String).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}])
+        sub = g.subgraph(["a", "b"])
+        sub.order.should eq(2)
+        sub.size.should eq(1)
+
+        sub.has_vertex?("a").should be_true
+        sub.has_vertex?("b").should be_true
+        sub.has_edge?("a", "b").should be_true
+
+        v1 = sub.vertices
+        v2 = (Set.new(g.vertices) & Set.new(v1)).to_a # vertices from graph in subgraph
+
+        v1.size.times do |i|
+          v1[i].should eq(v2[i])
+          v1[i].should be(v2[i])
+        end
+      end
+
+      it "gives subgraph based on edges" do
+        g = Graph(String).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}])
+        sub = g.subgraph([g.edge("a", "b")])
+        sub.order.should eq(2)
+        sub.size.should eq(1)
+
+        sub.has_vertex?("a").should be_true
+        sub.has_vertex?("b").should be_true
+        sub.has_edge?("a", "b").should be_true
+
+        v1 = sub.vertices
+        v2 = (Set.new(g.vertices) & Set.new(v1)).to_a # vertices from graph in subgraph
+
+        v1.size.times do |i|
+          v1[i].should eq(v2[i])
+          v1[i].should be(v2[i])
+        end
+      end
+
+      it "may clone values" do
+        a = Foo.new("a")
+        b = Foo.new("b")
+        c = Foo.new("c")
+
+        g = Graph(Foo).new(edges: [{a, b}, {b, c}, {a, c}])
+        sub = g.subgraph([g.edge(a, b)], clone: true)
+        sub2 = g.subgraph([a, b], clone: true)
+
+        vsub1 = sub.vertices
+        vsub2 = sub2.vertices
+
+        vg = Array(Foo).new # vertices from graph in subgraphs
+        g.vertices.each do |v|
+          vg << v if vsub1.includes?(v)
+        end
+
+        vg.size.times do |i|
+          vsub1[i].should eq(vg[i])
+          vsub1[i].should_not be(vg[i])
+
+          vsub2[i].should eq(vg[i])
+          vsub2[i].should_not be(vg[i])
+        end
+      end
+    end
+
     it "clears" do
       g = Graph(String).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}])
       g.clear

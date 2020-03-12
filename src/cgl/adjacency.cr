@@ -11,10 +11,10 @@ module CGL
     getter size : Int32 = 0
 
     # The block triggered for default edge labels.
-    @label_block : (-> L?)
+    getter label_block : (-> L?)
 
     # The default edge weight value.
-    @default_weight : W
+    getter default_weight : W
 
     private def get_default_weight(default_weight) : W
       {% if W == Nil %}
@@ -165,22 +165,6 @@ module CGL
       else
         raise GraphError.new("vertex #{u} is not part of this graph")
       end
-    end
-
-    # Returns a shallow copy of `self`.
-    #
-    # The internal data structures are copied, not
-    def dup
-      {{@type}}.new(self.each_edge, default_weight: @default_weight, &@label_block)
-    end
-
-    # Returns a deep copy of `self`.
-    #
-    # Similar to `#dup`, but duplicates the nodes and edges attributes as well.
-    def clone
-      graph = {{@type}}.new(default_weight: @default_weight, &@label_block)
-      each_edge { |e| graph.add_edge(e.clone) }
-      graph
     end
 
     protected def unchecked_edge(u, v)

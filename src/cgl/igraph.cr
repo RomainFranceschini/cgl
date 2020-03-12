@@ -198,6 +198,54 @@ module CGL
     # Whether `self` is directed.
     abstract def directed? : Bool
 
+    # Returns a subgraph containing the given *vertices*
+    # as well as the existing edges between those vertices.
+    #
+    # If *copy* is set to `true`, the vertices as well as edge attributes are
+    # deep copies, otherwise they are shallow copies.
+    def subgraph(vertices : Enumerable(V), *, clone : Bool = false) : IGraph(V)
+      subgraph = {{@type}}.new(default_weight: self.default_weight, &self.label_block)
+      to_include = vertices.to_set
+
+      vertices.each do |v|
+        each_edge_from(v) do |edge|
+          subgraph.add_edge(clone ? edge.clone : edge) if to_include.includes?(edge.v)
+        end
+      end
+
+      subgraph
+    end
+
+    # Returns a subgraph containing the given *edges*.
+    #
+    # If *copy* is set to `true`, the vertices as well as edge attributes are
+    # deep copies, otherwise they are shallow copies.
+    def subgraph(edges : Enumerable(AnyEdge(V)), *, clone : Bool = false) : IGraph(V)
+      subgraph = {{@type}}.new(default_weight: self.default_weight, &self.label_block)
+      edges.each do |edge|
+        if has_edge?(edge)
+          subgraph.add_edge(clone ? edge.clone : edge)
+        end
+      end
+      subgraph
+    end
+
+    # Returns a shallow copy of `self`.
+    #
+    # The internal data structures are copied, not
+    def dup
+      {{@type}}.new(self.each_edge, default_weight: self.default_weight, &self.label_block)
+    end
+
+    # Returns a deep copy of `self`.
+    #
+    # Similar to `#dup`, but duplicates the nodes and edges attributes as well.
+    def clone
+      graph = {{@type}}.new(default_weight: self.default_weight, &self.label_block)
+      each_edge { |e| graph.add_edge(e.clone) }
+      graph
+    end
+
     # Whether `self` is equal to *other*.
     def ==(other : IGraph)
       return false if size != other.size || order != other.order
