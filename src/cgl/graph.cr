@@ -2,17 +2,20 @@ module CGL
   class Graph(V)
     include IGraph(V)
     include AdjacencyHash(V, Nil, Nil)
+  end
 
-    def default_weight : Nil
-      nil
-    end
+  class LabeledGraph(V, L)
+    include IGraph(V)
+    include AdjacencyHash(V, Nil, L)
+  end
 
-    def default_label : Nil
-      nil
-    end
+  class WeightedGraph(V, W)
+    include IGraph(V)
+    include AdjacencyHash(V, W, Nil)
+  end
 
-    protected def unchecked_edge(u, v)
-      Edge(V).new(u, v)
-    end
+  class WeightedLabeledGraph(V, W, L)
+    include IGraph(V)
+    include AdjacencyHash(V, W, L)
   end
 end

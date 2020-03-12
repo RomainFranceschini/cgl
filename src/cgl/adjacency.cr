@@ -3,17 +3,33 @@ module CGL
   #
   # Uses a hash table to associate each vertex `V` with a set of adjacent
   # vertices. The set is backed by another hash table that can be used to store
-  # data `L` with each edge.
+  # arbitrary data of type `L` and a weight of type `W` with each edge.
   module AdjacencyHash(V, W, L)
-    @vertices : Hash(V, Hash(V, {W, L}))
+    @vertices : Hash(V, Hash(V, {W, L?}))
 
     # The number of edges in `self`.
     getter size : Int32 = 0
 
-    def initialize(vertices : Enumerable(V)? = nil, edges : Enumerable(Tuple(V, V))? = nil, weights : Enumerable(W)? = nil, labels : Enumerable(L)? = nil)
-      @vertices = Hash(V, Hash(V, {W, L})).new(vertices.try &.size) { |h, k|
-        h[k] = Hash(V, {W, L}).new
-      }
+    # The block triggered for default edge labels.
+    @label_block : (-> L?)
+
+    # The default edge weight value.
+    @default_weight : W
+
+    private def get_default_weight(default_weight) : W
+      {% if W == Nil %}
+        nil
+      {% elsif !W.union? && (W < Number::Primitive) %}
+        default_weight || 1
+      {% else %}
+        {{ raise "W should be a primitive number type or Nil for unweighted graphs, not #{W}." }}
+      {% end %}
+    end
+
+    private def fill_graph(
+      vertices : Enumerable(V)? = nil, edges : Enumerable(Tuple(V, V))? = nil,
+      weights : Enumerable(W)? = nil, labels : Enumerable(L?)? = nil
+    )
       vertices.try &.each { |v| add_vertex(v) }
       edges.try &.each_with_index do |tuple, i|
         add_edge(
@@ -25,13 +41,48 @@ module CGL
       end
     end
 
-    def initialize(edges : Enumerable(AnyEdge(V)))
-      @vertices = Hash(V, Hash(V, {W, L})).new { |h, k|
-        h[k] = Hash(V, {W, L}).new
+    def initialize(
+      vertices : Enumerable(V)? = nil, edges : Enumerable(Tuple(V, V))? = nil,
+      weights : Enumerable(W)? = nil, labels : Enumerable(L?)? = nil,
+      *, default_weight : W? = nil, &block : -> L?
+    )
+      @default_weight = get_default_weight(default_weight)
+      @vertices = Hash(V, Hash(V, {W, L?})).new(vertices.try &.size) { |h, k|
+        h[k] = Hash(V, {W, L?}).new
       }
-      edges.each do |edge|
-        add_edge(edge)
-      end
+      @label_block = block
+      fill_graph(vertices, edges, weights, labels)
+    end
+
+    def initialize(
+      vertices : Enumerable(V)? = nil, edges : Enumerable(Tuple(V, V))? = nil,
+      weights : Enumerable(W)? = nil, labels : Enumerable(L?)? = nil,
+      *, default_weight : W? = nil, default_label : L? = nil
+    )
+      @default_weight = get_default_weight(default_weight)
+      @vertices = Hash(V, Hash(V, {W, L?})).new(vertices.try &.size) { |h, k|
+        h[k] = Hash(V, {W, L?}).new
+      }
+      @label_block = Proc(L?).new { default_weight }
+      fill_graph(vertices, edges, weights, labels)
+    end
+
+    def initialize(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = nil, &block : -> L?)
+      @default_weight = get_default_weight(default_weight)
+      @vertices = Hash(V, Hash(V, {W, L?})).new { |h, k|
+        h[k] = Hash(V, {W, L?}).new
+      }
+      @label_block = block
+      edges.each { |edge| add_edge(edge) }
+    end
+
+    def initialize(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = nil, default_label : L? = nil)
+      @default_weight = get_default_weight(default_weight)
+      @vertices = Hash(V, Hash(V, {W, L?})).new { |h, k|
+        h[k] = Hash(V, {W, L?}).new
+      }
+      @label_block = Proc(L?).new { default_label }
+      edges.each { |edge| add_edge(edge) }
     end
 
     def add_edge(edge : AnyEdge(V))
@@ -41,10 +92,14 @@ module CGL
     end
 
     # Returns the default weight associated with an edge.
-    abstract def default_weight : W
+    protected def default_weight : W
+      @default_weight
+    end
 
     # Returns the default label associated with an edge.
-    abstract def default_label : L
+    protected def default_label : L?
+      @label_block.call
+    end
 
     def clear
       @vertices.clear
@@ -60,11 +115,11 @@ module CGL
       has_vertex?(u) && @vertices[u].has_key?(v)
     end
 
-    def has_edge?(u : V, v : V, weight : W, label : L) : Bool
+    def has_edge?(u : V, v : V, weight : W, label : L?) : Bool
       has_edge?(u, v) && unsafe_fetch(u, v) == {weight, label}
     end
 
-    protected def unsafe_fetch(u : V, v : V) : {W, L}
+    protected def unsafe_fetch(u : V, v : V) : {W, L?}
       @vertices[u][v]
     end
 
@@ -73,7 +128,7 @@ module CGL
       unsafe_fetch(u, v).first
     end
 
-    def label_of(u : V, v : V) : L
+    def label_of(u : V, v : V) : L?
       return nil unless has_edge?(u, v)
       unsafe_fetch(u, v).last
     end
@@ -112,10 +167,46 @@ module CGL
       end
     end
 
+    # Returns a shallow copy of `self`.
+    #
+    # The internal data structures are copied, not
+    def dup
+      {{@type}}.new(self.each_edge, default_weight: @default_weight, &@label_block)
+    end
+
+    # Returns a deep copy of `self`.
+    #
+    # Similar to `#dup`, but duplicates the nodes and edges attributes as well.
+    def clone
+      graph = {{@type}}.new(default_weight: @default_weight, &@label_block)
+      each_edge { |e| graph.add_edge(e.clone) }
+      graph
+    end
+
+    protected def unchecked_edge(u, v)
+      if directed?
+        {% if W != Nil && L == Nil %}
+          WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
+        {% elsif W == Nil && L != Nil %}
+          LDiEdge(V, L).new(u, v, unsafe_fetch(u, v).last)
+        {% else %}
+          DiEdge(V).new(u, v) # TODO LWEdge
+        {% end %}
+      else
+        {% if W != Nil && L == Nil %}
+          WEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
+        {% elsif W == Nil && L != Nil %}
+          LEdge(V, L).new(u, v, unsafe_fetch(u, v).last)
+        {% else %}
+          Edge(V).new(u, v) # TODO LWEdge
+        {% end %}
+      end
+    end
+
     macro included
       {% if @type.name.includes?("DiGraph") %}
 
-        def add_edge(u : V, v : V, weight : W = self.default_weight, label : L = self.default_label)
+        def add_edge(u : V, v : V, weight : W = self.default_weight, label : L? = self.default_label)
           adj = @vertices[u]
           if !adj.has_key?(v)
             add_vertex(v)
@@ -194,7 +285,7 @@ module CGL
 
       {% else %}  # Undirected graph
 
-        def add_edge(u : V, v : V, weight : W = self.default_weight, label : L = self.default_label)
+        def add_edge(u : V, v : V, weight : W = self.default_weight, label : L? = self.default_label)
           unless has_edge?(u, v)
             @size += 1
             @vertices[u][v] = {weight, label}

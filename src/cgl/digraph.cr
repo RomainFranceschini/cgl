@@ -2,17 +2,20 @@ module CGL
   class DiGraph(V)
     include IGraph(V)
     include AdjacencyHash(V, Nil, Nil)
+  end
 
-    def default_weight : Nil
-      nil
-    end
+  class LabeledDiGraph(V, L)
+    include IGraph(V)
+    include AdjacencyHash(V, Nil, L)
+  end
 
-    def default_label : Nil
-      nil
-    end
+  class WeightedDiGraph(V, W)
+    include IGraph(V)
+    include AdjacencyHash(V, W, Nil)
+  end
 
-    protected def unchecked_edge(u : V, v : V)
-      DiEdge(V).new(u, v)
-    end
+  class WeightedLabeledDiGraph(V, W, L)
+    include IGraph(V)
+    include AdjacencyHash(V, W, L)
   end
 end

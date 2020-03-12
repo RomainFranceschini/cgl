@@ -53,7 +53,7 @@ module CGL
   end
 
   module Labelable(L)
-    property label : L
+    property label : L?
 
     def initialize(@u, @v, @label)
     end
