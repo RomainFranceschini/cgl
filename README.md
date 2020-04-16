@@ -109,7 +109,7 @@ two vertices.
   weighted with a `Number::Primitive` type.
 
   ```crystal
-  g = WeightedGraph(Char, UInt8).new(default_weight: 1u8)
+  g = WeightedDiGraph(Char, UInt8).new(default_weight: 1u8)
   ```
 
 * The `LabeledDiGraph` class implements a *directed* graph where edges can be
