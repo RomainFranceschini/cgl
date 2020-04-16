@@ -1,5 +1,7 @@
 # Crystal Graph Library (CGL)
 
+[![Build Status](https://github.com/RomainFranceschini/cgl/workflows/Build%20Status/badge.svg?branch=master)](https://github.com/RomainFranceschini/cgl/actions)
+
 CGL is a Crystal library for the creation and manipulation of graph data structures.
 
 All graph data structures are based on an adjacency list representation and heavily rely on Crystal `Hash` data structure.
