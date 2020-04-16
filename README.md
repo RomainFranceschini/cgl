@@ -1,6 +1,6 @@
 # Crystal Graph Library (CGL)
 
-[![Build Status](https://github.com/RomainFranceschini/cgl/workflows/Build%20Status/badge.svg?branch=master)](https://github.com/RomainFranceschini/cgl/actions)
+[![Build Status](https://github.com/RomainFranceschini/cgl/workflows/CGL%20CI/badge.svg?branch=master)](https://github.com/RomainFranceschini/cgl/actions)
 
 CGL is a Crystal library for the creation and manipulation of graph data structures.
 
