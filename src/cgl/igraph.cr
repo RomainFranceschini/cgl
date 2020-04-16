@@ -164,12 +164,12 @@ module CGL
       has_edge?(edge.u, edge.v, self.default_weight, edge.label)
     end
 
-    # ditto
+    # :ditto:
     def has_edge?(edge : Weightable) : Bool
       has_edge?(edge.u, edge.v, edge.weight, self.default_label)
     end
 
-    # ditto
+    # :ditto:
     def has_edge?(edge : AnyEdge(V)) : Bool
       has_edge?(edge.u, edge.v)
     end

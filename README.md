@@ -6,13 +6,17 @@ All graph data structures are based on an adjacency list representation and heav
 
 ## Features
 
-  - [-] Data structures for graphs, digraphs and multigraphs
+  - [x] Data structures for graphs, digraphs and ~~multigraphs~~
   - [x] Nodes can be anything
-  - [x] Edges can be weighted and hold arbitrary data of any type
-  - [ ] Generic interface for accessing concrete data structures (see `CGL::IGraph`)
-  - [ ] Generic interface for traversing graphs (iterators, visitors)
+  - [x] Edges can be weighted and/or hold arbitrary data as labels
+  - [x] Generic interface for accessing concrete data structures (see `CGL::IGraph`)
+  - [x] Generic interface for traversing graphs (iterators, visitor)
   - [ ] Standard graph algorithms
   - [ ] Support hypergraphs
+
+## Documentation
+
+* [API](https://romainfranceschini.github.io/cgl/)
 
 ## Installation
 
