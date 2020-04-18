@@ -1,4 +1,14 @@
+require "./iterators"
+
 module CGL::IGraph(V)
+  # A `BFSIterator` can be used to traverse a graph from a given vertex `V` in
+  # a Breadth-first search fashion.
+  class BFSIterator(V) < GraphIterator(V)
+    protected def next_vertex : V
+      @deque.shift
+    end
+  end
+
   # Returns an iterator over vertices from the given source *v* in a
   # **breadth**-first search (DFS).
   def breadth_first_search(from vertex : V) : Iterator(V)
@@ -9,8 +19,7 @@ module CGL::IGraph(V)
   # **breadth**-first search (DFS).
   def breadth_first_search(from vertex : V)
     queue = Deque(V){vertex}
-    visited = Set(V).new(self.order)
-    visited.add(vertex)
+    visited = Set(V){vertex}
 
     while (u = queue.shift?)
       self.each_adjacent(u) do |v|

@@ -12,14 +12,16 @@ module CGL
     @deque : Deque(V)
     @colors : Hash(V, Color)
 
-    def initialize(@graph : IGraph(V), start : V)
+    def initialize(@graph : IGraph(V), start : V, *, colors : Hash(V, Color)? = nil)
       unless @graph.has_vertex?(start)
         raise GraphError.new("#{start} is not a vertex from graph #{@graph}")
       end
 
-      @deque = Deque(V){start}
-      @colors = Hash(V, Color).new(Color::White, @graph.order)
-      @colors[start] = Color::Gray
+      @deque = Deque(V).new
+      @colors = colors || Hash(V, Color).new(Color::White).tap { |h|
+        h[start] = Color::Gray
+      }
+      @deque.push(start) unless @colors[start].black?
     end
 
     def has_next?
@@ -42,22 +44,6 @@ module CGL
       else
         stop
       end
-    end
-  end
-
-  # A `BFSIterator` can be used to traverse a graph from a given vertex `V` in
-  # a Breadth-first search fashion.
-  class BFSIterator(V) < GraphIterator(V)
-    protected def next_vertex : V
-      @deque.shift
-    end
-  end
-
-  # A `DFSIterator` can be used to traverse a graph from a given vertex `V` in
-  # a Depth-first search fashion.
-  class DFSIterator(V) < GraphIterator(V)
-    protected def next_vertex : V
-      @deque.pop
     end
   end
 

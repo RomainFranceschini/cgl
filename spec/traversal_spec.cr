@@ -39,6 +39,18 @@ describe CGL do
       g.depth_first_search(2) { |v| b_seq << v }
       b_seq.should eq([2, 5, 7, 4, 1, 3, 6])
     end
+
+    it "can be fully traversed with a recursive DFS iterator" do
+      g = Graph(Int32).new(edges: { {1, 2}, {2, 3}, {3, 4}, {5, 6} })
+      g.depth_first_search.to_a.should eq([1, 2, 3, 4, 5, 6])
+    end
+
+    it "can be fully traversed with a recursive DFS enumerator" do
+      g = Graph(Int32).new(edges: { {1, 2}, {2, 3}, {3, 4}, {5, 6} })
+      seq = [] of Int32
+      g.depth_first_search { |v| seq << v }
+      seq.should eq([1, 2, 3, 4, 5, 6])
+    end
   end
 
   describe "directed graphs" do
