@@ -1,4 +1,4 @@
-require "../src/cgl"
+require "../../src/cgl"
 
 path = ARGV.fetch(0, "benchmarks/data/amazon0302.txt")
 
