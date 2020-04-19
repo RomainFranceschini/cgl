@@ -8,11 +8,11 @@ module CGL
   abstract class GraphIterator(V)
     include Iterator(V)
 
-    @graph : IGraph(V)
+    @graph : AnyGraph(V)
     @deque : Deque(V)
     @colors : Hash(V, Color)
 
-    def initialize(@graph : IGraph(V), start : V, *, colors : Hash(V, Color)? = nil)
+    def initialize(@graph : AnyGraph(V), start : V, *, colors : Hash(V, Color)? = nil)
       unless @graph.has_vertex?(start)
         raise GraphError.new("#{start} is not a vertex from graph #{@graph}")
       end
@@ -50,7 +50,7 @@ module CGL
   class EdgeIterator(V)
     include Iterator(AnyEdge(V))
 
-    @graph : IGraph(V)
+    @graph : AnyGraph(V)
     @vertices_it : Iterator(V)
     @adj_it : Iterator(V)? = nil
     @u : V? = nil

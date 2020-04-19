@@ -13,12 +13,12 @@ module CGL
       true
     end
 
-    def accept(graph : IGraph(V))
+    def accept(graph : AnyGraph(V))
       visitable.accept(self)
     end
   end
 
-  module IGraph(V)
+  class AnyGraph(V)
     def accept(visitor : Visitor(V))
       if visitor.visit_vertices?
         each_vertex { |v| visitor.visit(v) }

@@ -1,21 +1,13 @@
 module CGL
-  class DiGraph(V)
-    include IGraph(V)
-    include AdjacencyHash(V, Nil, Nil)
+  class DiGraph(V) < AdjacencyDiGraph(V, Nil, Nil)
   end
 
-  class LabeledDiGraph(V, L)
-    include IGraph(V)
-    include AdjacencyHash(V, Nil, L)
+  class LabeledDiGraph(V, L) < AdjacencyDiGraph(V, Nil, L)
   end
 
-  class WeightedDiGraph(V, W)
-    include IGraph(V)
-    include AdjacencyHash(V, W, Nil)
+  class WeightedDiGraph(V, W) < AdjacencyDiGraph(V, W, Nil)
   end
 
-  class WeightedLabeledDiGraph(V, W, L)
-    include IGraph(V)
-    include AdjacencyHash(V, W, L)
+  class WeightedLabeledDiGraph(V, W, L) < AdjacencyDiGraph(V, W, L)
   end
 end

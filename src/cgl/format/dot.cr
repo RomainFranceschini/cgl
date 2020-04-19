@@ -2,7 +2,7 @@ module CGL
   class DotVisitor(V)
     include Visitor(V)
 
-    def initialize(@graph : IGraph(V), @io : IO)
+    def initialize(@graph : AnyGraph(V), @io : IO)
     end
 
     private def write(str)
@@ -30,7 +30,7 @@ module CGL
     end
   end
 
-  module IGraph(V)
+  class AnyGraph(V)
     # Generates a DOT file representing the graph at the given *path*.
     def to_dot(path : String)
       path = "#{path}.dot" if File.extname(path).empty?

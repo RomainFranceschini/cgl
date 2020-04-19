@@ -1,6 +1,4 @@
 module CGL
-  class MultiGraph(V, W, L)
-    include IGraph(V)
-    include AdjacencyHash(V, Array(W), Array(L))
+  class MultiGraph(V, W, L) < AdjacencyGraph(V, Nil, Nil)
   end
 end

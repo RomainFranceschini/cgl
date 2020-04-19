@@ -1,5 +1,5 @@
 module CGL
-  module IGraph(V)
+  abstract class AnyGraph(V)
     # Yields each vertex of the graph.
     abstract def each_vertex(& : V ->)
 
@@ -192,7 +192,7 @@ module CGL
     # For undirected graphs, the value equals `#degree_of`.
     abstract def out_degree_of(v : V) : Int32
 
-    # Empties a `IGraph` and returns it.
+    # Empties an `AnyGraph` and returns it.
     abstract def clear
 
     # Whether `self` is directed.
@@ -203,7 +203,7 @@ module CGL
     #
     # If *copy* is set to `true`, the vertices as well as edge attributes are
     # deep copies, otherwise they are shallow copies.
-    def subgraph(vertices : Enumerable(V), *, clone : Bool = false) : IGraph(V)
+    def subgraph(vertices : Enumerable(V), *, clone : Bool = false) : AnyGraph(V)
       subgraph = {{@type}}.new(default_weight: self.default_weight, &self.label_block)
       to_include = vertices.to_set
 
@@ -220,7 +220,7 @@ module CGL
     #
     # If *copy* is set to `true`, the vertices as well as edge attributes are
     # deep copies, otherwise they are shallow copies.
-    def subgraph(edges : Enumerable(AnyEdge(V)), *, clone : Bool = false) : IGraph(V)
+    def subgraph(edges : Enumerable(AnyEdge(V)), *, clone : Bool = false) : AnyGraph(V)
       subgraph = {{@type}}.new(default_weight: self.default_weight, &self.label_block)
       edges.each do |edge|
         if has_edge?(edge)
@@ -247,7 +247,7 @@ module CGL
     end
 
     # Whether `self` is equal to *other*.
-    def ==(other : IGraph)
+    def ==(other : self)
       return false if size != other.size || order != other.order
       each_vertex { |v|
         return false unless other.has_vertex?(v)
@@ -275,6 +275,62 @@ module CGL
       end
 
       result.hash(hasher)
+    end
+  end
+
+  abstract class AbstractGraph(V) < AnyGraph(V)
+    def directed? : Bool
+      false
+    end
+
+    def each_edge(& : AnyEdge(V) ->)
+      visited = Set(AnyEdge(V)).new
+      each_vertex do |u|
+        each_adjacent(u) do |v|
+          edge = unchecked_edge(u, v)
+          if !visited.includes?(edge)
+            visited << edge
+            yield edge
+          end
+        end
+      end
+    end
+
+    def each_edge_from(u : V, & : AnyEdge(V) ->)
+      each_adjacent(u) { |v| yield unchecked_edge(u, v) }
+    end
+
+    def out_degree_of(v : V) : Int32
+      degree_of(v)
+    end
+
+    def in_degree_of(v : V) : Int32
+      degree_of(v)
+    end
+  end
+
+  abstract class AbstractDiGraph(V) < AnyGraph(V)
+    def directed? : Bool
+      true
+    end
+
+    def each_edge(& : AnyEdge(V) ->)
+      each_vertex do |u|
+        each_adjacent(u) { |v| yield unchecked_edge(u, v) }
+      end
+    end
+
+    # Yields each successor of *u* in the graph.
+    def each_successor(u : V, &block : V ->)
+      each_adjacent(&block)
+    end
+
+    def each_edge_from(u : V, & : AnyEdge(V) ->)
+      each_adjacent(u) { |v| yield unchecked_edge(u, v) }
+    end
+
+    def degree_of(v : V) : Int32
+      in_degree_of(v) + out_degree_of(v)
     end
   end
 end

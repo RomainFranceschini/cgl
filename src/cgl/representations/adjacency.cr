@@ -1,5 +1,5 @@
 module CGL
-  # Reusable adjacency list representation for a `IGraph`.
+  # Reusable adjacency list representation for an `AnyGraph`.
   #
   # Uses a hash table to associate each vertex `V` with a set of adjacent
   # vertices. The set is backed by another hash table that can be used to store
@@ -186,155 +186,106 @@ module CGL
         {% end %}
       end
     end
+  end
 
-    macro included
-      {% if @type.name.includes?("DiGraph") %}
+  # A base class for adjacency list-based *undirected* graphs
+  abstract class AdjacencyGraph(V, W, L) < AbstractGraph(V)
+    include AdjacencyHash(V, W, L)
 
-        def add_edge(u : V, v : V, weight : W = self.default_weight, label : L? = self.default_label)
-          adj = @vertices[u]
-          if !adj.has_key?(v)
-            add_vertex(v)
-            @size += 1
-            adj[v] = {weight, label}
-          end
-        end
+    def add_edge(u : V, v : V, weight : W = self.default_weight, label : L? = self.default_label)
+      unless has_edge?(u, v)
+        @size += 1
+        @vertices[u][v] = {weight, label}
+        @vertices[v][u] = {weight, label}
+      end
+    end
 
-        def remove_edge(u : V, v : V)
-          if edge = edge?(u, v)
+    def remove_edge(u : V, v : V)
+      if edge = edge?(u, v)
+        @vertices[u].delete(v)
+        @vertices[v].delete(u)
+        @size -= 1
+        edge
+      else
+        yield(u, v)
+      end
+    end
+
+    def remove_vertex(v : V)
+      if has_vertex?(v)
+        @size -= @vertices[v].size
+        each_adjacent(v) { |u| @vertices[u].delete(v) } # remove all edges v-u
+        @vertices.delete(v)                             # remove vertex v
+      else
+        raise GraphError.new("The vertex #{v} is not in the graph.")
+      end
+    end
+
+    def degree_of(v : V) : Int32
+      return 0 unless has_vertex?(v)
+      adj = @vertices[v]
+      size = adj.size
+      size += 1 if adj.has_key?(v) # self loop
+      size
+    end
+  end
+
+  # A base class for adjacency list-based *directed* graphs
+  abstract class AdjacencyDiGraph(V, W, L) < AbstractDiGraph(V)
+    include AdjacencyHash(V, W, L)
+
+    def add_edge(u : V, v : V, weight : W = self.default_weight, label : L? = self.default_label)
+      adj = @vertices[u]
+      if !adj.has_key?(v)
+        add_vertex(v)
+        @size += 1
+        adj[v] = {weight, label}
+      end
+    end
+
+    def remove_edge(u : V, v : V)
+      if edge = edge?(u, v)
+        @vertices[u].delete(v)
+        @size -= 1
+        edge
+      else
+        yield(u, v)
+      end
+    end
+
+    def remove_vertex(v : V)
+      if has_vertex?(v)
+        @size -= @vertices[v].size
+        @vertices.delete(v) # remove vertex v
+        each_vertex do |u|  # search and remove edges incident to v
+          if @vertices[u].has_key?(v)
             @vertices[u].delete(v)
             @size -= 1
-            edge
-          else
-            yield(u, v)
           end
         end
+      else
+        raise GraphError.new("The vertex #{v} is not in the graph.")
+      end
+    end
 
-        def remove_vertex(v : V)
-          if has_vertex?(v)
-            @size -= @vertices[v].size
-            @vertices.delete(v)  # remove vertex v
-            each_vertex do |u|   # search and remove edges incident to v
-              if @vertices[u].has_key?(v)
-                @vertices[u].delete(v)
-                @size -= 1
-              end
-            end
-          else
-            raise GraphError.new("The vertex #{v} is not in the graph.")
-          end
-        end
+    # Yields each predecessor of *u* in the graph.
+    def each_predecessor(v : V, & : V ->)
+      if has_vertex?(v)
+        each_vertex { |u| yield(u) if @vertices[u].has_key?(v) }
+      end
+    end
 
-        def each_edge(& : AnyEdge(V) ->)
-          each_vertex do |u|
-            each_adjacent(u) { |v| yield unchecked_edge(u, v) }
-          end
-        end
+    def in_degree_of(v : V) : Int32
+      size = 0
+      if has_vertex?(v)
+        each_vertex { |u| size += 1 if @vertices[u].has_key?(v) }
+      end
+      size
+    end
 
-        # Yields each successor of *u* in the graph.
-        def each_successor(u : V, &block : V ->)
-          each_adjacent(&block)
-        end
-
-        # Yields each predecessor of *u* in the graph.
-        def each_predecessor(v : V, & : V ->)
-          if has_vertex?(v)
-            each_vertex { |u| yield(u) if @vertices[u].has_key?(v) }
-          end
-        end
-
-        def each_edge_from(u : V, & : AnyEdge(V) ->)
-          each_adjacent(u) { |v| yield unchecked_edge(u, v) }
-        end
-
-        def degree_of(v : V) : Int32
-          in_degree_of(v) + out_degree_of(v)
-        end
-
-        def in_degree_of(v : V) : Int32
-          size = 0
-          if has_vertex?(v)
-            each_vertex { |u| size += 1 if @vertices[u].has_key?(v) }
-          end
-          size
-        end
-
-        def out_degree_of(v : V) : Int32
-          return 0 unless has_vertex?(v)
-          @vertices[v].size
-        end
-
-        def directed? : Bool
-          true
-        end
-
-      {% else %}  # Undirected graph
-
-        def add_edge(u : V, v : V, weight : W = self.default_weight, label : L? = self.default_label)
-          unless has_edge?(u, v)
-            @size += 1
-            @vertices[u][v] = {weight, label}
-            @vertices[v][u] = {weight, label}
-          end
-        end
-
-        def remove_edge(u : V, v : V)
-          if edge = edge?(u, v)
-            @vertices[u].delete(v)
-            @vertices[v].delete(u)
-            @size -= 1
-            edge
-          else
-            yield(u, v)
-          end
-        end
-
-        def remove_vertex(v : V)
-          if has_vertex?(v)
-            @size -= @vertices[v].size
-            each_adjacent(v) { |u| @vertices[u].delete(v) } # remove all edges v-u
-            @vertices.delete(v)                             # remove vertex v
-          else
-            raise GraphError.new("The vertex #{v} is not in the graph.")
-          end
-        end
-
-        def each_edge(& : AnyEdge(V) ->)
-          visited = Set(AnyEdge(V)).new
-          each_vertex do |u|
-            each_adjacent(u) do |v|
-              edge = unchecked_edge(u, v)
-              if !visited.includes?(edge)
-                visited << edge
-                yield edge
-              end
-            end
-          end
-        end
-
-        def each_edge_from(u : V, & : AnyEdge(V) ->)
-          each_adjacent(u) { |v| yield unchecked_edge(u, v) }
-        end
-
-        def degree_of(v : V) : Int32
-          return 0 unless has_vertex?(v)
-          adj = @vertices[v]
-          size = adj.size
-          size += 1 if adj.has_key?(v) # self loop
-          size
-        end
-
-        def out_degree_of(v : V) : Int32
-          degree_of(v)
-        end
-
-        def in_degree_of(v : V) : Int32
-          degree_of(v)
-        end
-
-        def directed? : Bool
-          false
-        end
-      {% end %}
+    def out_degree_of(v : V) : Int32
+      return 0 unless has_vertex?(v)
+      @vertices[v].size
     end
   end
 end
