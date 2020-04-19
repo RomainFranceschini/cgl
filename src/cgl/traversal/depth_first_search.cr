@@ -25,7 +25,7 @@ module CGL
       depth_first_search(vertex, colors: colors) { |v| yield(v) }
     end
 
-    private def depth_first_search(vertex : V, *, colors : Hash(V, Color))
+    def depth_first_search(vertex : V, *, colors : Hash(V, Color))
       stack = Deque(V).new
       stack.push(vertex) unless colors[vertex].black?
 

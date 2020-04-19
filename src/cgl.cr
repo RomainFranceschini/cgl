@@ -6,6 +6,7 @@ require "./cgl/graph"
 require "./cgl/digraph"
 require "./cgl/traversal/*"
 require "./cgl/format/*"
+require "./cgl/algorithms/**"
 
 module CGL
   VERSION = "0.1.0"
