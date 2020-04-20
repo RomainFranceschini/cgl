@@ -45,3 +45,14 @@ The following libraries were tested on macOS 10.15.4:
 | python-igraph | Google  | 4.572s ± 0.97%   | 324.17MB     |
 | RGL           | Google  | 11.1s ± 1.97%    | 503.2MB      |
 | networkx      | Google  | 23.676s ± 1.43%  | 2432.95MB    |
+
+## Benchmark 2. Strongly connected components
+
+| Library       | Dataset | Total elapsed time | **Algorithm** (s) | Memory usage (peak) |
+| :------------ | :------ | :----------------- | :---------------- | :------------------ |
+| CGL           | Amazon  | 0.85               | 0.405s            | 83.29MB             |
+| igraph.cr     | Amazon  | 0.95               | 0.237s            | 84.77MB             |
+| python-igraph | Amazon  | 1.17s              | 0.245s            | 108.92MB            |
+| CGL           | Google  | 3.53s              | 1.551s            | 280.77MB            |
+| igraph.cr     | Google  | 5.28s              | 1.038s            | 347.75MB            |
+| python-igraph | Google  | 5.90s              | 1.168s            | 381.96MB            |
