@@ -24,7 +24,8 @@ module CGL
 
     # Whether `self` is connected.
     def connected? : Bool
-      count_connected_components == 1
+      return false if empty?
+      depth_first_search(self.each_vertex.first).size == self.order
     end
 
     # :nodoc:

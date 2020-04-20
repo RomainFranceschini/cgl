@@ -27,6 +27,8 @@ describe CGL do
 
         g2 = Graph(Int32).new(edges: { {5, 6}, {6, 7}, {7, 5} })
         g2.count_connected_components.should eq(1)
+
+        Graph(Int32).new.count_connected_components.should eq(0)
       end
 
       it "can be enumerated" do
