@@ -4,6 +4,20 @@ include CGL
 
 describe CGL do
   describe "Graph" do
+    it "#weighted?" do
+      Graph(Int32).new.weighted?.should be_false
+      WeightedGraph(Int32, Int32).new.weighted?.should be_true
+      LabeledGraph(Int32, Char).new.weighted?.should be_false
+      WeightedLabeledGraph(Int32, Int32, Char).new.weighted?.should be_true
+    end
+
+    it "#labeled?" do
+      Graph(Int32).new.labeled?.should be_false
+      WeightedGraph(Int32, Int32).new.labeled?.should be_false
+      LabeledGraph(Int32, Char).new.labeled?.should be_true
+      WeightedLabeledGraph(Int32, Int32, Char).new.labeled?.should be_true
+    end
+
     describe "#density" do
       it "returns 0 when graph is empty" do
         Graph(Int32).new.density.should eq 0

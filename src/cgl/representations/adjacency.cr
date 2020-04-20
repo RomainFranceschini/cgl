@@ -101,6 +101,16 @@ module CGL
       @label_block.call
     end
 
+    # Whether edges are weighted.
+    def weighted? : Bool
+      {{ W != Nil }}
+    end
+
+    # Whether edges are labeled.
+    def labeled? : Bool
+      {{ L != Nil }}
+    end
+
     def clear
       @vertices.clear
       @size = 0

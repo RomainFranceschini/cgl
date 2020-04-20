@@ -125,6 +125,12 @@ module CGL
       end
     end
 
+    # Whether edges are weighted.
+    abstract def weighted? : Bool
+
+    # Whether edges are labeled.
+    abstract def labeled? : Bool
+
     # Returns the weight associated with the given edge if it exists, otherwise
     # returns `nil`.
     abstract def weight_of(u : V, v : V)
