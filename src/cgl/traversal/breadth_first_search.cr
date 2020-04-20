@@ -3,7 +3,7 @@ require "./iterators"
 module CGL
   # A `BFSIterator` can be used to traverse a graph from a given vertex `V` in
   # a Breadth-first search fashion.
-  class BFSIterator(V) < GraphIterator(V)
+  class BFSIterator(V) < GraphSourceIterator(V)
     protected def next_vertex : V
       @deque.shift
     end

@@ -27,14 +27,13 @@ module CGL
       count_connected_components == 1
     end
 
-    private class ComponentsIterator(V)
+    # :nodoc:
+    private class ComponentsIterator(V) < GraphIterator(V)
       include Iterator(Array(V))
 
-      @vertices : Iterator(V)
-
       def initialize(@graph : AbstractGraph(V))
+        super(@graph)
         @colors = Hash(V, Color).new(Color::White, graph.order)
-        @vertices = graph.each_vertex
       end
 
       def next
@@ -47,18 +46,8 @@ module CGL
         end
       end
 
-      def next_vertex
-        loop do
-          value = @vertices.next
-          case value
-          when Stop
-            return nil
-          when V
-            unless @colors[value].black?
-              return value
-            end
-          end
-        end
+      def skip_vertex?(v : V) : Bool
+        @colors[v].black?
       end
     end
   end

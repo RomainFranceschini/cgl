@@ -3,7 +3,7 @@ require "./iterators"
 module CGL
   # A `DFSIterator` can be used to traverse a graph from a given vertex `V` in
   # a Depth-first search fashion.
-  class DFSIterator(V) < GraphIterator(V)
+  class DFSIterator(V) < GraphSourceIterator(V)
     protected def next_vertex : V
       @deque.pop
     end

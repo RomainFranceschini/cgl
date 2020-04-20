@@ -6,6 +6,32 @@ module CGL
   end
 
   abstract class GraphIterator(V)
+    @vertices : Iterator(V)
+
+    def initialize(graph : AnyGraph(V))
+      @vertices = graph.each_vertex
+    end
+
+    protected def next_vertex : V?
+      loop do
+        value = @vertices.next
+        case value
+        when Iterator::Stop
+          return nil
+        when V
+          unless skip_vertex?(value)
+            return value
+          end
+        end
+      end
+    end
+
+    protected def skip_vertex?(v : V) : Bool
+      false
+    end
+  end
+
+  abstract class GraphSourceIterator(V)
     include Iterator(V)
 
     @graph : AnyGraph(V)
