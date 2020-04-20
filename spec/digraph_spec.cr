@@ -4,6 +4,24 @@ include CGL
 
 describe CGL do
   describe "DiGraph" do
+    describe "#density" do
+      it "returns 0 when graph is empty" do
+        DiGraph(Int32).new.density.should eq 0
+      end
+
+      it "returns 1 when graph is dense" do
+        DiGraph(Int32).new(edges: {
+          {1, 2}, {2, 1},
+        }).density.should eq 1
+      end
+
+      it "computes density" do
+        DiGraph(Int32).new(edges: {
+          {1, 2},
+        }).density.should be_close(0.5, Float64::EPSILON)
+      end
+    end
+
     describe "remove_vertex" do
       it "removes vertex and associated edges" do
         g = DiGraph(String).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}])

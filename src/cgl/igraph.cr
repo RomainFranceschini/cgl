@@ -276,6 +276,9 @@ module CGL
 
       result.hash(hasher)
     end
+
+    # Returns the density of `self`.
+    abstract def density : Float64
   end
 
   abstract class AbstractGraph(V) < AnyGraph(V)
@@ -307,6 +310,13 @@ module CGL
     def in_degree_of(v : V) : Int32
       degree_of(v)
     end
+
+    def density : Float64
+      return 0.0 if empty?
+      n = self.order
+      m = self.size
+      2 * m / (n * (n - 1))
+    end
   end
 
   abstract class AbstractDiGraph(V) < AnyGraph(V)
@@ -331,6 +341,13 @@ module CGL
 
     def degree_of(v : V) : Int32
       in_degree_of(v) + out_degree_of(v)
+    end
+
+    def density : Float64
+      return 0.0 if empty?
+      n = self.order
+      m = self.size
+      m / n * (n - 1)
     end
   end
 end

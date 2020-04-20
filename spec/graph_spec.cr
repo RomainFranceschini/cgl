@@ -4,6 +4,25 @@ include CGL
 
 describe CGL do
   describe "Graph" do
+    describe "#density" do
+      it "returns 0 when graph is empty" do
+        Graph(Int32).new.density.should eq 0
+      end
+
+      it "returns 1 when graph is dense" do
+        Graph(Int32).new(edges: {
+          {1, 2},
+        }).density.should eq 1
+      end
+
+      it "computes density" do
+        Graph(Int32).new(
+          vertices: {1, 2, 3},
+          edges: { {1, 2}, {2, 3} }
+        ).density.should be_close(0.66666, 1e-5)
+      end
+    end
+
     describe "subgraph" do
       it "gives subgraph based on vertices" do
         g = Graph(String).new(edges: [{"a", "b"}, {"b", "c"}, {"a", "c"}])
