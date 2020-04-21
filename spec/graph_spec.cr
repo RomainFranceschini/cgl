@@ -35,6 +35,12 @@ describe CGL do
           edges: { {1, 2}, {2, 3} }
         ).density.should be_close(0.66666, 1e-5)
       end
+
+      it "returns > 1 for dense graphs with self-loops" do
+        Graph(Int32).new(edges: {
+          {1, 1}, {1, 2}, {2, 2},
+        }).density.should be_close(3, Float64::EPSILON)
+      end
     end
 
     describe "subgraph" do

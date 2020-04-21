@@ -34,6 +34,12 @@ describe CGL do
           {1, 2},
         }).density.should be_close(0.5, Float64::EPSILON)
       end
+
+      it "returns > 1 for dense graphs with self-loops" do
+        DiGraph(Int32).new(edges: {
+          {1, 1}, {1, 2}, {2, 1}, {2, 2},
+        }).density.should be_close(2, Float64::EPSILON)
+      end
     end
 
     describe "remove_vertex" do

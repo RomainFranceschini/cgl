@@ -284,6 +284,9 @@ module CGL
     end
 
     # Returns the density of `self`.
+    #
+    # Self loops are counted in the total number of edges so graphs with self
+    # loops can have density higher than 1.
     abstract def density : Float64
   end
 
