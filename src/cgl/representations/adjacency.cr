@@ -20,7 +20,7 @@ module CGL
       {% if W == Nil %}
         nil
       {% elsif !W.union? && (W < Number::Primitive) %}
-        default_weight || 1
+        default_weight || {{ W }}.new(1)
       {% else %}
         {{ raise "W should be a primitive number type or Nil for unweighted graphs, not #{W}." }}
       {% end %}
