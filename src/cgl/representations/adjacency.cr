@@ -133,13 +133,23 @@ module CGL
       @vertices[u][v]
     end
 
-    def weight_of(u : V, v : V) : W
+    def weight_of?(u : V, v : V) : W?
       return nil unless has_edge?(u, v)
       unsafe_fetch(u, v).first
     end
 
-    def label_of(u : V, v : V) : L?
+    def label_of?(u : V, v : V) : L?
       return nil unless has_edge?(u, v)
+      unsafe_fetch(u, v).last
+    end
+
+    def weight_of(u : V, v : V) : W
+      raise EdgeError.new("No edge between #{u} and #{v}") unless has_edge?(u, v)
+      unsafe_fetch(u, v).first
+    end
+
+    def label_of(u : V, v : V) : L?
+      raise EdgeError.new("No edge between #{u} and #{v}") unless has_edge?(u, v)
       unsafe_fetch(u, v).last
     end
 

@@ -132,12 +132,20 @@ module CGL
     abstract def labeled? : Bool
 
     # Returns the weight associated with the given edge if it exists, otherwise
-    # returns `nil`.
+    # `EdgeError` otherwise.
     abstract def weight_of(u : V, v : V)
+
+    # Returns the label associated with the given edge if it exists, raises
+    # `EdgeError` otherwise
+    abstract def label_of(u : V, v : V)
+
+    # Returns the weight associated with the given edge if it exists, otherwise
+    # returns `nil`.
+    abstract def weight_of?(u : V, v : V)
 
     # Returns the label associated with the given edge if it exists, otherwise
     # returns `nil`.
-    abstract def label_of(u : V, v : V)
+    abstract def label_of?(u : V, v : V)
 
     # Returns an edge data structure between *u* and *v* if present in the
     # graph, otherwise returns `nil`.
