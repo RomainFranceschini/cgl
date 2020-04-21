@@ -176,26 +176,6 @@ module CGL
         raise GraphError.new("vertex #{u} is not part of this graph")
       end
     end
-
-    protected def unchecked_edge(u, v)
-      if directed?
-        {% if W != Nil && L == Nil %}
-          WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
-        {% elsif W == Nil && L != Nil %}
-          LDiEdge(V, L).new(u, v, unsafe_fetch(u, v).last)
-        {% else %}
-          DiEdge(V).new(u, v) # TODO LWEdge
-        {% end %}
-      else
-        {% if W != Nil && L == Nil %}
-          WEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
-        {% elsif W == Nil && L != Nil %}
-          LEdge(V, L).new(u, v, unsafe_fetch(u, v).last)
-        {% else %}
-          Edge(V).new(u, v) # TODO LWEdge
-        {% end %}
-      end
-    end
   end
 
   # A base class for adjacency list-based *undirected* graphs
@@ -237,6 +217,16 @@ module CGL
       size = adj.size
       size += 1 if adj.has_key?(v) # self loop
       size
+    end
+
+    protected def unchecked_edge(u, v)
+      {% if W != Nil && L == Nil %}
+        WEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
+      {% elsif W == Nil && L != Nil %}
+        LEdge(V, L).new(u, v, unsafe_fetch(u, v).last)
+      {% else %}
+        Edge(V).new(u, v) # TODO LWEdge
+      {% end %}
     end
   end
 
@@ -296,6 +286,16 @@ module CGL
     def out_degree_of(v : V) : Int32
       return 0 unless has_vertex?(v)
       @vertices[v].size
+    end
+
+    protected def unchecked_edge(u, v)
+      {% if W != Nil && L == Nil %}
+        WDiEdge(V, W).new(u, v, unsafe_fetch(u, v).first)
+      {% elsif W == Nil && L != Nil %}
+        LDiEdge(V, L).new(u, v, unsafe_fetch(u, v).last)
+      {% else %}
+        DiEdge(V).new(u, v) # TODO LWEdge
+      {% end %}
     end
   end
 end
