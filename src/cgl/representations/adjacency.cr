@@ -125,6 +125,10 @@ module CGL
       has_vertex?(u) && @vertices[u].has_key?(v)
     end
 
+    def has_edge?(u : V, v : V, weight, label) : Bool
+      {{ raise "#{@type}: Cannot add edge unless weight and label are of types #{W} and #{L?}, respectively." }}
+    end
+
     def has_edge?(u : V, v : V, weight : W, label : L?) : Bool
       has_edge?(u, v) && unsafe_fetch(u, v) == {weight, label}
     end

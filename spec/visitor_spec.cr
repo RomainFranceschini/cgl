@@ -19,7 +19,7 @@ private class MyVisitor(V)
     @visit_edges
   end
 
-  def visit(v : V)
+  def visit(v)
     @vertices << v
   end
 

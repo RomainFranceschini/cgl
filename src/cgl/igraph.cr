@@ -89,7 +89,7 @@ module CGL
     #
     # A *weight* and/or a label can be associated to the edge if
     # the concrete class supports it.
-    abstract def add_edge(u : V, v : V, weight, label)
+    abstract def add_edge(u : V, v : V)
 
     # Add the given *edge* to the graph.
     #
