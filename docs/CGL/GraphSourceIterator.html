@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="cgl">
-  <title>CGL::Undirected(V) - cgl 0.2.0</title>
+  <title>CGL::GraphSourceIterator(V) - cgl 0.2.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -161,7 +161,7 @@
       
     </li>
   
-  <li class=" " data-id="cgl/CGL/GraphSourceIterator" data-name="cgl::graphsourceiterator(v)">
+  <li class=" current" data-id="cgl/CGL/GraphSourceIterator" data-name="cgl::graphsourceiterator(v)">
       <a href="../CGL/GraphSourceIterator.html">GraphSourceIterator</a>
       
     </li>
@@ -191,7 +191,7 @@
       
     </li>
   
-  <li class=" current" data-id="cgl/CGL/Undirected" data-name="cgl::undirected(v)">
+  <li class=" " data-id="cgl/CGL/Undirected" data-name="cgl::undirected(v)">
       <a href="../CGL/Undirected.html">Undirected</a>
       
     </li>
@@ -250,10 +250,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> CGL::Undirected(V)
+  <span class="kind">abstract class</span> CGL::GraphSourceIterator(V)
 
 </h1>
 
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../CGL/GraphSourceIterator.html">CGL::GraphSourceIterator(V)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -272,33 +274,31 @@
   </h2>
   <ul class="other-types-list">
     
-      <li class="other-type"><a href="../CGL/AnyEdge.html">CGL::AnyEdge(V)</a></li>
+      <li class="other-type">Iterator(V)</li>
     
   </ul>
-
-
 
 
 
 
 
   <h2>
-    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Direct including types
+    Direct Known Subclasses
   </h2>
   <ul class="other-types-list">
     
-      <li class="other-type"><a href="../CGL/Edge.html">CGL::Edge(V)</a></li>
+      <li class="other-type"><a href="../CGL/BFSIterator.html">CGL::BFSIterator(V)</a></li>
     
-      <li class="other-type"><a href="../CGL/LEdge.html">CGL::LEdge(V, L)</a></li>
-    
-      <li class="other-type"><a href="../CGL/WEdge.html">CGL::WEdge(V, W)</a></li>
+      <li class="other-type"><a href="../CGL/DFSIterator.html">CGL::DFSIterator(V)</a></li>
     
   </ul>
+
+
 
 
 
@@ -313,7 +313,7 @@
   </h2>
   
     
-      cgl/edges.cr
+      cgl/traversal/iterators.cr
     
     <br/>
   
@@ -321,6 +321,23 @@
 
 
 
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(graph:AnyGraph(V),start:V,*,colors:Hash(V,Color)?=nil)-class-method" class="signature"><strong>.new</strong>(graph : AnyGraph(V), start : V, *, colors : Hash(V, Color)? = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -337,14 +354,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#==(other:AnyEdge)-instance-method" class="signature"><strong>#==</strong>(other : AnyEdge)</a>
+        <a href="#has_next?-instance-method" class="signature"><strong>#has_next?</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#hash(hasher)-instance-method" class="signature"><strong>#hash</strong>(hasher)</a>
+        <a href="#next-instance-method" class="signature"><strong>#next</strong></a>
         
-          <div class="summary"><p>See <code>Object#hash(hasher)</code></p></div>
+          <div class="summary"><p>Returns the next element in this iterator, or <code>Iterator::Stop::INSTANCE</code> if there are no more elements.</p></div>
         
       </li>
     
@@ -358,51 +375,38 @@
   
     
 
-  <h3>Instance methods inherited from module <code><a href="../CGL/AnyEdge.html">CGL::AnyEdge(V)</a></code></h3>
-  
-  
-    <a href="../CGL/AnyEdge.html#clone-instance-method" class="tooltip">
-      <span>clone</span>
-    clone</a>, 
+
     
-  
-    <a href="../CGL/AnyEdge.html#to_tuple-instance-method" class="tooltip">
-      <span>to_tuple</span>
-    to_tuple</a>, 
-    
-  
-    <a href="../CGL/AnyEdge.html#u:V-instance-method" class="tooltip">
-      <span>u : V</span>
-    u</a>, 
-    
-  
-    <a href="../CGL/AnyEdge.html#u=(u:V)-instance-method" class="tooltip">
-      <span>u=(u : V)</span>
-    u=</a>, 
-    
-  
-    <a href="../CGL/AnyEdge.html#v:V-instance-method" class="tooltip">
-      <span>v : V</span>
-    v</a>, 
-    
-  
-    <a href="../CGL/AnyEdge.html#v=(v:V)-instance-method" class="tooltip">
-      <span>v=(v : V)</span>
-    v=</a>
-    
-  
 
 
     
 
-  <h3>Constructor methods inherited from module <code><a href="../CGL/AnyEdge.html">CGL::AnyEdge(V)</a></code></h3>
+
   
-  
-    <a href="../CGL/AnyEdge.html#new(u:V,v:V)-class-method" class="tooltip">
-      <span>new(u : V, v : V)</span>
-    new</a>
     
+
+
+    
+
+
+    
+
+
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
 
 
     
@@ -411,6 +415,30 @@
   
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(graph:AnyGraph(V),start:V,*,colors:Hash(V,Color)?=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(graph : <a href="../CGL/AnyGraph.html">AnyGraph</a>(V), start : V, *, colors : Hash(V, <a href="../CGL/Color.html">Color</a>)? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new(graph:AnyGraph(V),start:V,*,colors:Hash(V,Color)?=nil)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 
@@ -425,12 +453,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="==(other:AnyEdge)-instance-method">
+    <div class="entry-detail" id="has_next?-instance-method">
       <div class="signature">
         
-        def <strong>==</strong>(other : <a href="../CGL/AnyEdge.html">AnyEdge</a>)
+        def <strong>has_next?</strong>
 
-        <a class="method-permalink" href="#==(other:AnyEdge)-instance-method">#</a>
+        <a class="method-permalink" href="#has_next?-instance-method">#</a>
       </div>
       
       <br/>
@@ -439,17 +467,22 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="hash(hasher)-instance-method">
+    <div class="entry-detail" id="next-instance-method">
       <div class="signature">
         
-        def <strong>hash</strong>(hasher)
+        def <strong>next</strong>
 
-        <a class="method-permalink" href="#hash(hasher)-instance-method">#</a>
+        <a class="method-permalink" href="#next-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>See <code>Object#hash(hasher)</code></p>
+            <div class="doc-inherited">
+              Description copied from module Iterator(V)
+            </div>
+          
+          <p>Returns the next element in this iterator, or <code>Iterator::Stop::INSTANCE</code> if there
+are no more elements.</p>
         </div>
       
       <br/>

@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.0.0-dev">
+<meta name="crystal_docs.project_version" content="0.2.0">
+<meta name="crystal_docs.project_name" content="cgl">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="cgl">
+  <title>CGL::AnyGraph(V) - cgl 0.2.0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          cgl
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.2.0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="cgl/CGL" data-name="cgl">
+      <a href="../CGL.html">CGL</a>
+      
+        <ul>
+  
+  <li class=" " data-id="cgl/CGL/AbstractDiGraph" data-name="cgl::abstractdigraph(v)">
+      <a href="../CGL/AbstractDiGraph.html">AbstractDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AbstractGraph" data-name="cgl::abstractgraph(v)">
+      <a href="../CGL/AbstractGraph.html">AbstractGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AdjacencyDiGraph" data-name="cgl::adjacencydigraph(v, w, l)">
+      <a href="../CGL/AdjacencyDiGraph.html">AdjacencyDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AdjacencyGraph" data-name="cgl::adjacencygraph(v, w, l)">
+      <a href="../CGL/AdjacencyGraph.html">AdjacencyGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AdjacencyHash" data-name="cgl::adjacencyhash(v, w, l)">
+      <a href="../CGL/AdjacencyHash.html">AdjacencyHash</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AnyEdge" data-name="cgl::anyedge(v)">
+      <a href="../CGL/AnyEdge.html">AnyEdge</a>
+      
+    </li>
+  
+  <li class=" current" data-id="cgl/CGL/AnyGraph" data-name="cgl::anygraph(v)">
+      <a href="../CGL/AnyGraph.html">AnyGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/BFSIterator" data-name="cgl::bfsiterator(v)">
+      <a href="../CGL/BFSIterator.html">BFSIterator</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/BinaryHeap" data-name="cgl::binaryheap(t)">
+      <a href="../CGL/BinaryHeap.html">BinaryHeap</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Color" data-name="cgl::color">
+      <a href="../CGL/Color.html">Color</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/DFSIterator" data-name="cgl::dfsiterator(v)">
+      <a href="../CGL/DFSIterator.html">DFSIterator</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/DiEdge" data-name="cgl::diedge(v)">
+      <a href="../CGL/DiEdge.html">DiEdge</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/DiGraph" data-name="cgl::digraph(v)">
+      <a href="../CGL/DiGraph.html">DiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Directed" data-name="cgl::directed(v)">
+      <a href="../CGL/Directed.html">Directed</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/DotVisitor" data-name="cgl::dotvisitor(v)">
+      <a href="../CGL/DotVisitor.html">DotVisitor</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Edge" data-name="cgl::edge(v)">
+      <a href="../CGL/Edge.html">Edge</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/EdgeError" data-name="cgl::edgeerror">
+      <a href="../CGL/EdgeError.html">EdgeError</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/EdgeIterator" data-name="cgl::edgeiterator(v)">
+      <a href="../CGL/EdgeIterator.html">EdgeIterator</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Graph" data-name="cgl::graph(v)">
+      <a href="../CGL/Graph.html">Graph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/GraphError" data-name="cgl::grapherror">
+      <a href="../CGL/GraphError.html">GraphError</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/GraphIterator" data-name="cgl::graphiterator(v)">
+      <a href="../CGL/GraphIterator.html">GraphIterator</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/GraphSourceIterator" data-name="cgl::graphsourceiterator(v)">
+      <a href="../CGL/GraphSourceIterator.html">GraphSourceIterator</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Labelable" data-name="cgl::labelable(l)">
+      <a href="../CGL/Labelable.html">Labelable</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/LabeledDiGraph" data-name="cgl::labeleddigraph(v, l)">
+      <a href="../CGL/LabeledDiGraph.html">LabeledDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/LabeledGraph" data-name="cgl::labeledgraph(v, l)">
+      <a href="../CGL/LabeledGraph.html">LabeledGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/LDiEdge" data-name="cgl::ldiedge(v, l)">
+      <a href="../CGL/LDiEdge.html">LDiEdge</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/LEdge" data-name="cgl::ledge(v, l)">
+      <a href="../CGL/LEdge.html">LEdge</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Undirected" data-name="cgl::undirected(v)">
+      <a href="../CGL/Undirected.html">Undirected</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Visitor" data-name="cgl::visitor(v)">
+      <a href="../CGL/Visitor.html">Visitor</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/WDiEdge" data-name="cgl::wdiedge(v, w)">
+      <a href="../CGL/WDiEdge.html">WDiEdge</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/WEdge" data-name="cgl::wedge(v, w)">
+      <a href="../CGL/WEdge.html">WEdge</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Weightable" data-name="cgl::weightable(t)">
+      <a href="../CGL/Weightable.html">Weightable</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/WeightedDiGraph" data-name="cgl::weighteddigraph(v, w)">
+      <a href="../CGL/WeightedDiGraph.html">WeightedDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/WeightedGraph" data-name="cgl::weightedgraph(v, w)">
+      <a href="../CGL/WeightedGraph.html">WeightedGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/WeightedLabeledDiGraph" data-name="cgl::weightedlabeleddigraph(v, w, l)">
+      <a href="../CGL/WeightedLabeledDiGraph.html">WeightedLabeledDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/WeightedLabeledGraph" data-name="cgl::weightedlabeledgraph(v, w, l)">
+      <a href="../CGL/WeightedLabeledGraph.html">WeightedLabeledGraph</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">abstract class</span> CGL::AnyGraph(V)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../CGL/AbstractDiGraph.html">CGL::AbstractDiGraph(V)</a></li>
+    
+      <li class="other-type"><a href="../CGL/AbstractGraph.html">CGL::AbstractGraph(V)</a></li>
+    
+  </ul>
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      cgl/algorithms/paths/shortest.cr
+    
+    <br/>
+  
+    
+      cgl/algorithms/paths/simple.cr
+    
+    <br/>
+  
+    
+      cgl/format/dot.cr
+    
+    <br/>
+  
+    
+      cgl/igraph.cr
+    
+    <br/>
+  
+    
+      cgl/traversal/breadth_first_search.cr
+    
+    <br/>
+  
+    
+      cgl/traversal/depth_first_search.cr
+    
+    <br/>
+  
+    
+      cgl/traversal/visitor.cr
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#==(other:self)-instance-method" class="signature"><strong>#==</strong>(other : <span class="k">self</span>)</a>
+        
+          <div class="summary"><p>Whether <code>self</code> is equal to <em>other</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#==(other)-instance-method" class="signature"><strong>#==</strong>(other)</a>
+        
+          <div class="summary"><p>Returns <code>false</code> (other can only be a <code>Value</code> here).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#accept(visitor:Visitor(V))-instance-method" class="signature"><strong>#accept</strong>(visitor : Visitor(V))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add_edge(u:V,v:V)-instance-method" class="signature"><strong>#add_edge</strong>(u : V, v : V)</a>
+        
+          <div class="summary"><p>Add an edge between vertices <em>u</em> and <em>v</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add_edge(edge:AnyEdge(V))-instance-method" class="signature"><strong>#add_edge</strong>(edge : AnyEdge(V))</a>
+        
+          <div class="summary"><p>Add the given <em>edge</em> to the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add_vertex(v:V)-instance-method" class="signature"><strong>#add_vertex</strong>(v : V)</a>
+        
+          <div class="summary"><p>Add a single vertex (a.k.a.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#breadth_first_search(fromvertex:V):Iterator(V)-instance-method" class="signature"><strong>#breadth_first_search</strong>(from vertex : V) : Iterator(V)</a>
+        
+          <div class="summary"><p>Returns an iterator over vertices from the given source <em>v</em> in a <strong>breadth</strong>-first search (DFS).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#breadth_first_search(fromvertex:V,&)-instance-method" class="signature"><strong>#breadth_first_search</strong>(from vertex : V, &)</a>
+        
+          <div class="summary"><p>Yields vertices from the given source <em>v</em> in a <strong>breadth</strong>-first search (DFS).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear-instance-method" class="signature"><strong>#clear</strong></a>
+        
+          <div class="summary"><p>Empties an <code><a href="../CGL/AnyGraph.html">AnyGraph</a></code> and returns it.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clone-instance-method" class="signature"><strong>#clone</strong></a>
+        
+          <div class="summary"><p>Returns a deep copy of <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#count_simple_paths(source:V,target:V)-instance-method" class="signature"><strong>#count_simple_paths</strong>(source : V, target : V)</a>
+        
+          <div class="summary"><p>Count all simple paths between the two given vertices, where a simple path is a path with no repeated nodes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#degree_of(v:V):Int32-instance-method" class="signature"><strong>#degree_of</strong>(v : V) : Int32</a>
+        
+          <div class="summary"><p>Returns the degree of the given vertex <em>v</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#density:Float64-instance-method" class="signature"><strong>#density</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns the density of <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#depth_first_search(fromvertex:V):Iterator(V)-instance-method" class="signature"><strong>#depth_first_search</strong>(from vertex : V) : Iterator(V)</a>
+        
+          <div class="summary"><p>Returns an iterator over vertices from the given source <em>v</em> in a <strong>depth</strong>-first search (DFS).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#depth_first_search(fromvertex:V,&)-instance-method" class="signature"><strong>#depth_first_search</strong>(from vertex : V, &)</a>
+        
+          <div class="summary"><p>Yields vertices from the given source <em>v</em> in a <strong>depth</strong>-first search (DFS).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#depth_first_search(vertex:V,*,colors:Hash(V,Color),&)-instance-method" class="signature"><strong>#depth_first_search</strong>(vertex : V, *, colors : Hash(V, Color), &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#depth_first_search(&)-instance-method" class="signature"><strong>#depth_first_search</strong>(&)</a>
+        
+          <div class="summary"><p>Yields all vertices of <code>self</code>, which are traversed following a depth-first search (DFS) on the whole graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#depth_first_search:Iterator(V)-instance-method" class="signature"><strong>#depth_first_search</strong> : Iterator(V)</a>
+        
+          <div class="summary"><p>Returns an iterator over all vertices of <code>self</code>, which are traversed following a depth-first search (DFS) on the whole graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#directed?:Bool-instance-method" class="signature"><strong>#directed?</strong> : Bool</a>
+        
+          <div class="summary"><p>Whether <code>self</code> is directed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dup-instance-method" class="signature"><strong>#dup</strong></a>
+        
+          <div class="summary"><p>Returns a shallow copy of <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_adjacent(u:V):Iterator(V)-instance-method" class="signature"><strong>#each_adjacent</strong>(u : V) : Iterator(V)</a>
+        
+          <div class="summary"><p>Returns an iterator over each vertex adjacent to <em>u</em> in the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_adjacent(u:V,&:V-%3E)-instance-method" class="signature"><strong>#each_adjacent</strong>(u : V, & : V -> )</a>
+        
+          <div class="summary"><p>Yields each vertex adjacent to <em>u</em> in the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_edge:Iterator(AnyEdge(V))-instance-method" class="signature"><strong>#each_edge</strong> : Iterator(AnyEdge(V))</a>
+        
+          <div class="summary"><p>Returns an iterator over each edge in the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_edge(&:AnyEdge(V)-%3E)-instance-method" class="signature"><strong>#each_edge</strong>(& : AnyEdge(V) -> )</a>
+        
+          <div class="summary"><p>Yields each edges in the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_edge_from(u:V,&:AnyEdge(V)-%3E)-instance-method" class="signature"><strong>#each_edge_from</strong>(u : V, & : AnyEdge(V) -> )</a>
+        
+          <div class="summary"><p>Yields each edge incident to <em>u</em> in the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_vertex(&:V-%3E)-instance-method" class="signature"><strong>#each_vertex</strong>(& : V -> )</a>
+        
+          <div class="summary"><p>Yields each vertex of the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_vertex:Iterator(V)-instance-method" class="signature"><strong>#each_vertex</strong> : Iterator(V)</a>
+        
+          <div class="summary"><p>Returns an iterator over each vertex of the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#edge(u:V,v:V)-instance-method" class="signature"><strong>#edge</strong>(u : V, v : V)</a>
+        
+          <div class="summary"><p>Returns an edge data structure between <em>u</em> and <em>v</em> if present in the graph, otherwise raises an <code><a href="../CGL/EdgeError.html">EdgeError</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#edge(u:V,v:V,&)-instance-method" class="signature"><strong>#edge</strong>(u : V, v : V, &)</a>
+        
+          <div class="summary"><p>Returns an edge data structure between <em>u</em> and <em>v</em> if present in the graph, otherwise returns the value of the given block.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#edge?(u:V,v:V)-instance-method" class="signature"><strong>#edge?</strong>(u : V, v : V)</a>
+        
+          <div class="summary"><p>Returns an edge data structure between <em>u</em> and <em>v</em> if present in the graph, otherwise returns <code>nil</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#edges:Array(AnyEdge(V))-instance-method" class="signature"><strong>#edges</strong> : Array(AnyEdge(V))</a>
+        
+          <div class="summary"><p>Returns an array of edges belonging to this graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#empty?:Bool-instance-method" class="signature"><strong>#empty?</strong> : Bool</a>
+        
+          <div class="summary"><p>Whether the graph is empty.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_edge?(edge:Labelable):Bool-instance-method" class="signature"><strong>#has_edge?</strong>(edge : Labelable) : Bool</a>
+        
+          <div class="summary"><p>Whether the given edge is part of the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_edge?(u:V,v:V,weight,label):Bool-instance-method" class="signature"><strong>#has_edge?</strong>(u : V, v : V, weight, label) : Bool</a>
+        
+          <div class="summary"><p>Whether the edge between <em>u</em> and <em>v</em> with the given attributes is part of the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_edge?(u:V,v:V):Bool-instance-method" class="signature"><strong>#has_edge?</strong>(u : V, v : V) : Bool</a>
+        
+          <div class="summary"><p>Whether the edge between <em>u</em> and <em>v</em> is part of the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_edge?(edge:Weightable):Bool-instance-method" class="signature"><strong>#has_edge?</strong>(edge : Weightable) : Bool</a>
+        
+          <div class="summary"><p>Whether the given edge is part of the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_edge?(edge:AnyEdge(V)):Bool-instance-method" class="signature"><strong>#has_edge?</strong>(edge : AnyEdge(V)) : Bool</a>
+        
+          <div class="summary"><p>Whether the given edge is part of the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_vertex?(v:V):Bool-instance-method" class="signature"><strong>#has_vertex?</strong>(v : V) : Bool</a>
+        
+          <div class="summary"><p>Whether the given vertex <em>v</em> is part of the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hash(hasher)-instance-method" class="signature"><strong>#hash</strong>(hasher)</a>
+        
+          <div class="summary"><p>See <code>Object#hash(hasher)</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_degree_of(v:V):Int32-instance-method" class="signature"><strong>#in_degree_of</strong>(v : V) : Int32</a>
+        
+          <div class="summary"><p>Returns the incoming degree of the given vertex <em>v</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#label_of(u:V,v:V)-instance-method" class="signature"><strong>#label_of</strong>(u : V, v : V)</a>
+        
+          <div class="summary"><p>Returns the label associated with the given edge if it exists, raises <code><a href="../CGL/EdgeError.html">EdgeError</a></code> otherwise</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#label_of?(u:V,v:V)-instance-method" class="signature"><strong>#label_of?</strong>(u : V, v : V)</a>
+        
+          <div class="summary"><p>Returns the label associated with the given edge if it exists, otherwise returns <code>nil</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#labeled?:Bool-instance-method" class="signature"><strong>#labeled?</strong> : Bool</a>
+        
+          <div class="summary"><p>Whether edges are labeled.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#order:Int32-instance-method" class="signature"><strong>#order</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the number of vertices in <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#out_degree_of(v:V):Int32-instance-method" class="signature"><strong>#out_degree_of</strong>(v : V) : Int32</a>
+        
+          <div class="summary"><p>Returns the outgoing degree of the given vertex <em>v</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_edge(u:V,v:V)-instance-method" class="signature"><strong>#remove_edge</strong>(u : V, v : V)</a>
+        
+          <div class="summary"><p>Deletes the given edge and returns it, otherwise returns <code>nil</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_vertex(v:V)-instance-method" class="signature"><strong>#remove_vertex</strong>(v : V)</a>
+        
+          <div class="summary"><p>Remove given vertex <em>v</em> from this graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shortest_path(source:V,target:V)-instance-method" class="signature"><strong>#shortest_path</strong>(source : V, target : V)</a>
+        
+          <div class="summary"><p>Returns a shortest path between the given vertices.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shortest_path_dijkstra(source:V,target:V)-instance-method" class="signature"><strong>#shortest_path_dijkstra</strong>(source : V, target : V)</a>
+        
+          <div class="summary"><p>Returns the shortest <em>weighted</em> path between the given vertices.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shortest_path_unweighted(source:V,target:V)-instance-method" class="signature"><strong>#shortest_path_unweighted</strong>(source : V, target : V)</a>
+        
+          <div class="summary"><p>Returns the shortest <em>unweighted</em> path between the given vertices.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size:Int32-instance-method" class="signature"><strong>#size</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the number of edges in <code>self</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subgraph(vertices:Enumerable(V),*,clone:Bool=false):AnyGraph(V)-instance-method" class="signature"><strong>#subgraph</strong>(vertices : Enumerable(V), *, clone : Bool = <span class="n">false</span>) : AnyGraph(V)</a>
+        
+          <div class="summary"><p>Returns a subgraph containing the given <em>vertices</em> as well as the existing edges between those vertices.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subgraph(edges:Enumerable(AnyEdge(V)),*,clone:Bool=false):AnyGraph(V)-instance-method" class="signature"><strong>#subgraph</strong>(edges : Enumerable(AnyEdge(V)), *, clone : Bool = <span class="n">false</span>) : AnyGraph(V)</a>
+        
+          <div class="summary"><p>Returns a subgraph containing the given <em>edges</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_a:Array(AnyEdge(V))-instance-method" class="signature"><strong>#to_a</strong> : Array(AnyEdge(V))</a>
+        
+          <div class="summary"><p>See <code><a href="../CGL/AnyGraph.html#edges:Array(AnyEdge(V))-instance-method">#edges</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_dot(path:String)-instance-method" class="signature"><strong>#to_dot</strong>(path : String)</a>
+        
+          <div class="summary"><p>Generates a DOT file representing the graph at the given <em>path</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_dot(io:IO)-instance-method" class="signature"><strong>#to_dot</strong>(io : IO)</a>
+        
+          <div class="summary"><p>Generates a DOT representation of the graph using the given <code>IO</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#weight_of(u:V,v:V)-instance-method" class="signature"><strong>#weight_of</strong>(u : V, v : V)</a>
+        
+          <div class="summary"><p>Returns the weight associated with the given edge if it exists, otherwise <code><a href="../CGL/EdgeError.html">EdgeError</a></code> otherwise.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#weight_of?(u:V,v:V)-instance-method" class="signature"><strong>#weight_of?</strong>(u : V, v : V)</a>
+        
+          <div class="summary"><p>Returns the weight associated with the given edge if it exists, otherwise returns <code>nil</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#weighted?:Bool-instance-method" class="signature"><strong>#weighted?</strong> : Bool</a>
+        
+          <div class="summary"><p>Whether edges are weighted.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="==(other:self)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : <span class="k">self</span>)
+
+        <a class="method-permalink" href="#==(other:self)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether <code>self</code> is equal to <em>other</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="==(other)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other)
+
+        <a class="method-permalink" href="#==(other)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Reference
+            </div>
+          
+          <p>Returns <code>false</code> (other can only be a <code>Value</code> here).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="accept(visitor:Visitor(V))-instance-method">
+      <div class="signature">
+        
+        def <strong>accept</strong>(visitor : <a href="../CGL/Visitor.html">Visitor</a>(V))
+
+        <a class="method-permalink" href="#accept(visitor:Visitor(V))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add_edge(u:V,v:V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>add_edge</strong>(u : V, v : V)
+
+        <a class="method-permalink" href="#add_edge(u:V,v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Add an edge between vertices <em>u</em> and <em>v</em>.</p>
+
+<p>The given vertices are automatically added if they are not already part
+of the graph.</p>
+
+<p>A <em>weight</em> and/or a label can be associated to the edge if
+the concrete class supports it.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add_edge(edge:AnyEdge(V))-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>add_edge</strong>(edge : <a href="../CGL/AnyEdge.html">AnyEdge</a>(V))
+
+        <a class="method-permalink" href="#add_edge(edge:AnyEdge(V))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Add the given <em>edge</em> to the graph.</p>
+
+<p>See <code>#add_edge(u : V, v : V, weight, label)</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add_vertex(v:V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>add_vertex</strong>(v : V)
+
+        <a class="method-permalink" href="#add_vertex(v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Add a single vertex (a.k.a. node) to this graph.</p>
+
+<pre><code class="language-crystal">g <span class="o">=</span> <span class="t">CGL</span><span class="t">::</span><span class="t">Graph</span>(<span class="t">String</span>).<span class="k">new</span>
+g.add_vertex(<span class="s">&quot;Hello&quot;</span>)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="breadth_first_search(fromvertex:V):Iterator(V)-instance-method">
+      <div class="signature">
+        
+        def <strong>breadth_first_search</strong>(from vertex : V) : Iterator(V)
+
+        <a class="method-permalink" href="#breadth_first_search(fromvertex:V):Iterator(V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an iterator over vertices from the given source <em>v</em> in a
+<strong>breadth</strong>-first search (DFS).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="breadth_first_search(fromvertex:V,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>breadth_first_search</strong>(from vertex : V, &)
+
+        <a class="method-permalink" href="#breadth_first_search(fromvertex:V,&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields vertices from the given source <em>v</em> in a
+<strong>breadth</strong>-first search (DFS).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>clear</strong>
+
+        <a class="method-permalink" href="#clear-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Empties an <code><a href="../CGL/AnyGraph.html">AnyGraph</a></code> and returns it.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clone-instance-method">
+      <div class="signature">
+        
+        def <strong>clone</strong>
+
+        <a class="method-permalink" href="#clone-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a deep copy of <code>self</code>.</p>
+
+<p>Similar to <code><a href="../CGL/AnyGraph.html#dup-instance-method">#dup</a></code>, but duplicates the nodes and edges attributes as well.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="count_simple_paths(source:V,target:V)-instance-method">
+      <div class="signature">
+        
+        def <strong>count_simple_paths</strong>(source : V, target : V)
+
+        <a class="method-permalink" href="#count_simple_paths(source:V,target:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Count all simple paths between the two given vertices,
+where a simple path is a path with no repeated nodes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="degree_of(v:V):Int32-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>degree_of</strong>(v : V) : Int32
+
+        <a class="method-permalink" href="#degree_of(v:V):Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the degree of the given vertex <em>v</em>.</p>
+
+<p>For directed graphs, the value equals <code><a href="../CGL/AnyGraph.html#out_degree_of(v:V):Int32-instance-method">#out_degree_of</a></code>.</p>
+
+<p>For undirected graphs, the value is the sum of <code><a href="../CGL/AnyGraph.html#in_degree_of(v:V):Int32-instance-method">#in_degree_of</a></code> and
+<code><a href="../CGL/AnyGraph.html#in_degree_of(v:V):Int32-instance-method">#in_degree_of</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="density:Float64-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>density</strong> : Float64
+
+        <a class="method-permalink" href="#density:Float64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the density of <code>self</code>.</p>
+
+<p>Self loops are counted in the total number of edges so graphs with self
+loops can have density higher than 1.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="depth_first_search(fromvertex:V):Iterator(V)-instance-method">
+      <div class="signature">
+        
+        def <strong>depth_first_search</strong>(from vertex : V) : Iterator(V)
+
+        <a class="method-permalink" href="#depth_first_search(fromvertex:V):Iterator(V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an iterator over vertices from the given source <em>v</em> in a
+<strong>depth</strong>-first search (DFS).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="depth_first_search(fromvertex:V,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>depth_first_search</strong>(from vertex : V, &)
+
+        <a class="method-permalink" href="#depth_first_search(fromvertex:V,&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields vertices from the given source <em>v</em> in a
+<strong>depth</strong>-first search (DFS).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="depth_first_search(vertex:V,*,colors:Hash(V,Color),&)-instance-method">
+      <div class="signature">
+        
+        def <strong>depth_first_search</strong>(vertex : V, *, colors : Hash(V, <a href="../CGL/Color.html">Color</a>), &)
+
+        <a class="method-permalink" href="#depth_first_search(vertex:V,*,colors:Hash(V,Color),&)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="depth_first_search(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>depth_first_search</strong>(&)
+
+        <a class="method-permalink" href="#depth_first_search(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields all vertices of <code>self</code>, which are traversed following a
+depth-first search (DFS) on the whole graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="depth_first_search:Iterator(V)-instance-method">
+      <div class="signature">
+        
+        def <strong>depth_first_search</strong> : Iterator(V)
+
+        <a class="method-permalink" href="#depth_first_search:Iterator(V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an iterator over all vertices of <code>self</code>, which are traversed
+following a depth-first search (DFS) on the whole graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="directed?:Bool-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>directed?</strong> : Bool
+
+        <a class="method-permalink" href="#directed?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether <code>self</code> is directed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dup-instance-method">
+      <div class="signature">
+        
+        def <strong>dup</strong>
+
+        <a class="method-permalink" href="#dup-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a shallow copy of <code>self</code>.</p>
+
+<p>The internal data structures are copied, not</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_adjacent(u:V):Iterator(V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>each_adjacent</strong>(u : V) : Iterator(V)
+
+        <a class="method-permalink" href="#each_adjacent(u:V):Iterator(V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an iterator over each vertex adjacent to <em>u</em> in the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_adjacent(u:V,&:V->)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>each_adjacent</strong>(u : V, & : V -> )
+
+        <a class="method-permalink" href="#each_adjacent(u:V,&:V-%3E)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields each vertex adjacent to <em>u</em> in the graph.</p>
+
+<pre><code class="language-crystal">g <span class="o">=</span> <span class="t">Graph</span>(<span class="t">String</span>).<span class="k">new</span>(edges: [{<span class="s">&quot;b&quot;</span>, <span class="s">&quot;a&quot;</span>}, {<span class="s">&quot;a&quot;</span>, <span class="s">&quot;c&quot;</span>}])
+g.each_adjacent(<span class="s">&quot;a&quot;</span>) <span class="k">do</span> <span class="o">|</span>v<span class="o">|</span>
+  puts v
+<span class="k">end</span></code></pre>
+
+<p>Output:</p>
+
+<pre><code class="language-crystal">b
+c</code></pre>
+
+<p>For directed graphs, adjacent vertices are found following outgoing
+edges.</p>
+
+<pre><code class="language-crystal">g <span class="o">=</span> <span class="t">DiGraph</span>(<span class="t">String</span>).<span class="k">new</span>(edges: [{<span class="s">&quot;b&quot;</span>, <span class="s">&quot;a&quot;</span>}, {<span class="s">&quot;a&quot;</span>, <span class="s">&quot;c&quot;</span>}])
+g.each_adjacent(<span class="s">&quot;a&quot;</span>) <span class="k">do</span> <span class="o">|</span>v<span class="o">|</span>
+  puts v
+<span class="k">end</span></code></pre>
+
+<p>Output:</p>
+
+<pre><code class="language-crystal">c</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_edge:Iterator(AnyEdge(V))-instance-method">
+      <div class="signature">
+        
+        def <strong>each_edge</strong> : Iterator(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V))
+
+        <a class="method-permalink" href="#each_edge:Iterator(AnyEdge(V))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an iterator over each edge in the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_edge(&:AnyEdge(V)->)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>each_edge</strong>(& : <a href="../CGL/AnyEdge.html">AnyEdge</a>(V) -> )
+
+        <a class="method-permalink" href="#each_edge(&:AnyEdge(V)-%3E)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields each edges in the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_edge_from(u:V,&:AnyEdge(V)->)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>each_edge_from</strong>(u : V, & : <a href="../CGL/AnyEdge.html">AnyEdge</a>(V) -> )
+
+        <a class="method-permalink" href="#each_edge_from(u:V,&:AnyEdge(V)-%3E)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields each edge incident to <em>u</em> in the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_vertex(&:V->)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>each_vertex</strong>(& : V -> )
+
+        <a class="method-permalink" href="#each_vertex(&:V-%3E)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields each vertex of the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_vertex:Iterator(V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>each_vertex</strong> : Iterator(V)
+
+        <a class="method-permalink" href="#each_vertex:Iterator(V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an iterator over each vertex of the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="edge(u:V,v:V)-instance-method">
+      <div class="signature">
+        
+        def <strong>edge</strong>(u : V, v : V)
+
+        <a class="method-permalink" href="#edge(u:V,v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an edge data structure between <em>u</em> and <em>v</em> if present in the
+graph, otherwise raises an <code><a href="../CGL/EdgeError.html">EdgeError</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="edge(u:V,v:V,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>edge</strong>(u : V, v : V, &)
+
+        <a class="method-permalink" href="#edge(u:V,v:V,&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an edge data structure between <em>u</em> and <em>v</em> if present in the
+graph, otherwise returns the value of the given block.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="edge?(u:V,v:V)-instance-method">
+      <div class="signature">
+        
+        def <strong>edge?</strong>(u : V, v : V)
+
+        <a class="method-permalink" href="#edge?(u:V,v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an edge data structure between <em>u</em> and <em>v</em> if present in the
+graph, otherwise returns <code>nil</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="edges:Array(AnyEdge(V))-instance-method">
+      <div class="signature">
+        
+        def <strong>edges</strong> : Array(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V))
+
+        <a class="method-permalink" href="#edges:Array(AnyEdge(V))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an array of edges belonging to this graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="empty?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>empty?</strong> : Bool
+
+        <a class="method-permalink" href="#empty?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether the graph is empty.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_edge?(edge:Labelable):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_edge?</strong>(edge : <a href="../CGL/Labelable.html">Labelable</a>) : Bool
+
+        <a class="method-permalink" href="#has_edge?(edge:Labelable):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether the given edge is part of the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_edge?(u:V,v:V,weight,label):Bool-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>has_edge?</strong>(u : V, v : V, weight, label) : Bool
+
+        <a class="method-permalink" href="#has_edge?(u:V,v:V,weight,label):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether the edge between <em>u</em> and <em>v</em> with the given attributes
+is part of the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_edge?(u:V,v:V):Bool-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>has_edge?</strong>(u : V, v : V) : Bool
+
+        <a class="method-permalink" href="#has_edge?(u:V,v:V):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether the edge between <em>u</em> and <em>v</em> is part of the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_edge?(edge:Weightable):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_edge?</strong>(edge : <a href="../CGL/Weightable.html">Weightable</a>) : Bool
+
+        <a class="method-permalink" href="#has_edge?(edge:Weightable):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether the given edge is part of the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_edge?(edge:AnyEdge(V)):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_edge?</strong>(edge : <a href="../CGL/AnyEdge.html">AnyEdge</a>(V)) : Bool
+
+        <a class="method-permalink" href="#has_edge?(edge:AnyEdge(V)):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether the given edge is part of the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_vertex?(v:V):Bool-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>has_vertex?</strong>(v : V) : Bool
+
+        <a class="method-permalink" href="#has_vertex?(v:V):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether the given vertex <em>v</em> is part of the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hash(hasher)-instance-method">
+      <div class="signature">
+        
+        def <strong>hash</strong>(hasher)
+
+        <a class="method-permalink" href="#hash(hasher)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code>Object#hash(hasher)</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_degree_of(v:V):Int32-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>in_degree_of</strong>(v : V) : Int32
+
+        <a class="method-permalink" href="#in_degree_of(v:V):Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the incoming degree of the given vertex <em>v</em>.</p>
+
+<p>For undirected graphs, the value equals <code><a href="../CGL/AnyGraph.html#degree_of(v:V):Int32-instance-method">#degree_of</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="label_of(u:V,v:V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>label_of</strong>(u : V, v : V)
+
+        <a class="method-permalink" href="#label_of(u:V,v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the label associated with the given edge if it exists, raises
+<code><a href="../CGL/EdgeError.html">EdgeError</a></code> otherwise</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="label_of?(u:V,v:V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>label_of?</strong>(u : V, v : V)
+
+        <a class="method-permalink" href="#label_of?(u:V,v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the label associated with the given edge if it exists, otherwise
+returns <code>nil</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="labeled?:Bool-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>labeled?</strong> : Bool
+
+        <a class="method-permalink" href="#labeled?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether edges are labeled.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="order:Int32-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>order</strong> : Int32
+
+        <a class="method-permalink" href="#order:Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of vertices in <code>self</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="out_degree_of(v:V):Int32-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>out_degree_of</strong>(v : V) : Int32
+
+        <a class="method-permalink" href="#out_degree_of(v:V):Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the outgoing degree of the given vertex <em>v</em>.</p>
+
+<p>For undirected graphs, the value equals <code><a href="../CGL/AnyGraph.html#degree_of(v:V):Int32-instance-method">#degree_of</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_edge(u:V,v:V)-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_edge</strong>(u : V, v : V)
+
+        <a class="method-permalink" href="#remove_edge(u:V,v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Deletes the given edge and returns it, otherwise returns <code>nil</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_vertex(v:V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>remove_vertex</strong>(v : V)
+
+        <a class="method-permalink" href="#remove_vertex(v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Remove given vertex <em>v</em> from this graph.
+Edges incident to <em>v</em> are also removed.</p>
+
+<p>Raises a <code><a href="../CGL/GraphError.html">GraphError</a></code> if vertex is not part of the graph.</p>
+
+<pre><code class="language-crystal">g <span class="o">=</span> <span class="t">CGL</span><span class="t">::</span><span class="t">Graph</span>(<span class="t">String</span>).<span class="k">new</span>(edges: [{<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>}, {<span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>}])
+g.size <span class="c"># =&gt; 2</span>
+g.remove_vertex(<span class="s">&quot;b&quot;</span>)
+g.size <span class="c"># =&gt; 0</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shortest_path(source:V,target:V)-instance-method">
+      <div class="signature">
+        
+        def <strong>shortest_path</strong>(source : V, target : V)
+
+        <a class="method-permalink" href="#shortest_path(source:V,target:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a shortest path between the given vertices.</p>
+
+<p>Note: Tries to select the most appropriate algorithm for <code>self</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shortest_path_dijkstra(source:V,target:V)-instance-method">
+      <div class="signature">
+        
+        def <strong>shortest_path_dijkstra</strong>(source : V, target : V)
+
+        <a class="method-permalink" href="#shortest_path_dijkstra(source:V,target:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the shortest <em>weighted</em> path between the given vertices.</p>
+
+<p>Raises if <code>self</code> is not a weighted graph.</p>
+
+<p>Note: Uses Dijkstra's algorithm. Not appropriate for graphs
+with negative weights and/or negative cycles.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shortest_path_unweighted(source:V,target:V)-instance-method">
+      <div class="signature">
+        
+        def <strong>shortest_path_unweighted</strong>(source : V, target : V)
+
+        <a class="method-permalink" href="#shortest_path_unweighted(source:V,target:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the shortest <em>unweighted</em> path between the given vertices.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size:Int32-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>size</strong> : Int32
+
+        <a class="method-permalink" href="#size:Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of edges in <code>self</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subgraph(vertices:Enumerable(V),*,clone:Bool=false):AnyGraph(V)-instance-method">
+      <div class="signature">
+        
+        def <strong>subgraph</strong>(vertices : Enumerable(V), *, clone : Bool = <span class="n">false</span>) : <a href="../CGL/AnyGraph.html">AnyGraph</a>(V)
+
+        <a class="method-permalink" href="#subgraph(vertices:Enumerable(V),*,clone:Bool=false):AnyGraph(V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a subgraph containing the given <em>vertices</em>
+as well as the existing edges between those vertices.</p>
+
+<p>If <em>copy</em> is set to <code>true</code>, the vertices as well as edge attributes are
+deep copies, otherwise they are shallow copies.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subgraph(edges:Enumerable(AnyEdge(V)),*,clone:Bool=false):AnyGraph(V)-instance-method">
+      <div class="signature">
+        
+        def <strong>subgraph</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V)), *, clone : Bool = <span class="n">false</span>) : <a href="../CGL/AnyGraph.html">AnyGraph</a>(V)
+
+        <a class="method-permalink" href="#subgraph(edges:Enumerable(AnyEdge(V)),*,clone:Bool=false):AnyGraph(V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a subgraph containing the given <em>edges</em>.</p>
+
+<p>If <em>copy</em> is set to <code>true</code>, the vertices as well as edge attributes are
+deep copies, otherwise they are shallow copies.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_a:Array(AnyEdge(V))-instance-method">
+      <div class="signature">
+        
+        def <strong>to_a</strong> : Array(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V))
+
+        <a class="method-permalink" href="#to_a:Array(AnyEdge(V))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>See <code><a href="../CGL/AnyGraph.html#edges:Array(AnyEdge(V))-instance-method">#edges</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_dot(path:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_dot</strong>(path : String)
+
+        <a class="method-permalink" href="#to_dot(path:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generates a DOT file representing the graph at the given <em>path</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_dot(io:IO)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_dot</strong>(io : IO)
+
+        <a class="method-permalink" href="#to_dot(io:IO)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generates a DOT representation of the graph using the given <code>IO</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="weight_of(u:V,v:V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>weight_of</strong>(u : V, v : V)
+
+        <a class="method-permalink" href="#weight_of(u:V,v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the weight associated with the given edge if it exists, otherwise
+<code><a href="../CGL/EdgeError.html">EdgeError</a></code> otherwise.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="weight_of?(u:V,v:V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>weight_of?</strong>(u : V, v : V)
+
+        <a class="method-permalink" href="#weight_of?(u:V,v:V)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the weight associated with the given edge if it exists, otherwise
+returns <code>nil</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="weighted?:Bool-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>weighted?</strong> : Bool
+
+        <a class="method-permalink" href="#weighted?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether edges are weighted.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

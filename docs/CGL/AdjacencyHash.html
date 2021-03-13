@@ -3,194 +3,235 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.33.0">
+<meta name="generator" content="Crystal Docs 1.0.0-dev">
+<meta name="crystal_docs.project_version" content="0.2.0">
+<meta name="crystal_docs.project_name" content="cgl">
+
+
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="cgl">
+  <title>CGL::AdjacencyHash(V, W, L) - cgl 0.2.0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
-
-  <meta id="repository-name" content="github.com/RomainFranceschini/cgl">
-  <title>CGL::AdjacencyHash(V, W, L) - github.com/RomainFranceschini/cgl</title>
-  <script type="text/javascript">
-    CrystalDoc.base_path = "../";
-  </script>
-</head>
-<body>
-
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
       <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
     </div>
 
-    <div class="repository-links">
-      <a href="../index.html">README</a>
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          cgl
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.2.0
+      </span>
     </div>
   </div>
 
-  <div class="search-results" class="hidden">
+  <div class="search-results hidden">
     <ul class="search-list"></ul>
   </div>
 
   <div class="types-list">
     <ul>
   
-  <li class="parent open current" data-id="github.com/RomainFranceschini/cgl/CGL" data-name="cgl">
+  <li class="parent open current" data-id="cgl/CGL" data-name="cgl">
       <a href="../CGL.html">CGL</a>
       
         <ul>
   
-  <li class=" current" data-id="github.com/RomainFranceschini/cgl/CGL/AdjacencyHash" data-name="cgl::adjacencyhash(v, w, l)">
+  <li class=" " data-id="cgl/CGL/AbstractDiGraph" data-name="cgl::abstractdigraph(v)">
+      <a href="../CGL/AbstractDiGraph.html">AbstractDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AbstractGraph" data-name="cgl::abstractgraph(v)">
+      <a href="../CGL/AbstractGraph.html">AbstractGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AdjacencyDiGraph" data-name="cgl::adjacencydigraph(v, w, l)">
+      <a href="../CGL/AdjacencyDiGraph.html">AdjacencyDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AdjacencyGraph" data-name="cgl::adjacencygraph(v, w, l)">
+      <a href="../CGL/AdjacencyGraph.html">AdjacencyGraph</a>
+      
+    </li>
+  
+  <li class=" current" data-id="cgl/CGL/AdjacencyHash" data-name="cgl::adjacencyhash(v, w, l)">
       <a href="../CGL/AdjacencyHash.html">AdjacencyHash</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/AnyEdge" data-name="cgl::anyedge(v)">
+  <li class=" " data-id="cgl/CGL/AnyEdge" data-name="cgl::anyedge(v)">
       <a href="../CGL/AnyEdge.html">AnyEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/BFSIterator" data-name="cgl::bfsiterator(v)">
+  <li class=" " data-id="cgl/CGL/AnyGraph" data-name="cgl::anygraph(v)">
+      <a href="../CGL/AnyGraph.html">AnyGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/BFSIterator" data-name="cgl::bfsiterator(v)">
       <a href="../CGL/BFSIterator.html">BFSIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Color" data-name="cgl::color">
+  <li class=" " data-id="cgl/CGL/BinaryHeap" data-name="cgl::binaryheap(t)">
+      <a href="../CGL/BinaryHeap.html">BinaryHeap</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Color" data-name="cgl::color">
       <a href="../CGL/Color.html">Color</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/DFSIterator" data-name="cgl::dfsiterator(v)">
+  <li class=" " data-id="cgl/CGL/DFSIterator" data-name="cgl::dfsiterator(v)">
       <a href="../CGL/DFSIterator.html">DFSIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/DiEdge" data-name="cgl::diedge(v)">
+  <li class=" " data-id="cgl/CGL/DiEdge" data-name="cgl::diedge(v)">
       <a href="../CGL/DiEdge.html">DiEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/DiGraph" data-name="cgl::digraph(v)">
+  <li class=" " data-id="cgl/CGL/DiGraph" data-name="cgl::digraph(v)">
       <a href="../CGL/DiGraph.html">DiGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Directed" data-name="cgl::directed(v)">
+  <li class=" " data-id="cgl/CGL/Directed" data-name="cgl::directed(v)">
       <a href="../CGL/Directed.html">Directed</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/DotVisitor" data-name="cgl::dotvisitor(v)">
+  <li class=" " data-id="cgl/CGL/DotVisitor" data-name="cgl::dotvisitor(v)">
       <a href="../CGL/DotVisitor.html">DotVisitor</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Edge" data-name="cgl::edge(v)">
+  <li class=" " data-id="cgl/CGL/Edge" data-name="cgl::edge(v)">
       <a href="../CGL/Edge.html">Edge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/EdgeError" data-name="cgl::edgeerror">
+  <li class=" " data-id="cgl/CGL/EdgeError" data-name="cgl::edgeerror">
       <a href="../CGL/EdgeError.html">EdgeError</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/EdgeIterator" data-name="cgl::edgeiterator(v)">
+  <li class=" " data-id="cgl/CGL/EdgeIterator" data-name="cgl::edgeiterator(v)">
       <a href="../CGL/EdgeIterator.html">EdgeIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Graph" data-name="cgl::graph(v)">
+  <li class=" " data-id="cgl/CGL/Graph" data-name="cgl::graph(v)">
       <a href="../CGL/Graph.html">Graph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/GraphError" data-name="cgl::grapherror">
+  <li class=" " data-id="cgl/CGL/GraphError" data-name="cgl::grapherror">
       <a href="../CGL/GraphError.html">GraphError</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/GraphIterator" data-name="cgl::graphiterator(v)">
+  <li class=" " data-id="cgl/CGL/GraphIterator" data-name="cgl::graphiterator(v)">
       <a href="../CGL/GraphIterator.html">GraphIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/IGraph" data-name="cgl::igraph(v)">
-      <a href="../CGL/IGraph.html">IGraph</a>
+  <li class=" " data-id="cgl/CGL/GraphSourceIterator" data-name="cgl::graphsourceiterator(v)">
+      <a href="../CGL/GraphSourceIterator.html">GraphSourceIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Labelable" data-name="cgl::labelable(l)">
+  <li class=" " data-id="cgl/CGL/Labelable" data-name="cgl::labelable(l)">
       <a href="../CGL/Labelable.html">Labelable</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/LabeledDiGraph" data-name="cgl::labeleddigraph(v, l)">
+  <li class=" " data-id="cgl/CGL/LabeledDiGraph" data-name="cgl::labeleddigraph(v, l)">
       <a href="../CGL/LabeledDiGraph.html">LabeledDiGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/LabeledGraph" data-name="cgl::labeledgraph(v, l)">
+  <li class=" " data-id="cgl/CGL/LabeledGraph" data-name="cgl::labeledgraph(v, l)">
       <a href="../CGL/LabeledGraph.html">LabeledGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/LDiEdge" data-name="cgl::ldiedge(v, l)">
+  <li class=" " data-id="cgl/CGL/LDiEdge" data-name="cgl::ldiedge(v, l)">
       <a href="../CGL/LDiEdge.html">LDiEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/LEdge" data-name="cgl::ledge(v, l)">
+  <li class=" " data-id="cgl/CGL/LEdge" data-name="cgl::ledge(v, l)">
       <a href="../CGL/LEdge.html">LEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Undirected" data-name="cgl::undirected(v)">
+  <li class=" " data-id="cgl/CGL/Undirected" data-name="cgl::undirected(v)">
       <a href="../CGL/Undirected.html">Undirected</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Visitor" data-name="cgl::visitor(v)">
+  <li class=" " data-id="cgl/CGL/Visitor" data-name="cgl::visitor(v)">
       <a href="../CGL/Visitor.html">Visitor</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WDiEdge" data-name="cgl::wdiedge(v, w)">
+  <li class=" " data-id="cgl/CGL/WDiEdge" data-name="cgl::wdiedge(v, w)">
       <a href="../CGL/WDiEdge.html">WDiEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WEdge" data-name="cgl::wedge(v, w)">
+  <li class=" " data-id="cgl/CGL/WEdge" data-name="cgl::wedge(v, w)">
       <a href="../CGL/WEdge.html">WEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Weightable" data-name="cgl::weightable(t)">
+  <li class=" " data-id="cgl/CGL/Weightable" data-name="cgl::weightable(t)">
       <a href="../CGL/Weightable.html">Weightable</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WeightedDiGraph" data-name="cgl::weighteddigraph(v, w)">
+  <li class=" " data-id="cgl/CGL/WeightedDiGraph" data-name="cgl::weighteddigraph(v, w)">
       <a href="../CGL/WeightedDiGraph.html">WeightedDiGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WeightedGraph" data-name="cgl::weightedgraph(v, w)">
+  <li class=" " data-id="cgl/CGL/WeightedGraph" data-name="cgl::weightedgraph(v, w)">
       <a href="../CGL/WeightedGraph.html">WeightedGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WeightedLabeledDiGraph" data-name="cgl::weightedlabeleddigraph(v, w, l)">
+  <li class=" " data-id="cgl/CGL/WeightedLabeledDiGraph" data-name="cgl::weightedlabeleddigraph(v, w, l)">
       <a href="../CGL/WeightedLabeledDiGraph.html">WeightedLabeledDiGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WeightedLabeledGraph" data-name="cgl::weightedlabeledgraph(v, w, l)">
+  <li class=" " data-id="cgl/CGL/WeightedLabeledGraph" data-name="cgl::weightedlabeledgraph(v, w, l)">
       <a href="../CGL/WeightedLabeledGraph.html">WeightedLabeledGraph</a>
       
     </li>
@@ -226,7 +267,7 @@
     Overview
   </h2>
 
-  <p>Reusable adjacency list representation for a <code><a href="../CGL/IGraph.html">IGraph</a></code>.</p>
+  <p>Reusable adjacency list representation for an <code><a href="../CGL/AnyGraph.html">AnyGraph</a></code>.</p>
 
 <p>Uses a hash table to associate each vertex <code>V</code> with a set of adjacent
 vertices. The set is backed by another hash table that can be used to store
@@ -252,21 +293,9 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
   </h2>
   <ul class="other-types-list">
     
-      <li class="other-type"><a href="../CGL/DiGraph.html">CGL::DiGraph(V)</a></li>
+      <li class="other-type"><a href="../CGL/AdjacencyDiGraph.html">CGL::AdjacencyDiGraph(V, W, L)</a></li>
     
-      <li class="other-type"><a href="../CGL/Graph.html">CGL::Graph(V)</a></li>
-    
-      <li class="other-type"><a href="../CGL/LabeledDiGraph.html">CGL::LabeledDiGraph(V, L)</a></li>
-    
-      <li class="other-type"><a href="../CGL/LabeledGraph.html">CGL::LabeledGraph(V, L)</a></li>
-    
-      <li class="other-type"><a href="../CGL/WeightedDiGraph.html">CGL::WeightedDiGraph(V, W)</a></li>
-    
-      <li class="other-type"><a href="../CGL/WeightedGraph.html">CGL::WeightedGraph(V, W)</a></li>
-    
-      <li class="other-type"><a href="../CGL/WeightedLabeledDiGraph.html">CGL::WeightedLabeledDiGraph(V, W, L)</a></li>
-    
-      <li class="other-type"><a href="../CGL/WeightedLabeledGraph.html">CGL::WeightedLabeledGraph(V, W, L)</a></li>
+      <li class="other-type"><a href="../CGL/AdjacencyGraph.html">CGL::AdjacencyGraph(V, W, L)</a></li>
     
   </ul>
 
@@ -283,9 +312,7 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
   </h2>
   
     
-      <a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L7" target="_blank">
-        cgl/representations/adjacency.cr
-      </a>
+      cgl/representations/adjacency.cr
     
     <br/>
   
@@ -315,12 +342,12 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       </li>
     
       <li class="entry-summary">
-        <a href="#new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,&block:-%3EL?)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(CGL::AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> L?)</a>
+        <a href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,&block:-%3EL?)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> L?)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,default_label:L?=nil)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(CGL::AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)</a>
+        <a href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,default_label:L?=nil)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)</a>
         
       </li>
     
@@ -341,7 +368,7 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#add_edge(edge:CGL::AnyEdge(V))-instance-method" class="signature"><strong>#add_edge</strong>(edge : CGL::AnyEdge(V))</a>
+        <a href="#add_edge(edge:AnyEdge(V))-instance-method" class="signature"><strong>#add_edge</strong>(edge : AnyEdge(V))</a>
         
       </li>
     
@@ -356,17 +383,12 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       </li>
     
       <li class="entry-summary">
-        <a href="#each_adjacent(u:V,&:V-%3E)-instance-method" class="signature"><strong>#each_adjacent</strong>(u : V, & : V -> )</a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#each_adjacent(u:V):Iterator(V)-instance-method" class="signature"><strong>#each_adjacent</strong>(u : V) : Iterator(V)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#each_vertex(&:V-%3E)-instance-method" class="signature"><strong>#each_vertex</strong>(& : V -> )</a>
+        <a href="#each_adjacent(u:V,&:V-%3E)-instance-method" class="signature"><strong>#each_adjacent</strong>(u : V, & : V -> )</a>
         
       </li>
     
@@ -376,7 +398,17 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       </li>
     
       <li class="entry-summary">
+        <a href="#each_vertex(&:V-%3E)-instance-method" class="signature"><strong>#each_vertex</strong>(& : V -> )</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#has_edge?(u:V,v:V,weight:W,label:L?):Bool-instance-method" class="signature"><strong>#has_edge?</strong>(u : V, v : V, weight : W, label : L?) : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_edge?(u:V,v:V,weight,label):Bool-instance-method" class="signature"><strong>#has_edge?</strong>(u : V, v : V, weight, label) : Bool</a>
         
       </li>
     
@@ -403,6 +435,18 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       </li>
     
       <li class="entry-summary">
+        <a href="#label_of?(u:V,v:V):L?-instance-method" class="signature"><strong>#label_of?</strong>(u : V, v : V) : L?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#labeled?:Bool-instance-method" class="signature"><strong>#labeled?</strong> : Bool</a>
+        
+          <div class="summary"><p>Whether edges are labeled.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#order:Int32-instance-method" class="signature"><strong>#order</strong> : Int32</a>
         
       </li>
@@ -421,6 +465,18 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
     
       <li class="entry-summary">
         <a href="#weight_of(u:V,v:V):W-instance-method" class="signature"><strong>#weight_of</strong>(u : V, v : V) : W</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#weight_of?(u:V,v:V):W?-instance-method" class="signature"><strong>#weight_of?</strong>(u : V, v : V) : W?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#weighted?:Bool-instance-method" class="signature"><strong>#weighted?</strong> : Bool</a>
+        
+          <div class="summary"><p>Whether edges are weighted.</p></div>
         
       </li>
     
@@ -444,7 +500,7 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:W?=nil,&amp;block:-&gt;L?)-class-method">
+    <div class="entry-detail" id="new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:W?=nil,&block:->L?)-class-method">
       <div class="signature">
         
         def self.<strong>new</strong>(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : W? = <span class="n">nil</span>, &block :  -> L?)
@@ -454,8 +510,6 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L44" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -471,39 +525,33 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L57" target="_blank">View source</a>]
-        
       </div>
     </div>
   
-    <div class="entry-detail" id="new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,&amp;block:-&gt;L?)-class-method">
+    <div class="entry-detail" id="new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,&block:->L?)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">CGL::AnyEdge</a>(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> L?)
+        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> L?)
 
-        <a class="method-permalink" href="#new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,&block:-%3EL?)-class-method">#</a>
+        <a class="method-permalink" href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,&block:-%3EL?)-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L70" target="_blank">View source</a>]
-        
       </div>
     </div>
   
-    <div class="entry-detail" id="new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,default_label:L?=nil)-class-method">
+    <div class="entry-detail" id="new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,default_label:L?=nil)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">CGL::AnyEdge</a>(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)
+        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,default_label:L?=nil)-class-method">#</a>
+        <a class="method-permalink" href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,default_label:L?=nil)-class-method">#</a>
       </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L79" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -522,18 +570,16 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="add_edge(edge:CGL::AnyEdge(V))-instance-method">
+    <div class="entry-detail" id="add_edge(edge:AnyEdge(V))-instance-method">
       <div class="signature">
         
-        def <strong>add_edge</strong>(edge : <a href="../CGL/AnyEdge.html">CGL::AnyEdge</a>(V))
+        def <strong>add_edge</strong>(edge : <a href="../CGL/AnyEdge.html">AnyEdge</a>(V))
 
-        <a class="method-permalink" href="#add_edge(edge:CGL::AnyEdge(V))-instance-method">#</a>
+        <a class="method-permalink" href="#add_edge(edge:AnyEdge(V))-instance-method">#</a>
       </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L88" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -549,8 +595,6 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L110" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -564,24 +608,6 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L104" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="each_adjacent(u:V,&amp;:V-&gt;)-instance-method">
-      <div class="signature">
-        
-        def <strong>each_adjacent</strong>(u : V, & : V -> )
-
-        <a class="method-permalink" href="#each_adjacent(u:V,&:V-%3E)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L156" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -597,23 +623,19 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L162" target="_blank">View source</a>]
-        
       </div>
     </div>
   
-    <div class="entry-detail" id="each_vertex(&amp;:V-&gt;)-instance-method">
+    <div class="entry-detail" id="each_adjacent(u:V,&:V->)-instance-method">
       <div class="signature">
         
-        def <strong>each_vertex</strong>(& : V -> )
+        def <strong>each_adjacent</strong>(u : V, & : V -> )
 
-        <a class="method-permalink" href="#each_vertex(&:V-%3E)-instance-method">#</a>
+        <a class="method-permalink" href="#each_adjacent(u:V,&:V-%3E)-instance-method">#</a>
       </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L140" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -629,7 +651,19 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L144" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_vertex(&:V->)-instance-method">
+      <div class="signature">
+        
+        def <strong>each_vertex</strong>(& : V -> )
+
+        <a class="method-permalink" href="#each_vertex(&:V-%3E)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
@@ -645,7 +679,19 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L118" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_edge?(u:V,v:V,weight,label):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_edge?</strong>(u : V, v : V, weight, label) : Bool
+
+        <a class="method-permalink" href="#has_edge?(u:V,v:V,weight,label):Bool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
@@ -661,8 +707,6 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L114" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -677,12 +721,10 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L152" target="_blank">View source</a>]
-        
       </div>
     </div>
   
-    <div class="entry-detail" id="label_block:-&gt;L?-instance-method">
+    <div class="entry-detail" id="label_block:->L?-instance-method">
       <div class="signature">
         
         def <strong>label_block</strong> :  -> L?
@@ -698,8 +740,6 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L14" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -714,7 +754,38 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L131" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="label_of?(u:V,v:V):L?-instance-method">
+      <div class="signature">
+        
+        def <strong>label_of?</strong>(u : V, v : V) : L?
+
+        <a class="method-permalink" href="#label_of?(u:V,v:V):L?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="labeled?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>labeled?</strong> : Bool
+
+        <a class="method-permalink" href="#labeled?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether edges are labeled.</p>
+        </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
@@ -729,8 +800,6 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L136" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -751,8 +820,6 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L11" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -766,8 +833,6 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L148" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -783,7 +848,38 @@ arbitrary data of type <code>L</code> and a weight of type <code>W</code> with e
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L126" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="weight_of?(u:V,v:V):W?-instance-method">
+      <div class="signature">
+        
+        def <strong>weight_of?</strong>(u : V, v : V) : W?
+
+        <a class="method-permalink" href="#weight_of?(u:V,v:V):W?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="weighted?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>weighted?</strong> : Bool
+
+        <a class="method-permalink" href="#weighted?:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Whether edges are weighted.</p>
+        </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>

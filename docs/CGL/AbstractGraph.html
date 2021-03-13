@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="cgl">
-  <title>CGL::LabeledDiGraph(V, L) - cgl 0.2.0</title>
+  <title>CGL::AbstractGraph(V) - cgl 0.2.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -61,7 +61,7 @@
       
     </li>
   
-  <li class=" " data-id="cgl/CGL/AbstractGraph" data-name="cgl::abstractgraph(v)">
+  <li class=" current" data-id="cgl/CGL/AbstractGraph" data-name="cgl::abstractgraph(v)">
       <a href="../CGL/AbstractGraph.html">AbstractGraph</a>
       
     </li>
@@ -171,7 +171,7 @@
       
     </li>
   
-  <li class=" current" data-id="cgl/CGL/LabeledDiGraph" data-name="cgl::labeleddigraph(v, l)">
+  <li class=" " data-id="cgl/CGL/LabeledDiGraph" data-name="cgl::labeleddigraph(v, l)">
       <a href="../CGL/LabeledDiGraph.html">LabeledDiGraph</a>
       
     </li>
@@ -250,12 +250,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> CGL::LabeledDiGraph(V, L)
+  <span class="kind">abstract class</span> CGL::AbstractGraph(V)
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../CGL/LabeledDiGraph.html">CGL::LabeledDiGraph(V, L)</a></li><li class="superclass"><a href="../CGL/AdjacencyDiGraph.html">CGL::AdjacencyDiGraph(V, Nil, L)</a></li><li class="superclass"><a href="../CGL/AbstractDiGraph.html">CGL::AbstractDiGraph(V)</a></li><li class="superclass"><a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../CGL/AbstractGraph.html">CGL::AbstractGraph(V)</a></li><li class="superclass"><a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -267,6 +267,20 @@
 
 
 
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../CGL/AdjacencyGraph.html">CGL::AdjacencyGraph(V, W, L)</a></li>
+    
+  </ul>
 
 
 
@@ -283,7 +297,12 @@
   </h2>
   
     
-      cgl/digraph.cr
+      cgl/algorithms/components/connected.cr
+    
+    <br/>
+  
+    
+      cgl/igraph.cr
     
     <br/>
   
@@ -292,33 +311,87 @@
 
 
 
+
+
+
+
   <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
+    Instance Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:Nil?=nil,&block:-%3EL?)-class-method" class="signature"><strong>.new</strong>(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : Nil? = <span class="n">nil</span>, &block :  -> L?)</a>
+        <a href="#connected?:Bool-instance-method" class="signature"><strong>#connected?</strong> : Bool</a>
+        
+          <div class="summary"><p>Whether <code>self</code> is connected.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:Nil?=nil,default_label:L?=nil)-class-method" class="signature"><strong>.new</strong>(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : Nil? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)</a>
+        <a href="#count_connected_components:Int32-instance-method" class="signature"><strong>#count_connected_components</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the number of connected components in <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:Nil?=nil,&block:-%3EL?)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(AnyEdge(V)), *, default_weight : Nil? = <span class="n">nil</span>, &block :  -> L?)</a>
+        <a href="#density:Float64-instance-method" class="signature"><strong>#density</strong> : Float64</a>
+        
+          <div class="summary"><p>Returns the density of <code>self</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:Nil?=nil,default_label:L?=nil)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(AnyEdge(V)), *, default_weight : Nil? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)</a>
+        <a href="#directed?:Bool-instance-method" class="signature"><strong>#directed?</strong> : Bool</a>
+        
+          <div class="summary"><p>Whether <code>self</code> is directed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_connected_component(&)-instance-method" class="signature"><strong>#each_connected_component</strong>(&)</a>
+        
+          <div class="summary"><p>Yields each connected component of <code>self</code> as an `Array'.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_connected_component:Iterator(Array(V))-instance-method" class="signature"><strong>#each_connected_component</strong> : Iterator(Array(V))</a>
+        
+          <div class="summary"><p>Returns an <code>Iterator</code> of connected components.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_edge(&:AnyEdge(V)-%3E)-instance-method" class="signature"><strong>#each_edge</strong>(& : AnyEdge(V) -> )</a>
+        
+          <div class="summary"><p>Yields each edges in the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each_edge_from(u:V,&:AnyEdge(V)-%3E)-instance-method" class="signature"><strong>#each_edge_from</strong>(u : V, & : AnyEdge(V) -> )</a>
+        
+          <div class="summary"><p>Yields each edge incident to <em>u</em> in the graph.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#in_degree_of(v:V):Int32-instance-method" class="signature"><strong>#in_degree_of</strong>(v : V) : Int32</a>
+        
+          <div class="summary"><p>Returns the incoming degree of the given vertex <em>v</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#out_degree_of(v:V):Int32-instance-method" class="signature"><strong>#out_degree_of</strong>(v : V) : Int32</a>
+        
+          <div class="summary"><p>Returns the outgoing degree of the given vertex <em>v</em>.</p></div>
         
       </li>
     
@@ -328,246 +401,7 @@
 
 
 
-
-
-
-
 <div class="methods-inherited">
-  
-    
-
-  <h3>Instance methods inherited from class <code><a href="../CGL/AdjacencyDiGraph.html">CGL::AdjacencyDiGraph(V, Nil, L)</a></code></h3>
-  
-  
-    <a href="../CGL/AdjacencyDiGraph.html#add_edge(u:V,v:V,weight:W=self.default_weight,label:L?=self.default_label)-instance-method" class="tooltip">
-      <span>add_edge(u : V, v : V, weight : W = <span class="k">self</span>.default_weight, label : L? = <span class="k">self</span>.default_label)</span>
-    add_edge</a>, 
-    
-  
-    <a href="../CGL/AdjacencyDiGraph.html#each_predecessor(v:V,&:V-%3E)-instance-method" class="tooltip">
-      <span>each_predecessor(v : V, & : V -> )</span>
-    each_predecessor</a>, 
-    
-  
-    <a href="../CGL/AdjacencyDiGraph.html#in_degree_of(v:V):Int32-instance-method" class="tooltip">
-      <span>in_degree_of(v : V) : Int32</span>
-    in_degree_of</a>, 
-    
-  
-    <a href="../CGL/AdjacencyDiGraph.html#out_degree_of(v:V):Int32-instance-method" class="tooltip">
-      <span>out_degree_of(v : V) : Int32</span>
-    out_degree_of</a>, 
-    
-  
-    <a href="../CGL/AdjacencyDiGraph.html#remove_edge(u:V,v:V,&)-instance-method" class="tooltip">
-      <span>remove_edge(u : V, v : V, &)</span>
-    remove_edge</a>, 
-    
-  
-    <a href="../CGL/AdjacencyDiGraph.html#remove_vertex(v:V)-instance-method" class="tooltip">
-      <span>remove_vertex(v : V)</span>
-    remove_vertex</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from class <code><a href="../CGL/AdjacencyDiGraph.html">CGL::AdjacencyDiGraph(V, Nil, L)</a></code></h3>
-  
-  
-    <a href="../CGL/AdjacencyDiGraph.html#new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:Nil?=nil,&block:-%3EL?)-class-method" class="tooltip">
-      <span>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : Nil? = <span class="n">nil</span>, &block :  -> L?)<br/>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : Nil? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)<br/>new(edges : Enumerable(AnyEdge(V)), *, default_weight : Nil? = <span class="n">nil</span>, &block :  -> L?)<br/>new(edges : Enumerable(AnyEdge(V)), *, default_weight : Nil? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../CGL/AdjacencyHash.html">CGL::AdjacencyHash(V, Nil, L)</a></code></h3>
-  
-  
-    <a href="../CGL/AdjacencyHash.html#add_edge(edge:AnyEdge(V))-instance-method" class="tooltip">
-      <span>add_edge(edge : AnyEdge(V))</span>
-    add_edge</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#add_vertex(v:V)-instance-method" class="tooltip">
-      <span>add_vertex(v : V)</span>
-    add_vertex</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#clear-instance-method" class="tooltip">
-      <span>clear</span>
-    clear</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#each_adjacent(u:V):Iterator(V)-instance-method" class="tooltip">
-      <span>each_adjacent(u : V) : Iterator(V)<br/>each_adjacent(u : V, & : V -> )</span>
-    each_adjacent</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#each_vertex:Iterator(V)-instance-method" class="tooltip">
-      <span>each_vertex : Iterator(V)<br/>each_vertex(& : V -> )</span>
-    each_vertex</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#has_edge?(u:V,v:V,weight:W,label:L?):Bool-instance-method" class="tooltip">
-      <span>has_edge?(u : V, v : V, weight : W, label : L?) : Bool<br/>has_edge?(u : V, v : V, weight, label) : Bool<br/>has_edge?(u : V, v : V) : Bool</span>
-    has_edge?</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#has_vertex?(v:V):Bool-instance-method" class="tooltip">
-      <span>has_vertex?(v : V) : Bool</span>
-    has_vertex?</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#label_block:-%3EL?-instance-method" class="tooltip">
-      <span>label_block :  -> L?</span>
-    label_block</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#label_of(u:V,v:V):L?-instance-method" class="tooltip">
-      <span>label_of(u : V, v : V) : L?</span>
-    label_of</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#label_of?(u:V,v:V):L?-instance-method" class="tooltip">
-      <span>label_of?(u : V, v : V) : L?</span>
-    label_of?</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#labeled?:Bool-instance-method" class="tooltip">
-      <span>labeled? : Bool</span>
-    labeled?</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#order:Int32-instance-method" class="tooltip">
-      <span>order : Int32</span>
-    order</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#size:Int32-instance-method" class="tooltip">
-      <span>size : Int32</span>
-    size</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#vertices-instance-method" class="tooltip">
-      <span>vertices</span>
-    vertices</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#weight_of(u:V,v:V):W-instance-method" class="tooltip">
-      <span>weight_of(u : V, v : V) : W</span>
-    weight_of</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#weight_of?(u:V,v:V):Nil?-instance-method" class="tooltip">
-      <span>weight_of?(u : V, v : V) : Nil?</span>
-    weight_of?</a>, 
-    
-  
-    <a href="../CGL/AdjacencyHash.html#weighted?:Bool-instance-method" class="tooltip">
-      <span>weighted? : Bool</span>
-    weighted?</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from module <code><a href="../CGL/AdjacencyHash.html">CGL::AdjacencyHash(V, Nil, L)</a></code></h3>
-  
-  
-    <a href="../CGL/AdjacencyHash.html#new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:Nil?=nil,&block:-%3EL?)-class-method" class="tooltip">
-      <span>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : Nil? = <span class="n">nil</span>, &block :  -> L?)<br/>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : Nil? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)<br/>new(edges : Enumerable(AnyEdge(V)), *, default_weight : Nil? = <span class="n">nil</span>, &block :  -> L?)<br/>new(edges : Enumerable(AnyEdge(V)), *, default_weight : Nil? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from class <code><a href="../CGL/AbstractDiGraph.html">CGL::AbstractDiGraph(V)</a></code></h3>
-  
-  
-    <a href="../CGL/AbstractDiGraph.html#count_strongly_connected_components:Int32-instance-method" class="tooltip">
-      <span>count_strongly_connected_components : Int32</span>
-    count_strongly_connected_components</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#count_weakly_connected_components:Int32-instance-method" class="tooltip">
-      <span>count_weakly_connected_components : Int32</span>
-    count_weakly_connected_components</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#degree_of(v:V):Int32-instance-method" class="tooltip">
-      <span>degree_of(v : V) : Int32</span>
-    degree_of</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#density:Float64-instance-method" class="tooltip">
-      <span>density : Float64</span>
-    density</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#directed?:Bool-instance-method" class="tooltip">
-      <span>directed? : Bool</span>
-    directed?</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#each_edge(&:AnyEdge(V)-%3E)-instance-method" class="tooltip">
-      <span>each_edge(& : AnyEdge(V) -> )</span>
-    each_edge</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#each_edge_from(u:V,&:AnyEdge(V)-%3E)-instance-method" class="tooltip">
-      <span>each_edge_from(u : V, & : AnyEdge(V) -> )</span>
-    each_edge_from</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#each_strongly_connected_component(&)-instance-method" class="tooltip">
-      <span>each_strongly_connected_component(&)<br/>each_strongly_connected_component : Iterator(Array(V))</span>
-    each_strongly_connected_component</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#each_successor(u:V,&block:V-%3E)-instance-method" class="tooltip">
-      <span>each_successor(u : V, &block : V -> )</span>
-    each_successor</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#each_weakly_connected_component(&)-instance-method" class="tooltip">
-      <span>each_weakly_connected_component(&)<br/>each_weakly_connected_component : Iterator(Array(V))</span>
-    each_weakly_connected_component</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#strongly_connected?:Bool-instance-method" class="tooltip">
-      <span>strongly_connected? : Bool</span>
-    strongly_connected?</a>, 
-    
-  
-    <a href="../CGL/AbstractDiGraph.html#weakly_connected?:Bool-instance-method" class="tooltip">
-      <span>weakly_connected? : Bool</span>
-    weakly_connected?</a>
-    
-  
-
-
-    
-
-
-    
-
-
   
     
 
@@ -816,22 +650,31 @@
 </div>
 
 
+
+
+
+
   <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructor Detail
+    Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:Nil?=nil,&block:->L?)-class-method">
+    <div class="entry-detail" id="connected?:Bool-instance-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : Nil? = <span class="n">nil</span>, &block :  -> L?)
+        def <strong>connected?</strong> : Bool
 
-        <a class="method-permalink" href="#new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:Nil?=nil,&block:-%3EL?)-class-method">#</a>
+        <a class="method-permalink" href="#connected?:Bool-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Whether <code>self</code> is connected.</p>
+        </div>
       
       <br/>
       <div>
@@ -839,13 +682,18 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:Nil?=nil,default_label:L?=nil)-class-method">
+    <div class="entry-detail" id="count_connected_components:Int32-instance-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(L?)? = <span class="n">nil</span>, *, default_weight : Nil? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)
+        def <strong>count_connected_components</strong> : Int32
 
-        <a class="method-permalink" href="#new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(L?)?=nil,*,default_weight:Nil?=nil,default_label:L?=nil)-class-method">#</a>
+        <a class="method-permalink" href="#count_connected_components:Int32-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of connected components in <code>self</code>.</p>
+        </div>
       
       <br/>
       <div>
@@ -853,13 +701,25 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(edges:Enumerable(AnyEdge(V)),*,default_weight:Nil?=nil,&block:->L?)-class-method">
+    <div class="entry-detail" id="density:Float64-instance-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V)), *, default_weight : Nil? = <span class="n">nil</span>, &block :  -> L?)
+        def <strong>density</strong> : Float64
 
-        <a class="method-permalink" href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:Nil?=nil,&block:-%3EL?)-class-method">#</a>
+        <a class="method-permalink" href="#density:Float64-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class <a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a>
+            </div>
+          
+          <p>Returns the density of <code>self</code>.</p>
+
+<p>Self loops are counted in the total number of edges so graphs with self
+loops can have density higher than 1.</p>
+        </div>
       
       <br/>
       <div>
@@ -867,13 +727,22 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(edges:Enumerable(AnyEdge(V)),*,default_weight:Nil?=nil,default_label:L?=nil)-class-method">
+    <div class="entry-detail" id="directed?:Bool-instance-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V)), *, default_weight : Nil? = <span class="n">nil</span>, default_label : L? = <span class="n">nil</span>)
+        def <strong>directed?</strong> : Bool
 
-        <a class="method-permalink" href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:Nil?=nil,default_label:L?=nil)-class-method">#</a>
+        <a class="method-permalink" href="#directed?:Bool-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class <a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a>
+            </div>
+          
+          <p>Whether <code>self</code> is directed.</p>
+        </div>
       
       <br/>
       <div>
@@ -881,10 +750,140 @@
       </div>
     </div>
   
+    <div class="entry-detail" id="each_connected_component(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>each_connected_component</strong>(&)
 
+        <a class="method-permalink" href="#each_connected_component(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields each connected component of <code>self</code> as an `Array'.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_connected_component:Iterator(Array(V))-instance-method">
+      <div class="signature">
+        
+        def <strong>each_connected_component</strong> : Iterator(Array(V))
 
+        <a class="method-permalink" href="#each_connected_component:Iterator(Array(V))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an <code>Iterator</code> of connected components.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_edge(&:AnyEdge(V)->)-instance-method">
+      <div class="signature">
+        
+        def <strong>each_edge</strong>(& : <a href="../CGL/AnyEdge.html">AnyEdge</a>(V) -> )
 
+        <a class="method-permalink" href="#each_edge(&:AnyEdge(V)-%3E)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class <a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a>
+            </div>
+          
+          <p>Yields each edges in the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each_edge_from(u:V,&:AnyEdge(V)->)-instance-method">
+      <div class="signature">
+        
+        def <strong>each_edge_from</strong>(u : V, & : <a href="../CGL/AnyEdge.html">AnyEdge</a>(V) -> )
 
+        <a class="method-permalink" href="#each_edge_from(u:V,&:AnyEdge(V)-%3E)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class <a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a>
+            </div>
+          
+          <p>Yields each edge incident to <em>u</em> in the graph.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_degree_of(v:V):Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>in_degree_of</strong>(v : V) : Int32
+
+        <a class="method-permalink" href="#in_degree_of(v:V):Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class <a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a>
+            </div>
+          
+          <p>Returns the incoming degree of the given vertex <em>v</em>.</p>
+
+<p>For undirected graphs, the value equals <code>#degree_of</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="out_degree_of(v:V):Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>out_degree_of</strong>(v : V) : Int32
+
+        <a class="method-permalink" href="#out_degree_of(v:V):Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class <a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a>
+            </div>
+          
+          <p>Returns the outgoing degree of the given vertex <em>v</em>.</p>
+
+<p>For undirected graphs, the value equals <code>#degree_of</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 

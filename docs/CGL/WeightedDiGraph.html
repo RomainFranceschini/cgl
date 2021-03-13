@@ -3,194 +3,235 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.33.0">
+<meta name="generator" content="Crystal Docs 1.0.0-dev">
+<meta name="crystal_docs.project_version" content="0.2.0">
+<meta name="crystal_docs.project_name" content="cgl">
+
+
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="cgl">
+  <title>CGL::WeightedDiGraph(V, W) - cgl 0.2.0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
-
-  <meta id="repository-name" content="github.com/RomainFranceschini/cgl">
-  <title>CGL::WeightedDiGraph(V, W) - github.com/RomainFranceschini/cgl</title>
-  <script type="text/javascript">
-    CrystalDoc.base_path = "../";
-  </script>
-</head>
-<body>
-
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
       <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
     </div>
 
-    <div class="repository-links">
-      <a href="../index.html">README</a>
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          cgl
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.2.0
+      </span>
     </div>
   </div>
 
-  <div class="search-results" class="hidden">
+  <div class="search-results hidden">
     <ul class="search-list"></ul>
   </div>
 
   <div class="types-list">
     <ul>
   
-  <li class="parent open current" data-id="github.com/RomainFranceschini/cgl/CGL" data-name="cgl">
+  <li class="parent open current" data-id="cgl/CGL" data-name="cgl">
       <a href="../CGL.html">CGL</a>
       
         <ul>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/AdjacencyHash" data-name="cgl::adjacencyhash(v, w, l)">
+  <li class=" " data-id="cgl/CGL/AbstractDiGraph" data-name="cgl::abstractdigraph(v)">
+      <a href="../CGL/AbstractDiGraph.html">AbstractDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AbstractGraph" data-name="cgl::abstractgraph(v)">
+      <a href="../CGL/AbstractGraph.html">AbstractGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AdjacencyDiGraph" data-name="cgl::adjacencydigraph(v, w, l)">
+      <a href="../CGL/AdjacencyDiGraph.html">AdjacencyDiGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AdjacencyGraph" data-name="cgl::adjacencygraph(v, w, l)">
+      <a href="../CGL/AdjacencyGraph.html">AdjacencyGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/AdjacencyHash" data-name="cgl::adjacencyhash(v, w, l)">
       <a href="../CGL/AdjacencyHash.html">AdjacencyHash</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/AnyEdge" data-name="cgl::anyedge(v)">
+  <li class=" " data-id="cgl/CGL/AnyEdge" data-name="cgl::anyedge(v)">
       <a href="../CGL/AnyEdge.html">AnyEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/BFSIterator" data-name="cgl::bfsiterator(v)">
+  <li class=" " data-id="cgl/CGL/AnyGraph" data-name="cgl::anygraph(v)">
+      <a href="../CGL/AnyGraph.html">AnyGraph</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/BFSIterator" data-name="cgl::bfsiterator(v)">
       <a href="../CGL/BFSIterator.html">BFSIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Color" data-name="cgl::color">
+  <li class=" " data-id="cgl/CGL/BinaryHeap" data-name="cgl::binaryheap(t)">
+      <a href="../CGL/BinaryHeap.html">BinaryHeap</a>
+      
+    </li>
+  
+  <li class=" " data-id="cgl/CGL/Color" data-name="cgl::color">
       <a href="../CGL/Color.html">Color</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/DFSIterator" data-name="cgl::dfsiterator(v)">
+  <li class=" " data-id="cgl/CGL/DFSIterator" data-name="cgl::dfsiterator(v)">
       <a href="../CGL/DFSIterator.html">DFSIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/DiEdge" data-name="cgl::diedge(v)">
+  <li class=" " data-id="cgl/CGL/DiEdge" data-name="cgl::diedge(v)">
       <a href="../CGL/DiEdge.html">DiEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/DiGraph" data-name="cgl::digraph(v)">
+  <li class=" " data-id="cgl/CGL/DiGraph" data-name="cgl::digraph(v)">
       <a href="../CGL/DiGraph.html">DiGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Directed" data-name="cgl::directed(v)">
+  <li class=" " data-id="cgl/CGL/Directed" data-name="cgl::directed(v)">
       <a href="../CGL/Directed.html">Directed</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/DotVisitor" data-name="cgl::dotvisitor(v)">
+  <li class=" " data-id="cgl/CGL/DotVisitor" data-name="cgl::dotvisitor(v)">
       <a href="../CGL/DotVisitor.html">DotVisitor</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Edge" data-name="cgl::edge(v)">
+  <li class=" " data-id="cgl/CGL/Edge" data-name="cgl::edge(v)">
       <a href="../CGL/Edge.html">Edge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/EdgeError" data-name="cgl::edgeerror">
+  <li class=" " data-id="cgl/CGL/EdgeError" data-name="cgl::edgeerror">
       <a href="../CGL/EdgeError.html">EdgeError</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/EdgeIterator" data-name="cgl::edgeiterator(v)">
+  <li class=" " data-id="cgl/CGL/EdgeIterator" data-name="cgl::edgeiterator(v)">
       <a href="../CGL/EdgeIterator.html">EdgeIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Graph" data-name="cgl::graph(v)">
+  <li class=" " data-id="cgl/CGL/Graph" data-name="cgl::graph(v)">
       <a href="../CGL/Graph.html">Graph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/GraphError" data-name="cgl::grapherror">
+  <li class=" " data-id="cgl/CGL/GraphError" data-name="cgl::grapherror">
       <a href="../CGL/GraphError.html">GraphError</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/GraphIterator" data-name="cgl::graphiterator(v)">
+  <li class=" " data-id="cgl/CGL/GraphIterator" data-name="cgl::graphiterator(v)">
       <a href="../CGL/GraphIterator.html">GraphIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/IGraph" data-name="cgl::igraph(v)">
-      <a href="../CGL/IGraph.html">IGraph</a>
+  <li class=" " data-id="cgl/CGL/GraphSourceIterator" data-name="cgl::graphsourceiterator(v)">
+      <a href="../CGL/GraphSourceIterator.html">GraphSourceIterator</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Labelable" data-name="cgl::labelable(l)">
+  <li class=" " data-id="cgl/CGL/Labelable" data-name="cgl::labelable(l)">
       <a href="../CGL/Labelable.html">Labelable</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/LabeledDiGraph" data-name="cgl::labeleddigraph(v, l)">
+  <li class=" " data-id="cgl/CGL/LabeledDiGraph" data-name="cgl::labeleddigraph(v, l)">
       <a href="../CGL/LabeledDiGraph.html">LabeledDiGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/LabeledGraph" data-name="cgl::labeledgraph(v, l)">
+  <li class=" " data-id="cgl/CGL/LabeledGraph" data-name="cgl::labeledgraph(v, l)">
       <a href="../CGL/LabeledGraph.html">LabeledGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/LDiEdge" data-name="cgl::ldiedge(v, l)">
+  <li class=" " data-id="cgl/CGL/LDiEdge" data-name="cgl::ldiedge(v, l)">
       <a href="../CGL/LDiEdge.html">LDiEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/LEdge" data-name="cgl::ledge(v, l)">
+  <li class=" " data-id="cgl/CGL/LEdge" data-name="cgl::ledge(v, l)">
       <a href="../CGL/LEdge.html">LEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Undirected" data-name="cgl::undirected(v)">
+  <li class=" " data-id="cgl/CGL/Undirected" data-name="cgl::undirected(v)">
       <a href="../CGL/Undirected.html">Undirected</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Visitor" data-name="cgl::visitor(v)">
+  <li class=" " data-id="cgl/CGL/Visitor" data-name="cgl::visitor(v)">
       <a href="../CGL/Visitor.html">Visitor</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WDiEdge" data-name="cgl::wdiedge(v, w)">
+  <li class=" " data-id="cgl/CGL/WDiEdge" data-name="cgl::wdiedge(v, w)">
       <a href="../CGL/WDiEdge.html">WDiEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WEdge" data-name="cgl::wedge(v, w)">
+  <li class=" " data-id="cgl/CGL/WEdge" data-name="cgl::wedge(v, w)">
       <a href="../CGL/WEdge.html">WEdge</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/Weightable" data-name="cgl::weightable(t)">
+  <li class=" " data-id="cgl/CGL/Weightable" data-name="cgl::weightable(t)">
       <a href="../CGL/Weightable.html">Weightable</a>
       
     </li>
   
-  <li class=" current" data-id="github.com/RomainFranceschini/cgl/CGL/WeightedDiGraph" data-name="cgl::weighteddigraph(v, w)">
+  <li class=" current" data-id="cgl/CGL/WeightedDiGraph" data-name="cgl::weighteddigraph(v, w)">
       <a href="../CGL/WeightedDiGraph.html">WeightedDiGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WeightedGraph" data-name="cgl::weightedgraph(v, w)">
+  <li class=" " data-id="cgl/CGL/WeightedGraph" data-name="cgl::weightedgraph(v, w)">
       <a href="../CGL/WeightedGraph.html">WeightedGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WeightedLabeledDiGraph" data-name="cgl::weightedlabeleddigraph(v, w, l)">
+  <li class=" " data-id="cgl/CGL/WeightedLabeledDiGraph" data-name="cgl::weightedlabeleddigraph(v, w, l)">
       <a href="../CGL/WeightedLabeledDiGraph.html">WeightedLabeledDiGraph</a>
       
     </li>
   
-  <li class=" " data-id="github.com/RomainFranceschini/cgl/CGL/WeightedLabeledGraph" data-name="cgl::weightedlabeledgraph(v, w, l)">
+  <li class=" " data-id="cgl/CGL/WeightedLabeledGraph" data-name="cgl::weightedlabeledgraph(v, w, l)">
       <a href="../CGL/WeightedLabeledGraph.html">WeightedLabeledGraph</a>
       
     </li>
@@ -214,7 +255,7 @@
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../CGL/WeightedDiGraph.html">CGL::WeightedDiGraph(V, W)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../CGL/WeightedDiGraph.html">CGL::WeightedDiGraph(V, W)</a></li><li class="superclass"><a href="../CGL/AdjacencyDiGraph.html">CGL::AdjacencyDiGraph(V, W, Nil)</a></li><li class="superclass"><a href="../CGL/AbstractDiGraph.html">CGL::AbstractDiGraph(V)</a></li><li class="superclass"><a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -222,22 +263,6 @@
 
 
 
-
-  <h2>
-    <a id="included-modules" class="anchor" href="#included-modules">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Included Modules
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../CGL/AdjacencyHash.html">CGL::AdjacencyHash(V, W, Nil)</a></li>
-    
-      <li class="other-type"><a href="../CGL/IGraph.html">CGL::IGraph(V)</a></li>
-    
-  </ul>
 
 
 
@@ -258,9 +283,7 @@
   </h2>
   
     
-      <a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L12" target="_blank">
-        cgl/digraph.cr
-      </a>
+      cgl/digraph.cr
     
     <br/>
   
@@ -290,12 +313,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,&block:-%3ENil?)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(CGL::AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)</a>
+        <a href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,&block:-%3ENil?)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,default_label:Nil?=nil)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(CGL::AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)</a>
+        <a href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,default_label:Nil?=nil)-class-method" class="signature"><strong>.new</strong>(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)</a>
         
       </li>
     
@@ -304,91 +327,6 @@
 
 
 
-
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#add_edge(u:V,v:V,weight:W=self.default_weight,label:Nil?=self.default_label)-instance-method" class="signature"><strong>#add_edge</strong>(u : V, v : V, weight : W = <span class="k">self</span>.default_weight, label : Nil? = <span class="k">self</span>.default_label)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#degree_of(v:V):Int32-instance-method" class="signature"><strong>#degree_of</strong>(v : V) : Int32</a>
-        
-          <div class="summary"><p>Returns the degree of the given vertex <em>v</em>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#directed?:Bool-instance-method" class="signature"><strong>#directed?</strong> : Bool</a>
-        
-          <div class="summary"><p>Whether <code>self</code> is directed.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#each_edge(&:CGL::AnyEdge(V)-%3E)-instance-method" class="signature"><strong>#each_edge</strong>(& : CGL::AnyEdge(V) -> )</a>
-        
-          <div class="summary"><p>Yields each edges in the graph.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#each_edge_from(u:V,&:CGL::AnyEdge(V)-%3E)-instance-method" class="signature"><strong>#each_edge_from</strong>(u : V, & : CGL::AnyEdge(V) -> )</a>
-        
-          <div class="summary"><p>Yields each edge incident to <em>u</em> in the graph.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#each_predecessor(v:V,&:V-%3E)-instance-method" class="signature"><strong>#each_predecessor</strong>(v : V, & : V -> )</a>
-        
-          <div class="summary"><p>Yields each predecessor of <em>u</em> in the graph.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#each_successor(u:V,&block:V-%3E)-instance-method" class="signature"><strong>#each_successor</strong>(u : V, &block : V -> )</a>
-        
-          <div class="summary"><p>Yields each successor of <em>u</em> in the graph.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#in_degree_of(v:V):Int32-instance-method" class="signature"><strong>#in_degree_of</strong>(v : V) : Int32</a>
-        
-          <div class="summary"><p>Returns the incoming degree of the given vertex <em>v</em>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#out_degree_of(v:V):Int32-instance-method" class="signature"><strong>#out_degree_of</strong>(v : V) : Int32</a>
-        
-          <div class="summary"><p>Returns the outgoing degree of the given vertex <em>v</em>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#remove_edge(u:V,v:V,&)-instance-method" class="signature"><strong>#remove_edge</strong>(u : V, v : V, &)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#remove_vertex(v:V)-instance-method" class="signature"><strong>#remove_vertex</strong>(v : V)</a>
-        
-          <div class="summary"><p>Remove given vertex <em>v</em> from this graph.</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -398,11 +336,64 @@
   
     
 
+  <h3>Instance methods inherited from class <code><a href="../CGL/AdjacencyDiGraph.html">CGL::AdjacencyDiGraph(V, W, Nil)</a></code></h3>
+  
+  
+    <a href="../CGL/AdjacencyDiGraph.html#add_edge(u:V,v:V,weight:W=self.default_weight,label:Nil?=self.default_label)-instance-method" class="tooltip">
+      <span>add_edge(u : V, v : V, weight : W = <span class="k">self</span>.default_weight, label : Nil? = <span class="k">self</span>.default_label)</span>
+    add_edge</a>, 
+    
+  
+    <a href="../CGL/AdjacencyDiGraph.html#each_predecessor(v:V,&:V-%3E)-instance-method" class="tooltip">
+      <span>each_predecessor(v : V, & : V -> )</span>
+    each_predecessor</a>, 
+    
+  
+    <a href="../CGL/AdjacencyDiGraph.html#in_degree_of(v:V):Int32-instance-method" class="tooltip">
+      <span>in_degree_of(v : V) : Int32</span>
+    in_degree_of</a>, 
+    
+  
+    <a href="../CGL/AdjacencyDiGraph.html#out_degree_of(v:V):Int32-instance-method" class="tooltip">
+      <span>out_degree_of(v : V) : Int32</span>
+    out_degree_of</a>, 
+    
+  
+    <a href="../CGL/AdjacencyDiGraph.html#remove_edge(u:V,v:V,&)-instance-method" class="tooltip">
+      <span>remove_edge(u : V, v : V, &)</span>
+    remove_edge</a>, 
+    
+  
+    <a href="../CGL/AdjacencyDiGraph.html#remove_vertex(v:V)-instance-method" class="tooltip">
+      <span>remove_vertex(v : V)</span>
+    remove_vertex</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from class <code><a href="../CGL/AdjacencyDiGraph.html">CGL::AdjacencyDiGraph(V, W, Nil)</a></code></h3>
+  
+  
+    <a href="../CGL/AdjacencyDiGraph.html#new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(Nil?)?=nil,*,default_weight:W?=nil,&block:-%3ENil?)-class-method" class="tooltip">
+      <span>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(Nil?)? = <span class="n">nil</span>, *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)<br/>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(Nil?)? = <span class="n">nil</span>, *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)<br/>new(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)<br/>new(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)</span>
+    new</a>
+    
+  
+
+
+    
+
+
+  
+    
+
   <h3>Instance methods inherited from module <code><a href="../CGL/AdjacencyHash.html">CGL::AdjacencyHash(V, W, Nil)</a></code></h3>
   
   
-    <a href="../CGL/AdjacencyHash.html#add_edge(edge:CGL::AnyEdge(V))-instance-method" class="tooltip">
-      <span>add_edge(edge : CGL::AnyEdge(V))</span>
+    <a href="../CGL/AdjacencyHash.html#add_edge(edge:AnyEdge(V))-instance-method" class="tooltip">
+      <span>add_edge(edge : AnyEdge(V))</span>
     add_edge</a>, 
     
   
@@ -416,18 +407,18 @@
     clear</a>, 
     
   
-    <a href="../CGL/AdjacencyHash.html#each_adjacent(u:V,&:V-%3E)-instance-method" class="tooltip">
-      <span>each_adjacent(u : V, & : V -> )<br/>each_adjacent(u : V) : Iterator(V)</span>
+    <a href="../CGL/AdjacencyHash.html#each_adjacent(u:V):Iterator(V)-instance-method" class="tooltip">
+      <span>each_adjacent(u : V) : Iterator(V)<br/>each_adjacent(u : V, & : V -> )</span>
     each_adjacent</a>, 
     
   
-    <a href="../CGL/AdjacencyHash.html#each_vertex(&:V-%3E)-instance-method" class="tooltip">
-      <span>each_vertex(& : V -> )<br/>each_vertex : Iterator(V)</span>
+    <a href="../CGL/AdjacencyHash.html#each_vertex:Iterator(V)-instance-method" class="tooltip">
+      <span>each_vertex : Iterator(V)<br/>each_vertex(& : V -> )</span>
     each_vertex</a>, 
     
   
     <a href="../CGL/AdjacencyHash.html#has_edge?(u:V,v:V,weight:W,label:Nil?):Bool-instance-method" class="tooltip">
-      <span>has_edge?(u : V, v : V, weight : W, label : Nil?) : Bool<br/>has_edge?(u : V, v : V) : Bool</span>
+      <span>has_edge?(u : V, v : V, weight : W, label : Nil?) : Bool<br/>has_edge?(u : V, v : V, weight, label) : Bool<br/>has_edge?(u : V, v : V) : Bool</span>
     has_edge?</a>, 
     
   
@@ -444,6 +435,16 @@
     <a href="../CGL/AdjacencyHash.html#label_of(u:V,v:V):Nil?-instance-method" class="tooltip">
       <span>label_of(u : V, v : V) : Nil?</span>
     label_of</a>, 
+    
+  
+    <a href="../CGL/AdjacencyHash.html#label_of?(u:V,v:V):Nil?-instance-method" class="tooltip">
+      <span>label_of?(u : V, v : V) : Nil?</span>
+    label_of?</a>, 
+    
+  
+    <a href="../CGL/AdjacencyHash.html#labeled?:Bool-instance-method" class="tooltip">
+      <span>labeled? : Bool</span>
+    labeled?</a>, 
     
   
     <a href="../CGL/AdjacencyHash.html#order:Int32-instance-method" class="tooltip">
@@ -463,7 +464,17 @@
   
     <a href="../CGL/AdjacencyHash.html#weight_of(u:V,v:V):W-instance-method" class="tooltip">
       <span>weight_of(u : V, v : V) : W</span>
-    weight_of</a>
+    weight_of</a>, 
+    
+  
+    <a href="../CGL/AdjacencyHash.html#weight_of?(u:V,v:V):W?-instance-method" class="tooltip">
+      <span>weight_of?(u : V, v : V) : W?</span>
+    weight_of?</a>, 
+    
+  
+    <a href="../CGL/AdjacencyHash.html#weighted?:Bool-instance-method" class="tooltip">
+      <span>weighted? : Bool</span>
+    weighted?</a>
     
   
 
@@ -474,7 +485,7 @@
   
   
     <a href="../CGL/AdjacencyHash.html#new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(Nil?)?=nil,*,default_weight:W?=nil,&block:-%3ENil?)-class-method" class="tooltip">
-      <span>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(Nil?)? = <span class="n">nil</span>, *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)<br/>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(Nil?)? = <span class="n">nil</span>, *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)<br/>new(edges : Enumerable(CGL::AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)<br/>new(edges : Enumerable(CGL::AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)</span>
+      <span>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(Nil?)? = <span class="n">nil</span>, *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)<br/>new(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(Nil?)? = <span class="n">nil</span>, *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)<br/>new(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)<br/>new(edges : Enumerable(AnyEdge(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)</span>
     new</a>
     
   
@@ -486,172 +497,291 @@
   
     
 
-  <h3>Instance methods inherited from module <code><a href="../CGL/IGraph.html">CGL::IGraph(V)</a></code></h3>
+  <h3>Instance methods inherited from class <code><a href="../CGL/AbstractDiGraph.html">CGL::AbstractDiGraph(V)</a></code></h3>
   
   
-    <a href="../CGL/IGraph.html#==(other:IGraph)-instance-method" class="tooltip">
-      <span>==(other : IGraph)<br/>==(other)</span>
-    ==</a>, 
+    <a href="../CGL/AbstractDiGraph.html#count_strongly_connected_components:Int32-instance-method" class="tooltip">
+      <span>count_strongly_connected_components : Int32</span>
+    count_strongly_connected_components</a>, 
     
   
-    <a href="../CGL/IGraph.html#accept(visitor:CGL::Visitor(V))-instance-method" class="tooltip">
-      <span>accept(visitor : CGL::Visitor(V))</span>
-    accept</a>, 
+    <a href="../CGL/AbstractDiGraph.html#count_weakly_connected_components:Int32-instance-method" class="tooltip">
+      <span>count_weakly_connected_components : Int32</span>
+    count_weakly_connected_components</a>, 
     
   
-    <a href="../CGL/IGraph.html#add_edge(edge:CGL::AnyEdge(V))-instance-method" class="tooltip">
-      <span>add_edge(edge : CGL::AnyEdge(V))<br/>add_edge(u : V, v : V, weight, label)</span>
-    add_edge</a>, 
-    
-  
-    <a href="../CGL/IGraph.html#add_vertex(v:V)-instance-method" class="tooltip">
-      <span>add_vertex(v : V)</span>
-    add_vertex</a>, 
-    
-  
-    <a href="../CGL/IGraph.html#breadth_first_search(fromvertex:V):Iterator(V)-instance-method" class="tooltip">
-      <span>breadth_first_search(from vertex : V) : Iterator(V)</span>
-    breadth_first_search</a>, 
-    
-  
-    <a href="../CGL/IGraph.html#clear-instance-method" class="tooltip">
-      <span>clear</span>
-    clear</a>, 
-    
-  
-    <a href="../CGL/IGraph.html#clone-instance-method" class="tooltip">
-      <span>clone</span>
-    clone</a>, 
-    
-  
-    <a href="../CGL/IGraph.html#degree_of(v:V):Int32-instance-method" class="tooltip">
+    <a href="../CGL/AbstractDiGraph.html#degree_of(v:V):Int32-instance-method" class="tooltip">
       <span>degree_of(v : V) : Int32</span>
     degree_of</a>, 
     
   
-    <a href="../CGL/IGraph.html#depth_first_search(fromvertex:V):Iterator(V)-instance-method" class="tooltip">
-      <span>depth_first_search(from vertex : V) : Iterator(V)</span>
-    depth_first_search</a>, 
+    <a href="../CGL/AbstractDiGraph.html#density:Float64-instance-method" class="tooltip">
+      <span>density : Float64</span>
+    density</a>, 
     
   
-    <a href="../CGL/IGraph.html#directed?:Bool-instance-method" class="tooltip">
+    <a href="../CGL/AbstractDiGraph.html#directed?:Bool-instance-method" class="tooltip">
       <span>directed? : Bool</span>
     directed?</a>, 
     
   
-    <a href="../CGL/IGraph.html#dup-instance-method" class="tooltip">
+    <a href="../CGL/AbstractDiGraph.html#each_edge(&:AnyEdge(V)-%3E)-instance-method" class="tooltip">
+      <span>each_edge(& : AnyEdge(V) -> )</span>
+    each_edge</a>, 
+    
+  
+    <a href="../CGL/AbstractDiGraph.html#each_edge_from(u:V,&:AnyEdge(V)-%3E)-instance-method" class="tooltip">
+      <span>each_edge_from(u : V, & : AnyEdge(V) -> )</span>
+    each_edge_from</a>, 
+    
+  
+    <a href="../CGL/AbstractDiGraph.html#each_strongly_connected_component(&)-instance-method" class="tooltip">
+      <span>each_strongly_connected_component(&)<br/>each_strongly_connected_component : Iterator(Array(V))</span>
+    each_strongly_connected_component</a>, 
+    
+  
+    <a href="../CGL/AbstractDiGraph.html#each_successor(u:V,&block:V-%3E)-instance-method" class="tooltip">
+      <span>each_successor(u : V, &block : V -> )</span>
+    each_successor</a>, 
+    
+  
+    <a href="../CGL/AbstractDiGraph.html#each_weakly_connected_component(&)-instance-method" class="tooltip">
+      <span>each_weakly_connected_component(&)<br/>each_weakly_connected_component : Iterator(Array(V))</span>
+    each_weakly_connected_component</a>, 
+    
+  
+    <a href="../CGL/AbstractDiGraph.html#strongly_connected?:Bool-instance-method" class="tooltip">
+      <span>strongly_connected? : Bool</span>
+    strongly_connected?</a>, 
+    
+  
+    <a href="../CGL/AbstractDiGraph.html#weakly_connected?:Bool-instance-method" class="tooltip">
+      <span>weakly_connected? : Bool</span>
+    weakly_connected?</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../CGL/AnyGraph.html">CGL::AnyGraph(V)</a></code></h3>
+  
+  
+    <a href="../CGL/AnyGraph.html#==(other:self)-instance-method" class="tooltip">
+      <span>==(other : <span class="k">self</span>)<br/>==(other)</span>
+    ==</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#accept(visitor:Visitor(V))-instance-method" class="tooltip">
+      <span>accept(visitor : Visitor(V))</span>
+    accept</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#add_edge(u:V,v:V)-instance-method" class="tooltip">
+      <span>add_edge(u : V, v : V)<br/>add_edge(edge : AnyEdge(V))</span>
+    add_edge</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#add_vertex(v:V)-instance-method" class="tooltip">
+      <span>add_vertex(v : V)</span>
+    add_vertex</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#breadth_first_search(fromvertex:V):Iterator(V)-instance-method" class="tooltip">
+      <span>breadth_first_search(from vertex : V) : Iterator(V)<br/>breadth_first_search(from vertex : V, &)</span>
+    breadth_first_search</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#clear-instance-method" class="tooltip">
+      <span>clear</span>
+    clear</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#clone-instance-method" class="tooltip">
+      <span>clone</span>
+    clone</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#count_simple_paths(source:V,target:V)-instance-method" class="tooltip">
+      <span>count_simple_paths(source : V, target : V)</span>
+    count_simple_paths</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#degree_of(v:V):Int32-instance-method" class="tooltip">
+      <span>degree_of(v : V) : Int32</span>
+    degree_of</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#density:Float64-instance-method" class="tooltip">
+      <span>density : Float64</span>
+    density</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#depth_first_search(fromvertex:V):Iterator(V)-instance-method" class="tooltip">
+      <span>depth_first_search(from vertex : V) : Iterator(V)<br/>depth_first_search(from vertex : V, &)<br/>depth_first_search(vertex : V, *, colors : Hash(V, Color), &)<br/>depth_first_search(&)<br/>depth_first_search : Iterator(V)</span>
+    depth_first_search</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#directed?:Bool-instance-method" class="tooltip">
+      <span>directed? : Bool</span>
+    directed?</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#dup-instance-method" class="tooltip">
       <span>dup</span>
     dup</a>, 
     
   
-    <a href="../CGL/IGraph.html#each_adjacent(u:V):Iterator(V)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#each_adjacent(u:V):Iterator(V)-instance-method" class="tooltip">
       <span>each_adjacent(u : V) : Iterator(V)<br/>each_adjacent(u : V, & : V -> )</span>
     each_adjacent</a>, 
     
   
-    <a href="../CGL/IGraph.html#each_edge:Iterator(CGL::AnyEdge(V))-instance-method" class="tooltip">
-      <span>each_edge : Iterator(CGL::AnyEdge(V))<br/>each_edge(& : CGL::AnyEdge(V) -> )</span>
+    <a href="../CGL/AnyGraph.html#each_edge:Iterator(AnyEdge(V))-instance-method" class="tooltip">
+      <span>each_edge : Iterator(AnyEdge(V))<br/>each_edge(& : AnyEdge(V) -> )</span>
     each_edge</a>, 
     
   
-    <a href="../CGL/IGraph.html#each_edge_from(u:V,&:CGL::AnyEdge(V)-%3E)-instance-method" class="tooltip">
-      <span>each_edge_from(u : V, & : CGL::AnyEdge(V) -> )</span>
+    <a href="../CGL/AnyGraph.html#each_edge_from(u:V,&:AnyEdge(V)-%3E)-instance-method" class="tooltip">
+      <span>each_edge_from(u : V, & : AnyEdge(V) -> )</span>
     each_edge_from</a>, 
     
   
-    <a href="../CGL/IGraph.html#each_vertex(&:V-%3E)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#each_vertex(&:V-%3E)-instance-method" class="tooltip">
       <span>each_vertex(& : V -> )<br/>each_vertex : Iterator(V)</span>
     each_vertex</a>, 
     
   
-    <a href="../CGL/IGraph.html#edge(u:V,v:V)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#edge(u:V,v:V)-instance-method" class="tooltip">
       <span>edge(u : V, v : V)<br/>edge(u : V, v : V, &)</span>
     edge</a>, 
     
   
-    <a href="../CGL/IGraph.html#edge?(u:V,v:V)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#edge?(u:V,v:V)-instance-method" class="tooltip">
       <span>edge?(u : V, v : V)</span>
     edge?</a>, 
     
   
-    <a href="../CGL/IGraph.html#edges:Array(CGL::AnyEdge(V))-instance-method" class="tooltip">
-      <span>edges : Array(CGL::AnyEdge(V))</span>
+    <a href="../CGL/AnyGraph.html#edges:Array(AnyEdge(V))-instance-method" class="tooltip">
+      <span>edges : Array(AnyEdge(V))</span>
     edges</a>, 
     
   
-    <a href="../CGL/IGraph.html#empty?:Bool-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#empty?:Bool-instance-method" class="tooltip">
       <span>empty? : Bool</span>
     empty?</a>, 
     
   
-    <a href="../CGL/IGraph.html#has_edge?(u:V,v:V,weight,label):Bool-instance-method" class="tooltip">
-      <span>has_edge?(u : V, v : V, weight, label) : Bool<br/>has_edge?(u : V, v : V) : Bool<br/>has_edge?(edge : Labelable) : Bool<br/>has_edge?(edge : Weightable) : Bool<br/>has_edge?(edge : CGL::AnyEdge(V)) : Bool</span>
+    <a href="../CGL/AnyGraph.html#has_edge?(edge:Labelable):Bool-instance-method" class="tooltip">
+      <span>has_edge?(edge : Labelable) : Bool<br/>has_edge?(u : V, v : V, weight, label) : Bool<br/>has_edge?(u : V, v : V) : Bool<br/>has_edge?(edge : Weightable) : Bool<br/>has_edge?(edge : AnyEdge(V)) : Bool</span>
     has_edge?</a>, 
     
   
-    <a href="../CGL/IGraph.html#has_vertex?(v:V):Bool-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#has_vertex?(v:V):Bool-instance-method" class="tooltip">
       <span>has_vertex?(v : V) : Bool</span>
     has_vertex?</a>, 
     
   
-    <a href="../CGL/IGraph.html#hash(hasher)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#hash(hasher)-instance-method" class="tooltip">
       <span>hash(hasher)</span>
     hash</a>, 
     
   
-    <a href="../CGL/IGraph.html#in_degree_of(v:V):Int32-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#in_degree_of(v:V):Int32-instance-method" class="tooltip">
       <span>in_degree_of(v : V) : Int32</span>
     in_degree_of</a>, 
     
   
-    <a href="../CGL/IGraph.html#label_of(u:V,v:V)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#label_of(u:V,v:V)-instance-method" class="tooltip">
       <span>label_of(u : V, v : V)</span>
     label_of</a>, 
     
   
-    <a href="../CGL/IGraph.html#order:Int32-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#label_of?(u:V,v:V)-instance-method" class="tooltip">
+      <span>label_of?(u : V, v : V)</span>
+    label_of?</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#labeled?:Bool-instance-method" class="tooltip">
+      <span>labeled? : Bool</span>
+    labeled?</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#order:Int32-instance-method" class="tooltip">
       <span>order : Int32</span>
     order</a>, 
     
   
-    <a href="../CGL/IGraph.html#out_degree_of(v:V):Int32-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#out_degree_of(v:V):Int32-instance-method" class="tooltip">
       <span>out_degree_of(v : V) : Int32</span>
     out_degree_of</a>, 
     
   
-    <a href="../CGL/IGraph.html#remove_edge(u:V,v:V)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#remove_edge(u:V,v:V)-instance-method" class="tooltip">
       <span>remove_edge(u : V, v : V)</span>
     remove_edge</a>, 
     
   
-    <a href="../CGL/IGraph.html#remove_vertex(v:V)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#remove_vertex(v:V)-instance-method" class="tooltip">
       <span>remove_vertex(v : V)</span>
     remove_vertex</a>, 
     
   
-    <a href="../CGL/IGraph.html#size:Int32-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#shortest_path(source:V,target:V)-instance-method" class="tooltip">
+      <span>shortest_path(source : V, target : V)</span>
+    shortest_path</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#shortest_path_dijkstra(source:V,target:V)-instance-method" class="tooltip">
+      <span>shortest_path_dijkstra(source : V, target : V)</span>
+    shortest_path_dijkstra</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#shortest_path_unweighted(source:V,target:V)-instance-method" class="tooltip">
+      <span>shortest_path_unweighted(source : V, target : V)</span>
+    shortest_path_unweighted</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#size:Int32-instance-method" class="tooltip">
       <span>size : Int32</span>
     size</a>, 
     
   
-    <a href="../CGL/IGraph.html#subgraph(edges:Enumerable(CGL::AnyEdge(V)),*,clone:Bool=false):CGL::IGraph(V)-instance-method" class="tooltip">
-      <span>subgraph(edges : Enumerable(CGL::AnyEdge(V)), *, clone : Bool = <span class="n">false</span>) : CGL::IGraph(V)<br/>subgraph(vertices : Enumerable(V), *, clone : Bool = <span class="n">false</span>) : CGL::IGraph(V)</span>
+    <a href="../CGL/AnyGraph.html#subgraph(vertices:Enumerable(V),*,clone:Bool=false):AnyGraph(V)-instance-method" class="tooltip">
+      <span>subgraph(vertices : Enumerable(V), *, clone : Bool = <span class="n">false</span>) : AnyGraph(V)<br/>subgraph(edges : Enumerable(AnyEdge(V)), *, clone : Bool = <span class="n">false</span>) : AnyGraph(V)</span>
     subgraph</a>, 
     
   
-    <a href="../CGL/IGraph.html#to_a:Array(CGL::AnyEdge(V))-instance-method" class="tooltip">
-      <span>to_a : Array(CGL::AnyEdge(V))</span>
+    <a href="../CGL/AnyGraph.html#to_a:Array(AnyEdge(V))-instance-method" class="tooltip">
+      <span>to_a : Array(AnyEdge(V))</span>
     to_a</a>, 
     
   
-    <a href="../CGL/IGraph.html#to_dot(path:String)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#to_dot(path:String)-instance-method" class="tooltip">
       <span>to_dot(path : String)<br/>to_dot(io : IO)</span>
     to_dot</a>, 
     
   
-    <a href="../CGL/IGraph.html#weight_of(u:V,v:V)-instance-method" class="tooltip">
+    <a href="../CGL/AnyGraph.html#weight_of(u:V,v:V)-instance-method" class="tooltip">
       <span>weight_of(u : V, v : V)</span>
-    weight_of</a>
+    weight_of</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#weight_of?(u:V,v:V)-instance-method" class="tooltip">
+      <span>weight_of?(u : V, v : V)</span>
+    weight_of?</a>, 
+    
+  
+    <a href="../CGL/AnyGraph.html#weighted?:Bool-instance-method" class="tooltip">
+      <span>weighted? : Bool</span>
+    weighted?</a>
     
   
 
@@ -695,7 +825,7 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(Nil?)?=nil,*,default_weight:W?=nil,&amp;block:-&gt;Nil?)-class-method">
+    <div class="entry-detail" id="new(vertices:Enumerable(V)?=nil,edges:Enumerable(Tuple(V,V))?=nil,weights:Enumerable(W)?=nil,labels:Enumerable(Nil?)?=nil,*,default_weight:W?=nil,&block:->Nil?)-class-method">
       <div class="signature">
         
         def self.<strong>new</strong>(vertices : Enumerable(V)? = <span class="n">nil</span>, edges : Enumerable(Tuple(V, V))? = <span class="n">nil</span>, weights : Enumerable(W)? = <span class="n">nil</span>, labels : Enumerable(Nil?)? = <span class="n">nil</span>, *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)
@@ -705,8 +835,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L44" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -722,40 +850,34 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L57" target="_blank">View source</a>]
-        
       </div>
     </div>
   
-    <div class="entry-detail" id="new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,&amp;block:-&gt;Nil?)-class-method">
+    <div class="entry-detail" id="new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,&block:->Nil?)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">CGL::AnyEdge</a>(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)
+        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V)), *, default_weight : W? = <span class="n">nil</span>, &block :  -> Nil?)
 
-        <a class="method-permalink" href="#new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,&block:-%3ENil?)-class-method">#</a>
+        <a class="method-permalink" href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,&block:-%3ENil?)-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L70" target="_blank">View source</a>]
-        
       </div>
     </div>
   
-    <div class="entry-detail" id="new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,default_label:Nil?=nil)-class-method">
+    <div class="entry-detail" id="new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,default_label:Nil?=nil)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">CGL::AnyEdge</a>(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)
+        def self.<strong>new</strong>(edges : Enumerable(<a href="../CGL/AnyEdge.html">AnyEdge</a>(V)), *, default_weight : W? = <span class="n">nil</span>, default_label : Nil? = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#new(edges:Enumerable(CGL::AnyEdge(V)),*,default_weight:W?=nil,default_label:Nil?=nil)-class-method">#</a>
+        <a class="method-permalink" href="#new(edges:Enumerable(AnyEdge(V)),*,default_weight:W?=nil,default_label:Nil?=nil)-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/representations/adjacency.cr#L79" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -763,282 +885,6 @@
 
 
 
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="add_edge(u:V,v:V,weight:W=self.default_weight,label:Nil?=self.default_label)-instance-method">
-      <div class="signature">
-        
-        def <strong>add_edge</strong>(u : V, v : V, weight : W = <span class="k">self</span>.default_weight, label : Nil? = <span class="k">self</span>.default_label)
-
-        <a class="method-permalink" href="#add_edge(u:V,v:V,weight:W=self.default_weight,label:Nil?=self.default_label)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="degree_of(v:V):Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>degree_of</strong>(v : V) : Int32
-
-        <a class="method-permalink" href="#degree_of(v:V):Int32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module <a href="../CGL/IGraph.html">CGL::IGraph(V)</a>
-            </div>
-          
-          <p>Returns the degree of the given vertex <em>v</em>.</p>
-
-<p>For directed graphs, the value equals <code><a href="../CGL/WeightedDiGraph.html#out_degree_of(v:V):Int32-instance-method">#out_degree_of</a></code>.</p>
-
-<p>For undirected graphs, the value is the sum of <code><a href="../CGL/WeightedDiGraph.html#in_degree_of(v:V):Int32-instance-method">#in_degree_of</a></code> and
-<code><a href="../CGL/WeightedDiGraph.html#in_degree_of(v:V):Int32-instance-method">#in_degree_of</a></code>.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="directed?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>directed?</strong> : Bool
-
-        <a class="method-permalink" href="#directed?:Bool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module <a href="../CGL/IGraph.html">CGL::IGraph(V)</a>
-            </div>
-          
-          <p>Whether <code>self</code> is directed.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="each_edge(&amp;:CGL::AnyEdge(V)-&gt;)-instance-method">
-      <div class="signature">
-        
-        def <strong>each_edge</strong>(& : <a href="../CGL/AnyEdge.html">CGL::AnyEdge</a>(V) -> )
-
-        <a class="method-permalink" href="#each_edge(&:CGL::AnyEdge(V)-%3E)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module <a href="../CGL/IGraph.html">CGL::IGraph(V)</a>
-            </div>
-          
-          <p>Yields each edges in the graph.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="each_edge_from(u:V,&amp;:CGL::AnyEdge(V)-&gt;)-instance-method">
-      <div class="signature">
-        
-        def <strong>each_edge_from</strong>(u : V, & : <a href="../CGL/AnyEdge.html">CGL::AnyEdge</a>(V) -> )
-
-        <a class="method-permalink" href="#each_edge_from(u:V,&:CGL::AnyEdge(V)-%3E)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module <a href="../CGL/IGraph.html">CGL::IGraph(V)</a>
-            </div>
-          
-          <p>Yields each edge incident to <em>u</em> in the graph.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="each_predecessor(v:V,&amp;:V-&gt;)-instance-method">
-      <div class="signature">
-        
-        def <strong>each_predecessor</strong>(v : V, & : V -> )
-
-        <a class="method-permalink" href="#each_predecessor(v:V,&:V-%3E)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Yields each predecessor of <em>u</em> in the graph.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="each_successor(u:V,&amp;block:V-&gt;)-instance-method">
-      <div class="signature">
-        
-        def <strong>each_successor</strong>(u : V, &block : V -> )
-
-        <a class="method-permalink" href="#each_successor(u:V,&block:V-%3E)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Yields each successor of <em>u</em> in the graph.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="in_degree_of(v:V):Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>in_degree_of</strong>(v : V) : Int32
-
-        <a class="method-permalink" href="#in_degree_of(v:V):Int32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module <a href="../CGL/IGraph.html">CGL::IGraph(V)</a>
-            </div>
-          
-          <p>Returns the incoming degree of the given vertex <em>v</em>.</p>
-
-<p>For undirected graphs, the value equals <code><a href="../CGL/WeightedDiGraph.html#degree_of(v:V):Int32-instance-method">#degree_of</a></code>.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="out_degree_of(v:V):Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>out_degree_of</strong>(v : V) : Int32
-
-        <a class="method-permalink" href="#out_degree_of(v:V):Int32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module <a href="../CGL/IGraph.html">CGL::IGraph(V)</a>
-            </div>
-          
-          <p>Returns the outgoing degree of the given vertex <em>v</em>.</p>
-
-<p>For undirected graphs, the value equals <code><a href="../CGL/WeightedDiGraph.html#degree_of(v:V):Int32-instance-method">#degree_of</a></code>.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="remove_edge(u:V,v:V,&amp;)-instance-method">
-      <div class="signature">
-        
-        def <strong>remove_edge</strong>(u : V, v : V, &)
-
-        <a class="method-permalink" href="#remove_edge(u:V,v:V,&)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="remove_vertex(v:V)-instance-method">
-      <div class="signature">
-        
-        def <strong>remove_vertex</strong>(v : V)
-
-        <a class="method-permalink" href="#remove_vertex(v:V)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from module <a href="../CGL/IGraph.html">CGL::IGraph(V)</a>
-            </div>
-          
-          <p>Remove given vertex <em>v</em> from this graph.
-Edges incident to <em>v</em> are also removed.</p>
-
-<p>Raises a <code><a href="../CGL/GraphError.html">GraphError</a></code> if vertex is not part of the graph.</p>
-
-<pre><code>g <span class="o">=</span> <span class="t">CGL</span><span class="t">::</span><span class="t">Graph</span>(<span class="t">String</span>).<span class="k">new</span>(edges: [{<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>}, {<span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>}])
-g.size <span class="c"># =&gt; 2</span>
-g.remove_vertex(<span class="s">&quot;b&quot;</span>)
-g.size <span class="c"># =&gt; 0</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/RomainFranceschini/cgl/blob/22e014a9e99cfb4a6182fdbe4ef8a14650b5c376/src/cgl/digraph.cr#L14" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 
